@@ -1,6 +1,6 @@
 # SplTypes
 
-[![Build Status](https://travis-ci.org/ducks-project/spl-enum.svg)](https://travis-ci.org/ducks-project/spl-enum)
+[![Build Status](https://travis-ci.org/ducks-project/spl-types.svg)](https://travis-ci.org/ducks-project/spl-enum)
 
 * Project page: https://github.com/ducks-project/spl-types
 * Repository: https://github.com/ducks-project/spl-types
