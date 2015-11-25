@@ -1,6 +1,45 @@
-composer.phar
-vendor/
+# Managed by Composer
+/app/bootstrap.php.cache
+/var/bootstrap.php.cache
+/build/*
+/bin/*
+!bin/console
+/vendor/
 
-# Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
-# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
-# composer.lock
+# PHPUnit
+/app/phpunit.xml
+/phpunit.xml
+
+# Composer PHAR
+/composer.phar
+/composer.lock
+
+# Sublime project
+*.tmplanguage.cache
+*.tmpPreferences.cache
+*.stTheme.cache
+*.sublime-project
+*.sublime-workspace
+
+# Idea
+.idea/*
+
+# Swap & temp files
+*~
+*.tmp
+*.bak
+*.swp
+.*.kate-swp
+.swp.*
+.metadata
+.directory
+.project
+local.properties
+.settings/
+.loadpath
+*.kdev4
+.kdev4/
+.vagrant/
+/test
+/tests
+.DS_Store
