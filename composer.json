@@ -23,7 +23,10 @@
     "autoload": {
         "psr-4": {
             "Ducks\\Component\\": "src/Ducks/Component/"
-        }
+        },
+        "files": [
+            "polyfill-spltypes.php"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true
