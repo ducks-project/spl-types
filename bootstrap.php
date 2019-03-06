@@ -11,10 +11,10 @@
 
 $splTypes = array(
     'SplType',
-    'SplBool',
-    'SplEnum',
-    'SplFloat',
     'SplInt',
+    'SplFloat',
+    'SplEnum',
+    'SplBool',
     'SplString'
 );
 
