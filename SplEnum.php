@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Ducks\Component\SplTypes {
+namespace Ducks\Component\SplTypes;
 
 /**
  * SplEnum gives the ability to emulate and create enumeration objects natively in PHP.

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Ducks\Component\SplTypes {
+namespace Ducks\Component\SplTypes;
 
 /**
  * The SplString class is used to enforce strong typing of the string type.

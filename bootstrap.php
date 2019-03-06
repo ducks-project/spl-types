@@ -19,7 +19,7 @@ $splTypes = array(
 );
 
 foreach ($splTypes as $splType) {
-    if (!class_exists($SplType, false)) {
-        class_alias('\Ducks\Component\SplTypes\' . $splType, $splType, true);
+    if (!class_exists($splType, false)) {
+        class_alias('\\Ducks\\Component\\SplTypes\\' . $splType, $splType, true);
     }
 }

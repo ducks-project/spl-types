@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Ducks\Component\SplTypes {
+namespace Ducks\Component\SplTypes;
 
 /**
  * Parent class for all SPL types.
