@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ducks\\Component\\SplTypes": ""
+            "Ducks\\Component\\SplTypes\\": ""
         },
         "files": [
             "bootstrap.php"
