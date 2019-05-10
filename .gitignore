@@ -7,8 +7,9 @@
 /vendor/
 
 # PHPUnit
-/app/phpunit.xml
-/phpunit.xml
+#/app/phpunit.xml
+#/phpunit.xml
+.phpunit.result.cache
 
 # Composer PHAR
 /composer.phar

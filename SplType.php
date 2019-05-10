@@ -20,8 +20,11 @@ abstract class SplType {
 
     /**
      * Default value
+     *
+     * @codingStandardsIgnoreStart
      */
     const __default = null;
+    // @codingStandardsIgnoreEnd
 
     /**
      * Internal enum value
@@ -36,17 +39,16 @@ abstract class SplType {
      * @return void
      *
      * @throws \UnexpectedValueException if incompatible type is given.
+     *
+     * @codingStandardsIgnoreStart
      */
-    public function __construct($initial_value=null, $strict=null) {
+    public function __construct($initial_value = self::__default, $strict = true) {
         if ($initial_value === null) {
             $initial_value = static::__default;
         }
-        $class = new \ReflectionClass($this);
-        if(!in_array($initial_value, $class->getConstants())) {
-            throw new \UnexpectedValueException('Value not a const in enum '.$class->getShortName());
-        }
         $this->__default = $initial_value;
     }
+    // @codingStandardsIgnoreEnd
 
     /**
      * Stringify object
@@ -54,7 +56,7 @@ abstract class SplType {
      * @return string
      */
     final public function __toString() {
-        return (string)$this->__default;
+        return (string) $this->__default;
     }
 
     /**
@@ -72,7 +74,7 @@ abstract class SplType {
      * @return array
      */
     final public function __debugInfo() {
-        return array( '__default' => $this->__default);
+        return array('__default' => $this->__default);
     }
 
 }

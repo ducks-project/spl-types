@@ -20,17 +20,26 @@ class SplBool extends SplEnum {
 
     /**
      * @var bool
+     *
+     * @codingStandardsIgnoreStart
      */
     const __default = self::false;
+    // @codingStandardsIgnoreEnd
 
     /**
      * @var bool
+     *
+     * @codingStandardsIgnoreStart
      */
     const false = false;
+    // @codingStandardsIgnoreEnd
 
     /**
      * @var bool
+     *
+     * @codingStandardsIgnoreStart
      */
     const true = true;
+    // @codingStandardsIgnoreEnd
 
 }

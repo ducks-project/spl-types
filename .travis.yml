@@ -12,4 +12,4 @@ matrix:
   include:
     - php: 5.3
       dist: precise
-script: phpunit --version
+script: phpunit Tests/
