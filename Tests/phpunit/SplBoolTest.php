@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Ducks\Component\SplTypes\Tests;
+namespace Ducks\Component\SplTypes\Tests\phpunit;
 
 use PHPUnit\Framework\TestCase;
 use Ducks\Component\SplTypes\SplBool;

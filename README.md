@@ -2,6 +2,20 @@
 
 [![Build Status](https://travis-ci.org/ducks-project/spl-types.svg)](https://travis-ci.org/ducks-project/spl-types)
 
+[![Coverage Status](https://coveralls.io/repos/github/ducks-project/spl-types/badge.svg)](https://coveralls.io/github/ducks-project/spl-types)
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ducks-project/spl-types/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ducks-project/spl-types/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ducks-project/spl-types/build-status/master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+
+[![License](https://poser.pugx.org/ducks-project/spl-types/license)](https://packagist.org/packages/ducks-project/spl-types)
+[![Latest Stable Version](https://poser.pugx.org/ducks-project/spl-types/v/stable)](https://packagist.org/packages/ducks-project/spl-types)
+
+[![Total Downloads](https://poser.pugx.org/ducks-project/spl-types/downloads)](https://packagist.org/packages/ducks-project/spl-types)
+[![Monthly Downloads](https://poser.pugx.org/ducks-project/spl-types/d/monthly)](https://packagist.org/packages/ducks-project/spl-types)
+[![Daily Downloads](https://poser.pugx.org/ducks-project/spl-types/d/daily)](https://packagist.org/packages/ducks-project/spl-types)
+
 * Project page: https://github.com/ducks-project/spl-types
 * Repository: https://github.com/ducks-project/spl-types
 * Original PHP extension: http://php.net/manual/en/intro.spl-types.php

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Ducks\Component\SplTypes\Tests;
+namespace Ducks\Component\SplTypes\Tests\phpunit;
 
 use PHPUnit\Framework\TestCase;
 use Ducks\Component\SplTypes\SplInt;
@@ -25,7 +25,7 @@ class SplIntTest extends TestCase
         $test = new SplInt(10);
         $this->assertSame(10, (int) (string) $test);
 
-        $test = new SplInt(10, false);
+        $test = new SplInt(10.0, false);
         $this->assertSame(10, (int) (string) $test);
     }
 

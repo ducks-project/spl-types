@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Ducks\Component\SplTypes\Tests;
+namespace Ducks\Component\SplTypes\Tests\phpunit;
 
 use PHPUnit\Framework\TestCase;
 use Ducks\Component\SplTypes\SplEnum;
@@ -19,9 +19,9 @@ class SplEnumTest extends TestCase
 
     protected static $fixturesPath;
 
-    public static function setUpBeforeClass(): void
+    public static function setUpBeforeClass()
     {
-        self::$fixturesPath = realpath(__DIR__ . '/Fixtures/');
+        self::$fixturesPath = realpath(__DIR__ . DIRECTORY_SEPARATOR . '../common/Fixtures/');
         require_once self::$fixturesPath . '/Month.php';
     }
 

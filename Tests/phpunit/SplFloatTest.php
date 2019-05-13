@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Ducks\Component\SplTypes\Tests;
+namespace Ducks\Component\SplTypes\Tests\phpunit;
 
 use PHPUnit\Framework\TestCase;
 use Ducks\Component\SplTypes\SplFloat;
@@ -27,7 +27,7 @@ class SplFloatTest extends TestCase
         $this->assertSame(10.1, (float) (string) $test);
         unset($test);
 
-        $test = new SplFloat(10.1, false);
+        $test = new SplFloat('10.1', false);
         $this->assertSame(10.1, (float) (string) $test);
         unset($test);
     }
