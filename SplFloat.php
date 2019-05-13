@@ -40,5 +40,4 @@ class SplFloat extends SplType
         }
         $this->__default = $initial_value;
     }
-
 }

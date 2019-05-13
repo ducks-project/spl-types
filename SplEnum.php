@@ -48,5 +48,4 @@ abstract class SplEnum extends SplType
         }
         return $constants;
     }
-
 }
