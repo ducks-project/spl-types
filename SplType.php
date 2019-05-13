@@ -18,7 +18,6 @@ namespace Ducks\Component\SplTypes;
  */
 abstract class SplType
 {
-
     /**
      * Default value.
      *
@@ -81,5 +80,4 @@ abstract class SplType
     {
         return array('__default' => $this->__default);
     }
-
 }

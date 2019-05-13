@@ -16,7 +16,6 @@ use Ducks\Component\SplTypes\SplFloat;
 
 class SplFloatTest extends TestCase
 {
-
     public function test()
     {
         $test = new SplFloat();
@@ -43,5 +42,4 @@ class SplFloatTest extends TestCase
         $this->expectException('\UnexpectedValueException');
         new SplFloat('10');
     }
-
 }

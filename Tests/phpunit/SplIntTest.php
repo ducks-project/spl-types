@@ -16,7 +16,6 @@ use Ducks\Component\SplTypes\SplInt;
 
 class SplIntTest extends TestCase
 {
-
     public function test()
     {
         $test = new SplInt();
@@ -40,5 +39,4 @@ class SplIntTest extends TestCase
         $this->expectException('\UnexpectedValueException');
         new \SplInt('test');
     }
-
 }

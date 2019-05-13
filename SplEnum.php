@@ -18,7 +18,6 @@ namespace Ducks\Component\SplTypes;
  */
 abstract class SplEnum extends SplType
 {
-
     /**
      * {@inheritdoc}
      */
@@ -29,7 +28,7 @@ abstract class SplEnum extends SplType
         }
         $class = new \ReflectionClass($this);
         if (!in_array($initial_value, $class->getConstants(), $strict)) {
-            throw new \UnexpectedValueException('Value not a const in enum '.$class->getShortName());
+            throw new \UnexpectedValueException('Value not a const in enum ' . $class->getShortName());
         }
         $this->__default = $initial_value;
     }

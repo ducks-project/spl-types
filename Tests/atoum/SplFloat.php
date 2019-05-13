@@ -18,7 +18,6 @@ use mageekguy\atoum;
  */
 class SplFloat extends atoum
 {
-
     public function test()
     {
         $this
@@ -66,5 +65,4 @@ class SplFloat extends atoum
             ->isInstanceOf('\UnexpectedValueException')
         ;
     }
-
 }

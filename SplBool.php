@@ -18,7 +18,6 @@ namespace Ducks\Component\SplTypes;
  */
 class SplBool extends SplEnum
 {
-
     /**
      * @var bool
      *
@@ -42,5 +41,4 @@ class SplBool extends SplEnum
      */
     const true = true;
     // @codingStandardsIgnoreEnd
-
 }

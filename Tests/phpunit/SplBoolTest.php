@@ -16,7 +16,6 @@ use Ducks\Component\SplTypes\SplBool;
 
 class SplBoolTest extends TestCase
 {
-
     public function test()
     {
         $test = new SplBool();
@@ -61,5 +60,4 @@ class SplBoolTest extends TestCase
         $this->assertSame($list, $test);
         unset($bool, $test, $list);
     }
-
 }

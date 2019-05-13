@@ -20,7 +20,6 @@ use mageekguy\atoum;
  */
 class SplEnum extends atoum
 {
-
     public function test()
     {
         $this

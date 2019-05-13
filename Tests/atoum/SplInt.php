@@ -18,7 +18,6 @@ use mageekguy\atoum;
  */
 class SplInt extends atoum
 {
-
     public function test()
     {
         $this
@@ -66,5 +65,4 @@ class SplInt extends atoum
             ->isInstanceOf('\UnexpectedValueException')
         ;
     }
-
 }

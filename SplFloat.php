@@ -16,9 +16,8 @@ namespace Ducks\Component\SplTypes;
  *
  * @see http://php.net/manual/en/class.splfloat.php
  */
-class SplFloat  extends SplType
+class SplFloat extends SplType
 {
-
     /**
      * @var float
      *

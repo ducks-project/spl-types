@@ -16,7 +16,6 @@ use Ducks\Component\SplTypes\SplString;
 
 class SplStringTest extends TestCase
 {
-
     public function test()
     {
         $test = new SplString();
@@ -43,5 +42,4 @@ class SplStringTest extends TestCase
         $this->expectException('\UnexpectedValueException');
         new SplString(array());
     }
-
 }

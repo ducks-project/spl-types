@@ -18,7 +18,6 @@ namespace Ducks\Component\SplTypes;
  */
 class SplString extends SplType
 {
-
     /**
      * @var string
      *
@@ -41,5 +40,4 @@ class SplString extends SplType
         }
         $this->__default = $initial_value;
     }
-
 }

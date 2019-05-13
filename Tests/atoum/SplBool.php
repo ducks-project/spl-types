@@ -18,7 +18,6 @@ use mageekguy\atoum;
  */
 class SplBool extends atoum
 {
-
     public function test()
     {
         $this
@@ -91,5 +90,4 @@ class SplBool extends atoum
                     ->isEqualTo($list)
         ;
     }
-
 }
