@@ -16,7 +16,8 @@ namespace Ducks\Component\SplTypes;
  *
  * @see SplString http://php.net/manual/en/class.splstring.php
  */
-class SplString extends SplType {
+class SplString extends SplType
+{
 
     /**
      * @var string
@@ -29,7 +30,8 @@ class SplString extends SplType {
     /**
      * {@inheritdoc}
      */
-    public function __construct($initial_value = self::__default, $strict = true) {
+    public function __construct($initial_value = self::__default, $strict = true)
+    {
         parent::__construct($initial_value, $strict);
         if (!$strict) {
             $initial_value = (string) $initial_value;

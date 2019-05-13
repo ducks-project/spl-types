@@ -16,7 +16,8 @@ namespace Ducks\Component\SplTypes;
  *
  * @see SplBool http://php.net/manual/en/class.splbool.php
  */
-class SplBool extends SplEnum {
+class SplBool extends SplEnum
+{
 
     /**
      * @var bool

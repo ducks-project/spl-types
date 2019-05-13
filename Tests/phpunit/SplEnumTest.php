@@ -12,7 +12,6 @@
 namespace Ducks\Component\SplTypes\Tests\phpunit;
 
 use PHPUnit\Framework\TestCase;
-use Ducks\Component\SplTypes\SplEnum;
 
 class SplEnumTest extends TestCase
 {
@@ -27,7 +26,7 @@ class SplEnumTest extends TestCase
 
     public function test()
     {
-        $test = new \Month;
+        $test = new \Month();
         $this->assertEquals(\Month::__default, (string) $test);
         unset($test);
 
@@ -63,7 +62,7 @@ class SplEnumTest extends TestCase
             'NOVEMBER' => 11,
             'DECEMBER' => 12,
         );
-        $month = new \Month;
+        $month = new \Month();
 
         $test = $month->getConstList(true);
         $this->assertSame($list, $test);

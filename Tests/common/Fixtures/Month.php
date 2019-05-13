@@ -2,7 +2,8 @@
 
 use Ducks\Component\SplTypes\SplEnum;
 
-class Month extends SplEnum {
+class Month extends SplEnum
+{
     const __default = self::JANUARY;
 
     const JANUARY = 1;

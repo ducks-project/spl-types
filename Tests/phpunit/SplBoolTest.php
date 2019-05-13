@@ -19,7 +19,7 @@ class SplBoolTest extends TestCase
 
     public function test()
     {
-        $test = new SplBool;
+        $test = new SplBool();
         $this->assertFalse((bool) (string) $test);
         unset($test);
 
@@ -51,7 +51,7 @@ class SplBoolTest extends TestCase
             'false' => false,
             'true' => true
         );
-        $bool = new SplBool;
+        $bool = new SplBool();
 
         $test = $bool->getConstList(true);
         $this->assertSame($list, $test);

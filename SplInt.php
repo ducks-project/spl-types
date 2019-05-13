@@ -16,7 +16,8 @@ namespace Ducks\Component\SplTypes;
  *
  * @see SplInt http://php.net/manual/en/class.splint.php
  */
-class SplInt extends SplType {
+class SplInt extends SplType
+{
 
     /**
      * @var int
@@ -29,7 +30,8 @@ class SplInt extends SplType {
     /**
      * {@inheritdoc}
      */
-    public function __construct($initial_value = self::__default, $strict = true) {
+    public function __construct($initial_value = self::__default, $strict = true)
+    {
         parent::__construct($initial_value, $strict);
         if (!$strict) {
             $initial_value = (int) $initial_value;

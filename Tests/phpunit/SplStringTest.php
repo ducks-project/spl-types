@@ -19,7 +19,7 @@ class SplStringTest extends TestCase
 
     public function test()
     {
-        $test = new SplString;
+        $test = new SplString();
         $this->assertSame('', (string) $test);
         unset($test);
 

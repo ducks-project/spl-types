@@ -16,7 +16,8 @@ namespace Ducks\Component\SplTypes;
  *
  * @see http://php.net/manual/en/class.splfloat.php
  */
-class SplFloat  extends SplType {
+class SplFloat  extends SplType
+{
 
     /**
      * @var float
@@ -29,7 +30,8 @@ class SplFloat  extends SplType {
     /**
      * {@inheritdoc}
      */
-    public function __construct($initial_value = self::__default, $strict = true) {
+    public function __construct($initial_value = self::__default, $strict = true)
+    {
         parent::__construct($initial_value, $strict);
         if (!$strict) {
             $initial_value = (float) $initial_value;

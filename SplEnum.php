@@ -16,12 +16,14 @@ namespace Ducks\Component\SplTypes;
  *
  * @see SplEnum http://php.net/manual/en/class.splenum.php
  */
-abstract class SplEnum extends SplType {
+abstract class SplEnum extends SplType
+{
 
     /**
      * {@inheritdoc}
      */
-    public function __construct($initial_value = null, $strict = true) {
+    public function __construct($initial_value = null, $strict = true)
+    {
         if ($initial_value === null) {
             $initial_value = static::__default;
         }
@@ -38,7 +40,8 @@ abstract class SplEnum extends SplType {
      * @param bool $include_default Whether to include __default property.
      * @return array
      */
-    final public function getConstList($include_default = false) {
+    final public function getConstList($include_default = false)
+    {
         $class = new \ReflectionClass($this);
         $constants = $class->getConstants();
         if (!$include_default) {
