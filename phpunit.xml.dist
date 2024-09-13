@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit backupGlobals="false"
-         colors="true"
-         bootstrap="vendor/autoload.php"
-         failOnRisky="true"
-         failOnWarning="true"
+<phpunit
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.5/phpunit.xsd"
+  backupGlobals="false"
+  colors="true"
+  bootstrap="vendor/autoload.php"
+  failOnRisky="true"
+  failOnWarning="true"
 >
-    <php>
-        <ini name="error_reporting" value="-1" />
-    </php>
+  <php>
+    <ini name="error_reporting" value="-1" />
+  </php>
 
-    <logging>
-        <log type="coverage-clover" target="build/logs/clover.xml"/>
-    </logging>
+  <logging>
+    <log type="coverage-clover" target="build/logs/clover.xml" />
+  </logging>
 
-    <testsuites>
-        <testsuite name="Spl Types Test Suite">
-            <directory>./Tests/</directory>
-        </testsuite>
-    </testsuites>
+  <testsuites>
+    <testsuite name="Spl Types Test Suite">
+      <directory>./Tests/</directory>
+    </testsuite>
+  </testsuites>
 
-    <filter>
-        <whitelist>
-            <directory>./</directory>
-            <exclude>
-                <directory>./Resources</directory>
-                <directory>./Tests</directory>
-                <directory>./vendor</directory>
-            </exclude>
-        </whitelist>
-    </filter>
+  <filter>
+    <whitelist>
+      <directory>./</directory>
+      <exclude>
+        <directory>./Resources</directory>
+        <directory>./Tests</directory>
+        <directory>./vendor</directory>
+      </exclude>
+    </whitelist>
+  </filter>
 </phpunit>

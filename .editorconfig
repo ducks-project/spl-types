@@ -1,14 +1,30 @@
-# .editorconfig.org
 root = true
 
 [*]
-ident_style = space
-indent_size = 4
-end_of_line = lf
 charset = utf-8
+end_of_line = lf
 trim_trailing_whitespace = true
 insert_final_newline = true
 
+[*.{php,html,twig,hac3,inc}]
+indent_style = space
+indent_size = 4
+
+[*.{json,lock}]
+indent_style = space
+indent_size = 4
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
 [*.md]
+max_line_length = 80
 trim_trailing_whitespace = false
-insert_final_newline = true
+
+[*.{xml,xsd}]
+max_line_length = off
+indent_size = 2
+
+[COMMIT_EDITMSG]
+max_line_length = 0

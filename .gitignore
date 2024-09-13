@@ -43,4 +43,5 @@ local.properties
 .vagrant/
 /test
 /tests
+/.history
 .DS_Store

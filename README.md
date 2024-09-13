@@ -9,8 +9,11 @@
 [![Build Status](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ducks-project/spl-types/build-status/master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/ducks-project/spl-types/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ducks-project/spl-types/tree/master)
+
 [![License](https://poser.pugx.org/ducks-project/spl-types/license)](https://packagist.org/packages/ducks-project/spl-types)
 [![Latest Stable Version](https://poser.pugx.org/ducks-project/spl-types/v/stable)](https://packagist.org/packages/ducks-project/spl-types)
+[![PHP Version Require](http://poser.pugx.org/ducks-project/spl-types/require/php)](https://packagist.org/packages/ducks-project/spl-types)
 
 [![Total Downloads](https://poser.pugx.org/ducks-project/spl-types/downloads)](https://packagist.org/packages/ducks-project/spl-types)
 [![Monthly Downloads](https://poser.pugx.org/ducks-project/spl-types/d/monthly)](https://packagist.org/packages/ducks-project/spl-types)
