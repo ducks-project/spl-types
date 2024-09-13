@@ -7,11 +7,12 @@ jobs:
       - image: cimg/php:7.4
     steps:
       - checkout
-      - run: php --version
+
+      - run: sudo apt-get install libxslt1-dev
 
       - run:
           name: Install PHP Extensions
-          command: sudo -E install-php-extensions xsl xdebug zip intl
+          command: sudo -E install-php-extensions xsl xdebug zip intl && sudo docker-php-ext-enable xdebug
 
       - run: echo -e "[Date]\ndate.timezone = Europe/Paris" | sudo tee /usr/local/etc/php/php.ini > /dev/null
       - run: echo -e "memory_limit = -1" | sudo tee -a /usr/local/etc/php/conf.d/docker-php-memlimit.ini
