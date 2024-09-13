@@ -9,6 +9,13 @@ jobs:
       - checkout
       - run: php --version
 
+      - run:
+          name: Install PHP Extensions
+          command: sudo -E install-php-extensions xsl xdebug zip intl
+
+      - run: echo -e "[Date]\ndate.timezone = Europe/Paris" | sudo tee /usr/local/etc/php/php.ini > /dev/null
+      - run: echo -e "memory_limit = -1" | sudo tee -a /usr/local/etc/php/conf.d/docker-php-memlimit.ini
+
       # composer require
       - run: composer require --dev phpunit/phpunit ^5
       - run: composer require --dev php-coveralls/php-coveralls ^1
