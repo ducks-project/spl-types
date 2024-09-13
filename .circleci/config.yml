@@ -12,7 +12,11 @@ jobs:
 
       - run:
           name: Install PHP Extensions
-          command: sudo -E install-php-extensions xdebug zip intl && sudo docker-php-ext-enable xdebug
+          command: sudo -E install-php-extensions zip intl
+
+      - run:
+          name: Install xDebug
+          command: sudo pecl install xdebug-3.1.5 && docker-php-ext-enable xdebug
 
       - run: echo -e "[Date]\ndate.timezone = Europe/Paris" | sudo tee /usr/local/etc/php/php.ini > /dev/null
       - run: echo -e "memory_limit = -1" | sudo tee -a /usr/local/etc/php/conf.d/docker-php-memlimit.ini
