@@ -7,7 +7,7 @@ jobs:
       - image: cimg/php:7.4
     steps:
       - checkout
-
+      - run: php --version
       - run: sudo apt-get install libxslt1-dev
 
       - run:
@@ -45,22 +45,3 @@ workflows:
   workflow:
     jobs:
       - test
-
-
-
-machine:
-  php:
-    version: 5.4.10
-
-## Customize dependencies
-dependencies:
-  override:
-    - mkdir -p build/logs
-    - composer install --no-interaction --optimize-autoloader
-    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
-
-## Customize test commands
-test:
-  override:
-    - php vendor/bin/phpunit Tests/phpunit -c phpunit.xml.dist
-    - php vendor/bin/atoum -d Tests/atoum
