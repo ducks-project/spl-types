@@ -14,9 +14,9 @@ jobs:
           name: Install PHP Extensions
           command: sudo -E install-php-extensions zip intl
 
-      - run:
-          name: Install xDebug
-          command: sudo pecl install xdebug-3.1.5 && docker-php-ext-enable xdebug
+      #- run:
+      #    name: Install xDebug
+      #    command: sudo pecl install xdebug-3.1.5 && docker-php-ext-enable xdebug
 
       - run: echo -e "[Date]\ndate.timezone = Europe/Paris" | sudo tee /usr/local/etc/php/php.ini > /dev/null
       - run: echo -e "memory_limit = -1" | sudo tee -a /usr/local/etc/php/conf.d/docker-php-memlimit.ini
@@ -41,8 +41,8 @@ jobs:
             - vendor
 
       # tests
-      - run: php vendor/bin/phpunit Tests/phpunit -c phpunit.xml.dist
-      - run: php vendor/bin/atoum -d Tests/atoum
+      - run: XDEBUG_MODE=coverage php vendor/bin/phpunit Tests/phpunit -c phpunit.xml.dist
+      - run: XDEBUG_MODE=coverage php vendor/bin/atoum -d Tests/atoum
 
 # Orchestrate our job run sequence
 workflows:
