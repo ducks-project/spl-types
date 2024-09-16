@@ -52,8 +52,9 @@ jobs:
       #    command: npm install && make test-coverage
       #    name: Install and Make
 
-      - coveralls/upload
-      - codecov/upload
+      # Stay commented Managed in github actions
+      #- coveralls/upload
+      #- codecov/upload
 
 # Orchestrate our job run sequence
 workflows:
