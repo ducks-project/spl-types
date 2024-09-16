@@ -15,20 +15,21 @@ namespace Ducks\Component\SplTypes;
  * Parent class for all SPL types.
  *
  * @see SplType http://php.net/manual/en/class.spltype.php
+ *
+ * @psalm-api
  */
 abstract class SplType
 {
     /**
      * Default value.
-     *
-     * @codingStandardsIgnoreStart
      */
+    // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase, PSR12.Properties.ConstantVisibility.NotFound
     const __default = null;
-    // @codingStandardsIgnoreEnd
 
     /**
      * Internal enum value
      */
+    // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
     public $__default;
 
     /**
@@ -39,8 +40,6 @@ abstract class SplType
      * @return void
      *
      * @throws \UnexpectedValueException if incompatible type is given.
-     *
-     * @codingStandardsIgnoreStart
      */
     public function __construct($initial_value = self::__default, $strict = true)
     {
@@ -49,7 +48,6 @@ abstract class SplType
         }
         $this->__default = $initial_value;
     }
-    // @codingStandardsIgnoreEnd
 
     /**
      * Stringify object.

@@ -15,16 +15,16 @@ namespace Ducks\Component\SplTypes;
  * The SplString class is used to enforce strong typing of the string type.
  *
  * @see SplString http://php.net/manual/en/class.splstring.php
+ *
+ * @psalm-api
  */
 class SplString extends SplType
 {
     /**
      * @var string
-     *
-     * @codingStandardsIgnoreStart
      */
+    // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase, PSR12.Properties.ConstantVisibility.NotFound
     const __default = '';
-    // @codingStandardsIgnoreEnd
 
     /**
      * {@inheritdoc}

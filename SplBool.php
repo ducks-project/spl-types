@@ -15,30 +15,26 @@ namespace Ducks\Component\SplTypes;
  * The SplBool class is used to enforce strong typing of the bool type.
  *
  * @see SplBool http://php.net/manual/en/class.splbool.php
+ *
+ * @psalm-api
  */
 class SplBool extends SplEnum
 {
     /**
      * @var bool
-     *
-     * @codingStandardsIgnoreStart
      */
+    // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase, PSR12.Properties.ConstantVisibility.NotFound
     const __default = self::false;
-    // @codingStandardsIgnoreEnd
 
     /**
      * @var bool
-     *
-     * @codingStandardsIgnoreStart
      */
+    // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase, PSR12.Properties.ConstantVisibility.NotFound
     const false = false;
-    // @codingStandardsIgnoreEnd
 
     /**
      * @var bool
-     *
-     * @codingStandardsIgnoreStart
      */
+    // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase, PSR12.Properties.ConstantVisibility.NotFound
     const true = true;
-    // @codingStandardsIgnoreEnd
 }
