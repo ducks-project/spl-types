@@ -15,7 +15,7 @@
 
 [![License](https://poser.pugx.org/ducks-project/spl-types/license)](https://packagist.org/packages/ducks-project/spl-types)
 [![Latest Stable Version](https://poser.pugx.org/ducks-project/spl-types/v/stable)](https://packagist.org/packages/ducks-project/spl-types)
-[![PHP Version Require](http://poser.pugx.org/ducks-project/spl-types/require/php)](https://packagist.org/packages/ducks-project/spl-types)
+[![PHP Version Require](https://poser.pugx.org/ducks-project/spl-types/require/php)](https://packagist.org/packages/ducks-project/spl-types)
 
 [![Total Downloads](https://poser.pugx.org/ducks-project/spl-types/downloads)](https://packagist.org/packages/ducks-project/spl-types)
 [![Monthly Downloads](https://poser.pugx.org/ducks-project/spl-types/d/monthly)](https://packagist.org/packages/ducks-project/spl-types)
