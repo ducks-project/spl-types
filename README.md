@@ -31,6 +31,8 @@
 * Repository: https://github.com/ducks-project/spl-types
 * Original PHP extension: http://php.net/manual/en/intro.spl-types.php
 
+[![CircleCI](https://dl.circleci.com/insights-snapshot/gh/ducks-project/spl-types/master/workflow/badge.svg?window=30d)](https://app.circleci.com/insights/github/ducks-project/spl-types/workflows/workflow/overview?branch=master&reporting-window=last-30-days&insights-snapshot=true)
+
 ## Description
 
 This extension aims at helping people making PHP a stronger typed language and can be a good alternative to scalar type hinting. It provides different typehandling classes as such as integer, float, bool, enum and string
