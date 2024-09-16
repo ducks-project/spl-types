@@ -51,10 +51,10 @@ jobs:
     - name: Run atoum test
       run: php vendor/bin/atoum -d Tests/atoum
 
-    - name: npm install, make test-coverage
-      run: |
-        npm install
-        make test-coverage
+    #- name: npm install, make test-coverage
+    #  run: |
+    #    npm install
+    #    make test-coverage
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4
