@@ -1,10 +1,14 @@
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@4.0.1
+  coveralls: coveralls/coveralls@2.2.1
+
 # Define the jobs we want to run for this project
 jobs:
   test:
     docker:
-      - image: cimg/php:7.4
+      - image: cimg/php:7.4-node
     steps:
       - checkout
       - run: php --version
@@ -43,6 +47,13 @@ jobs:
       # tests
       - run: XDEBUG_MODE=coverage php vendor/bin/phpunit Tests/phpunit -c phpunit.xml.dist
       - run: XDEBUG_MODE=coverage php vendor/bin/atoum -d Tests/atoum
+
+      - run:
+          command: npm install && make test-coverage
+          name: Install and Make
+
+      - coveralls/upload
+      - codecov/upload
 
 # Orchestrate our job run sequence
 workflows:

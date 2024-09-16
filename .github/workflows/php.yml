@@ -51,6 +51,17 @@ jobs:
     - name: Run atoum test
       run: php vendor/bin/atoum -d Tests/atoum
 
+    - name: npm install, make test-coverage
+      run: |
+        npm install
+        make test-coverage
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4
+
+    - name: Coveralls
+      uses: coverallsapp/github-action@v2
+
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 

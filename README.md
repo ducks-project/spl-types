@@ -1,15 +1,17 @@
 # SplTypes
 
+[![Github Action Status](https://github.com/ducks-project/spl-types/actions/workflows/php.yml/badge.svg)](https://github.com/ducks-project/spl-types)
 [![Build Status](https://travis-ci.org/ducks-project/spl-types.svg)](https://travis-ci.org/ducks-project/spl-types)
-
 [![Coverage Status](https://coveralls.io/repos/github/ducks-project/spl-types/badge.svg)](https://coveralls.io/github/ducks-project/spl-types)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/ducks-project/spl-types/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ducks-project/spl-types/tree/master)
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ducks-project/spl-types/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ducks-project/spl-types/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ducks-project/spl-types/build-status/master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
-
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/ducks-project/spl-types/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ducks-project/spl-types/tree/master)
+[![Psalm Type Coverage](https://shepherd.dev/github/ducks-project/spl-types/coverage.svg)](https://shepherd.dev/github/ducks-project/spl-types)
+[![codecov Status](https://codecov.io/github/ducks-project/spl-types/graph/badge.svg?token=M3LBGQQ6N9)](https://codecov.io/github/ducks-project/spl-types)
+[![Appveyor status](https://ci.appveyor.com/api/projects/status/edj2aj94ebslnhy9?svg=true)](https://ci.appveyor.com/project/donaldinou/spl-types)
 
 [![License](https://poser.pugx.org/ducks-project/spl-types/license)](https://packagist.org/packages/ducks-project/spl-types)
 [![Latest Stable Version](https://poser.pugx.org/ducks-project/spl-types/v/stable)](https://packagist.org/packages/ducks-project/spl-types)
@@ -18,6 +20,12 @@
 [![Total Downloads](https://poser.pugx.org/ducks-project/spl-types/downloads)](https://packagist.org/packages/ducks-project/spl-types)
 [![Monthly Downloads](https://poser.pugx.org/ducks-project/spl-types/d/monthly)](https://packagist.org/packages/ducks-project/spl-types)
 [![Daily Downloads](https://poser.pugx.org/ducks-project/spl-types/d/daily)](https://packagist.org/packages/ducks-project/spl-types)
+
+[![Duck's Validated](https://img.shields.io/badge/duck-validated-lightyellow)](https://opencollective.com/ducks-project)
+[![Packagist online](https://img.shields.io/badge/packagist-online-brightgreen)](https://opencollective.com/ducks-project)
+[![Documentation Status](https://readthedocs.org/projects/spl-types/badge/?version=latest)](https://spl-types.readthedocs.io/en/latest/?badge=latest)
+
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
 * Project page: https://github.com/ducks-project/spl-types
 * Repository: https://github.com/ducks-project/spl-types
