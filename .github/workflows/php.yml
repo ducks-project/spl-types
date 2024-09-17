@@ -33,23 +33,17 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-php-
 
-    - name: Install phpunit dev
-      run: composer require --dev phpunit/phpunit ^5
-
     - name: Install php-coveralls dev
-      run: composer require --dev php-coveralls/php-coveralls ^1
-
-    - name: Install atoum dev
-      run: composer require --dev atoum/atoum ^3
+      run: composer require --dev php-coveralls/php-coveralls ^1 --with-all-dependencies
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
     - name: Run phpunit test
-      run: php vendor/bin/phpunit Tests/phpunit -c phpunit.xml.dist
+      run: composer unittest
 
     - name: Run atoum test
-      run: php vendor/bin/atoum -d Tests/atoum
+      run: composer atoumtest
 
     #- name: npm install, make test-coverage
     #  run: |
@@ -61,9 +55,3 @@ jobs:
 
     - name: Coveralls
       uses: coverallsapp/github-action@v2
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    # - name: Run test suite
-    #   run: composer run-script test

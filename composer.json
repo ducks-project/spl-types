@@ -23,7 +23,8 @@
         "phpunit/phpunit": "^5.7",
         "atoum/atoum": "^3.4",
         "phpstan/phpstan": "^1.12",
-        "phpbench/phpbench": "^1.2"
+        "phpbench/phpbench": "^1.2",
+        "vimeo/psalm": "^0.3.63"
     },
     "autoload": {
         "psr-4": {
