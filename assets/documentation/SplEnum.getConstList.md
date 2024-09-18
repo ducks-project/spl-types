@@ -50,9 +50,9 @@ The above example will output:
 - [`SplBool`]
 - [`SplString`]
 
-[`SplType`]: /assets/documentations/SplType.md
-[`SplInt`]: /assets/documentations/SplInt.md
-[`SplFloat`]: /assets/documentations/SplFloat.md
-[`SplEnum`]: /assets/documentations/SplEnum.md
-[`SplBool`]: /assets/documentations/SplBool.md
-[`SplString`]: /assets/documentations/SplString.md
+[`SplType`]: /assets/documentation/SplType.md
+[`SplInt`]: /assets/documentation/SplInt.md
+[`SplFloat`]: /assets/documentation/SplFloat.md
+[`SplEnum`]: /assets/documentation/SplEnum.md
+[`SplBool`]: /assets/documentation/SplBool.md
+[`SplString`]: /assets/documentation/SplString.md
