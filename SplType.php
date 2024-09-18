@@ -28,6 +28,8 @@ abstract class SplType
 
     /**
      * Internal enum value
+     *
+     * @var mixed
      */
     // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
     public $__default;
@@ -40,6 +42,8 @@ abstract class SplType
      * @return void
      *
      * @throws \UnexpectedValueException if incompatible type is given.
+     *
+     * @phpstan-ignore-next-line
      */
     public function __construct($initial_value = self::__default, $strict = true)
     {
@@ -72,10 +76,12 @@ abstract class SplType
     /**
      * Dumping object (php > 5.6.0).
      *
-     * @return array
+     * @return array<mixed, mixed>
      */
     final public function __debugInfo()
     {
-        return array('__default' => $this->__default);
+        return [
+            '__default' => $this->__default
+        ];
     }
 }

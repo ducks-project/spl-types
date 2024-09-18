@@ -11,35 +11,56 @@
 
 namespace Ducks\Component\SplTypes\Tests\phpunit;
 
+use Ducks\Component\SplTypes\SplFloat as DuckFloat;
 use PHPUnit\Framework\TestCase;
-use Ducks\Component\SplTypes\SplFloat;
 
 class SplFloatTest extends TestCase
 {
+    /**
+     * Unit test
+     *
+     * @return void
+     */
     public function test()
     {
-        $test = new SplFloat();
+        $test = new DuckFloat();
         $this->assertSame(0.0, (float) (string) $test);
         unset($test);
 
-        $test = new SplFloat(10.1);
+        $test = new DuckFloat(10.1);
         $this->assertSame(10.1, (float) (string) $test);
         unset($test);
 
-        $test = new SplFloat('10.1', false);
+        $test = new DuckFloat('10.1', false);
         $this->assertSame(10.1, (float) (string) $test);
         unset($test);
     }
 
+    /**
+     * Unit test
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_unexpected_value_exception_bool()
     {
         $this->expectException('\UnexpectedValueException');
-        new SplFloat(false);
+        new DuckFloat(false);
     }
 
+    /**
+     * Unit test
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_unexpected_value_exception_string()
     {
         $this->expectException('\UnexpectedValueException');
-        new SplFloat('10');
+        new DuckFloat('10');
     }
 }

@@ -38,12 +38,12 @@
 This extension aims at helping people making PHP a stronger typed language and can be a good alternative to scalar type hinting. It provides different typehandling classes as such as integer, float, bool, enum and string
 
 It provides classes unavailable if you can't install [SPL Types](http://php.net/manual/en/intro.spl-types.php) extension:
-- [`SplType`](http://php.net/manual/en/class.spltype.php)
-- [`SplInt`](http://php.net/manual/en/class.splint.php)
-- [`SplFloat`](http://php.net/manual/en/class.splfloat.php)
-- [`SplEnum`](http://php.net/manual/en/class.splenum.php)
-- [`SplBool`](http://php.net/manual/en/class.splbool.php)
-- [`SplString`](http://php.net/manual/en/class.splstring.php)
+- [`SplType`]
+- [`SplInt`]
+- [`SplFloat`]
+- [`SplEnum`]
+- [`SplBool`]
+- [`SplString`]
 
 ## Known Issues & Limitations
 
@@ -135,4 +135,12 @@ if ($bool) {
 
 ## License
 
-This library is released under the [MIT license](LICENSE).
+This library is released under the [MIT license].
+
+[`SplType`]: /assets/documentations/SplType.md
+[`SplInt`]: /assets/documentations/SplInt.md
+[`SplFloat`]: /assets/documentations/SplFloat.md
+[`SplEnum`]: /assets/documentations/SplEnum.md
+[`SplBool`]: /assets/documentations/SplBool.md
+[`SplString`]: /assets/documentations/SplString.md
+[MIT license]: LICENSE

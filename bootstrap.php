@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-$splTypes = array(
+$splTypes = [
     'SplType',
     'SplInt',
     'SplFloat',
     'SplEnum',
     'SplBool',
-    'SplString'
-);
+    'SplString',
+];
 
 foreach ($splTypes as $splType) {
     if (!class_exists($splType, false)) {

@@ -11,46 +11,73 @@
 
 namespace Ducks\Component\SplTypes\Tests\phpunit;
 
+use Ducks\Component\SplTypes\SplBool as DuckBool;
 use PHPUnit\Framework\TestCase;
-use Ducks\Component\SplTypes\SplBool;
 
 class SplBoolTest extends TestCase
 {
+    /**
+     * Unit test
+     *
+     * @return void
+     */
     public function test()
     {
-        $test = new SplBool();
+        $test = new DuckBool();
         $this->assertFalse((bool) (string) $test);
         unset($test);
 
-        $test = new SplBool(true);
+        $test = new DuckBool(true);
         $this->assertTrue((bool) (string) $test);
         unset($test);
 
-        $test = new SplBool(1, false);
+        $test = new DuckBool(1, false);
         $this->assertTrue((bool) (string) $test);
         unset($test);
     }
 
+    /**
+     * Unit test
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_unexpected_value_exception_int()
     {
         $this->expectException('\UnexpectedValueException');
-        new SplBool(0);
+        new DuckBool(0);
     }
 
+    /**
+     * Unit test
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_unexpected_value_exception_string()
     {
         $this->expectException('\UnexpectedValueException');
-        new SplBool('test');
+        new DuckBool('test');
     }
 
+    /**
+     * Unit test
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_list()
     {
-        $list = array(
+        $list = [
             '__default' => false,
             'false' => false,
             'true' => true
-        );
-        $bool = new SplBool();
+        ];
+        $bool = new DuckBool();
 
         $test = $bool->getConstList(true);
         $this->assertSame($list, $test);

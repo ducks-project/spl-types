@@ -11,55 +11,85 @@
 
 namespace Ducks\Component\SplTypes\Tests\atoum;
 
+use Ducks\Component\SplTypes\SplString as DuckString;
 use mageekguy\atoum;
 
 /**
  * @namespace \Tests\atoum
  */
-class SplString extends atoum
+class SplString extends atoum\test
 {
+    /**
+     * Unit test
+     *
+     * @return void
+     */
     public function test()
     {
+        $instance = new DuckString();
+        // @phpstan-ignore-next-line
         $this
-            ->given($this->newTestedInstance)
+            ->given($instance)
             ->then
-                ->string((string) $this->testedInstance)
+                ->string((string) $instance)
                     ->isEqualTo('')
         ;
 
+        $instance = new DuckString('test');
+        // @phpstan-ignore-next-line
         $this
-            ->given($this->newTestedInstance('test'))
+            ->given($instance)
             ->then
-                ->string((string) $this->testedInstance)
+                ->string((string) $instance)
                     ->isEqualTo('test')
         ;
 
+        $instance = new DuckString(0, false);
+        // @phpstan-ignore-next-line
         $this
-            ->given($this->newTestedInstance(0, false))
+            ->given($instance)
             ->then
-                ->string((string) $this->testedInstance)
+                ->string((string) $instance)
                     ->isEqualTo('0')
         ;
     }
 
+    /**
+     * Unit test
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_unexpected_value_exception_int()
     {
+        // @phpstan-ignore-next-line
         $this
             ->exception(
-                function() {
-                    $this->newTestedInstance(0);
+                function () {
+                    new DuckString(0);
                 }
             )
             ->isInstanceOf('\UnexpectedValueException')
         ;
     }
 
+    /**
+     * Unit test
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_unexpected_value_exception_scalar()
     {
+        // @phpstan-ignore-next-line
         $this
             ->exception(
-                function() {
-                    $this->newTestedInstance(array());
+                function () {
+                    new DuckString([]);
                 }
             )
             ->isInstanceOf('\UnexpectedValueException')

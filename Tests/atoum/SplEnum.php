@@ -11,54 +11,80 @@
 
 namespace Ducks\Component\SplTypes\Tests\atoum;
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . '../common/Fixtures/' . '/Month.php';
-
+use Ducks\Component\SplTypes\Tests\common\Month;
 use mageekguy\atoum;
 
 /**
  * @namespace \Tests\atoum
  */
-class SplEnum extends atoum
+class SplEnum extends atoum\test
 {
+    /**
+     * Unit test
+     *
+     * @return void
+     */
     public function test()
     {
+        $test = new Month();
+
+        // @phpstan-ignore-next-line
         $this
-            ->given($test = new \Month)
+            ->given($test)
             ->then
                 ->integer((int) (string) $test)
-                    ->isEqualTo(\Month::__default)
+                    ->isEqualTo(Month::__default)
         ;
 
+        $test = new Month(Month::SEPTEMBER);
+        // @phpstan-ignore-next-line
         $this
-            ->given($test = new \Month(\Month::SEPTEMBER))
+            ->given($test)
             ->then
                 ->integer((int) (string) $test)
-                    ->isEqualTo(\Month::SEPTEMBER)
+                    ->isEqualTo(Month::SEPTEMBER)
         ;
 
+        $test = $test = new Month('1', false);
+        // @phpstan-ignore-next-line
         $this
-            ->given($test = new \Month('1', false))
+            ->given()
             ->then
                 ->integer((int) (string) $test)
-                    ->isEqualTo(\Month::JANUARY)
+                    ->isEqualTo(Month::JANUARY)
         ;
     }
 
+    /**
+     * Unit test
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_unexpected_value_exception()
     {
+        // @phpstan-ignore-next-line
         $this
             ->exception(
-                function() {
-                    new \Month('1');
+                function () {
+                    new Month('1');
                 }
             )
             ->isInstanceOf('\UnexpectedValueException')
         ;
     }
 
+    /**
+     * Unit test
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_list()
     {
-        $list = array(
+        $list = [
             '__default' => 1,
             'JANUARY' => 1,
             'FEBRUARY' => 2,
@@ -72,10 +98,12 @@ class SplEnum extends atoum
             'OCTOBER' => 10,
             'NOVEMBER' => 11,
             'DECEMBER' => 12,
-        );
+        ];
 
+        $test = new Month();
+        // @phpstan-ignore-next-line
         $this
-            ->given($test = new \Month)
+            ->given($test)
             ->then
                 ->array($test->getConstList(true))
                     ->isEqualTo($list)
@@ -83,8 +111,10 @@ class SplEnum extends atoum
 
         unset($list['__default']);
 
+        $test = new Month();
+        // @phpstan-ignore-next-line
         $this
-            ->given($test = new \Month)
+            ->given($test)
             ->then
                 ->array($test->getConstList())
                     ->isEqualTo($list)

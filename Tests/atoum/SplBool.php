@@ -11,82 +11,115 @@
 
 namespace Ducks\Component\SplTypes\Tests\atoum;
 
-use mageekguy\atoum;
+use Ducks\Component\SplTypes\SplBool as DuckBool;
+use atoum;
 
 /**
  * @namespace \Tests\atoum
+ *
  */
 class SplBool extends atoum
 {
+    /**
+     * Unit test
+     *
+     * @return void
+     */
     public function test()
     {
+        $instance = new DuckBool();
+
         $this
-            ->given($this->newTestedInstance)
+            ->given($instance)
             ->then
-                ->boolean((bool) (string) $this->testedInstance)
+                ->boolean((bool) (string) $instance)
                     ->isEqualTo(false)
         ;
 
+        $instance = new DuckBool(true);
         $this
-            ->given($this->newTestedInstance(true))
+            ->given($instance)
             ->then
-                ->boolean((bool) (string) $this->testedInstance)
+                ->boolean((bool) (string) $instance)
                     ->isEqualTo(true)
         ;
 
+        $instance = new DuckBool(1, false);
         $this
-            ->given($this->newTestedInstance(1, false))
+            ->given($instance)
             ->then
-                ->boolean((bool) (string) $this->testedInstance)
+                ->boolean((bool) (string) $instance)
                     ->isEqualTo(true)
         ;
     }
 
+    /**
+     * Unit test
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_unexpected_value_exception_int()
     {
         $this
             ->exception(
-                function() {
-                    $this->newTestedInstance(0);
+                function () {
+                    new DuckBool(0);
                 }
             )
             ->isInstanceOf('\UnexpectedValueException')
         ;
     }
 
+    /**
+     * Unit test
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_unexpected_value_exception_string()
     {
         $this
             ->exception(
-                function() {
-                    $this->newTestedInstance('test');
+                function () {
+                    new DuckBool('test');
                 }
             )
             ->isInstanceOf('\UnexpectedValueException')
         ;
     }
 
+    /**
+     * Unit test
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_list()
     {
-        $list = array(
+        $list = [
             '__default' => false,
             'false' => false,
-            'true' => true
-        );
+            'true' => true,
+        ];
 
+        $instance = new DuckBool();
         $this
-            ->given($this->newTestedInstance)
+            ->given($instance)
             ->then
-                ->array($this->testedInstance->getConstList(true))
+                ->array($instance->getConstList(true))
                     ->isEqualTo($list)
         ;
 
         unset($list['__default']);
-
         $this
-            ->given($this->newTestedInstance)
+            ->given($instance)
             ->then
-                ->array($this->testedInstance->getConstList())
+                ->array($instance->getConstList())
                     ->isEqualTo($list)
         ;
     }

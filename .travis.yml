@@ -15,14 +15,11 @@ php:
 #      dist: precise
 
 before_script:
-  - composer require --dev phpunit/phpunit ^5
-  - composer require --dev php-coveralls/php-coveralls ^1
-  - composer require --dev atoum/atoum ^3
   - composer install --no-interaction --optimize-autoloader
 script:
   - mkdir -p build/logs
-  - php vendor/bin/phpunit Tests/phpunit -c phpunit.xml.dist
-  - php vendor/bin/atoum -d Tests/atoum
+  - composer unittest
+  - composer atoumtest
 
 after_success:
   - travis_retry php vendor/bin/php-coveralls

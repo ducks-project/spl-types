@@ -39,7 +39,8 @@ abstract class SplEnum extends SplType
      * Returns all consts (possible values) as an array.
      *
      * @param bool $include_default Whether to include __default property.
-     * @return array
+     *
+     * @return array<mixed, mixed>
      */
     final public function getConstList($include_default = false)
     {

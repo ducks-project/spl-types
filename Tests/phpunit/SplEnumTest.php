@@ -11,42 +11,54 @@
 
 namespace Ducks\Component\SplTypes\Tests\phpunit;
 
+use Ducks\Component\SplTypes\Tests\common\Month;
 use PHPUnit\Framework\TestCase;
 
 class SplEnumTest extends TestCase
 {
-    protected static $fixturesPath;
-
-    public static function setUpBeforeClass()
-    {
-        self::$fixturesPath = realpath(__DIR__ . DIRECTORY_SEPARATOR . '../common/Fixtures/');
-        require_once self::$fixturesPath . '/Month.php';
-    }
-
+    /**
+     * Unit test
+     *
+     * @return void
+     */
     public function test()
     {
-        $test = new \Month();
-        $this->assertEquals(\Month::__default, (string) $test);
+        $test = new Month();
+        $this->assertEquals(Month::__default, (string) $test);
         unset($test);
 
-        $test = new \Month(\Month::SEPTEMBER);
-        $this->assertEquals(\Month::SEPTEMBER, (string) $test);
+        $test = new Month(Month::SEPTEMBER);
+        $this->assertEquals(Month::SEPTEMBER, (string) $test);
         unset($test);
 
-        $test = new \Month('1', false);
-        $this->assertEquals(\Month::JANUARY, (string) $test);
+        $test = new Month('1', false);
+        $this->assertEquals(Month::JANUARY, (string) $test);
         unset($test);
     }
 
+    /**
+     * Unit test
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_unexpected_value_exception()
     {
         $this->expectException('\UnexpectedValueException');
-        new \Month('1');
+        new Month('1');
     }
 
+    /**
+     * Unit test
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_list()
     {
-        $list = array(
+        $list = [
             '__default' => 1,
             'JANUARY' => 1,
             'FEBRUARY' => 2,
@@ -60,8 +72,8 @@ class SplEnumTest extends TestCase
             'OCTOBER' => 10,
             'NOVEMBER' => 11,
             'DECEMBER' => 12,
-        );
-        $month = new \Month();
+        ];
+        $month = new Month();
 
         $test = $month->getConstList(true);
         $this->assertSame($list, $test);

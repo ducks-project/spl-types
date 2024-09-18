@@ -11,15 +11,10 @@
 
 namespace Ducks\Component\SplTypes\Tests\benchmark;
 
-use Ducks\Component\SplTypes\SplBool;
+use Ducks\Component\SplTypes\Tests\common\Month;
 
 class SplEnumBench
 {
-    public function __construct()
-    {
-        require __DIR__ . '/../common/Fixtures/Month.php';
-    }
-
     /**
      * @Revs(1000)
      * @Iterations(5)
@@ -28,7 +23,7 @@ class SplEnumBench
      */
     public function benchCreateMonth()
     {
-        new \Month();
+        new Month();
     }
 
     /**
@@ -39,7 +34,7 @@ class SplEnumBench
      */
     public function benchCreateSeptemberMonth()
     {
-        new \Month(\Month::SEPTEMBER);
+        new Month(Month::SEPTEMBER);
     }
 
     /**
@@ -50,6 +45,6 @@ class SplEnumBench
      */
     public function benchCreateUnstrictMonth()
     {
-        new \Month('1', false);
+        new Month('1', false);
     }
 }

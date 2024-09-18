@@ -11,55 +11,85 @@
 
 namespace Ducks\Component\SplTypes\Tests\atoum;
 
+use Ducks\Component\SplTypes\SplFloat as DuckFloat;
 use mageekguy\atoum;
 
 /**
  * @namespace \Tests\atoum
  */
-class SplFloat extends atoum
+class SplFloat extends atoum\test
 {
+    /**
+     * Unit test
+     *
+     * @return void
+     */
     public function test()
     {
+        $instance = new DuckFloat();
+        // @phpstan-ignore-next-line
         $this
-            ->given($this->newTestedInstance)
+            ->given($instance)
             ->then
-                ->float((float) (string) $this->testedInstance)
+                ->float((float) (string) $instance)
                     ->isEqualTo(0.0)
         ;
 
+        $instance = new DuckFloat(10.1);
+        // @phpstan-ignore-next-line
         $this
-            ->given($this->newTestedInstance(10.1))
+            ->given($instance)
             ->then
-                ->float((float) (string) $this->testedInstance)
+                ->float((float) (string) $instance)
                     ->isEqualTo(10.1)
         ;
 
+        $instance = new DuckFloat('10.1', false);
+        // @phpstan-ignore-next-line
         $this
-            ->given($this->newTestedInstance('10.1', false))
+            ->given($instance)
             ->then
-                ->float((float) (string) $this->testedInstance)
+                ->float((float) (string) $instance)
                     ->isEqualTo(10.1)
         ;
     }
 
+    /**
+     * Unit test
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_unexpected_value_exception_bool()
     {
+        // @phpstan-ignore-next-line
         $this
             ->exception(
-                function() {
-                    $this->newTestedInstance(false);
+                function () {
+                    new DuckFloat(false);
                 }
             )
             ->isInstanceOf('\UnexpectedValueException')
         ;
     }
 
+    /**
+     * Unit test
+     *
+     * @throws \UnexpectedValueException
+     *
+     * @return void
+     */
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function test_unexpected_value_exception_string()
     {
+        // @phpstan-ignore-next-line
         $this
             ->exception(
-                function() {
-                    $this->newTestedInstance('10');
+                function () {
+                    new DuckFloat('10');
                 }
             )
             ->isInstanceOf('\UnexpectedValueException')

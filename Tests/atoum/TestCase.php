@@ -15,9 +15,9 @@ use mageekguy\atoum;
 
 abstract class TestCase extends atoum
 {
-   public function __construct(score $score = null, locale $locale = null, adapter $adapter = null)
-   {
+    public function __construct(atoum\score $score = null, atoum\locale $locale = null, atoum\adapter $adapter = null)
+    {
         $this->setTestNamespace('\\Tests\\atoum');
         parent::__construct($score, $locale, $adapter);
-   }
+    }
 }
