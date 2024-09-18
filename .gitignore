@@ -25,6 +25,9 @@
 # Idea
 .idea/*
 
+# vscode
+*.code-workspace
+
 # Swap & temp files
 *~
 *.tmp

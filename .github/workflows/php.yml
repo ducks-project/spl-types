@@ -2,9 +2,9 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ "master", "1.x" ]
+    branches: [ "1.x" ]
   pull_request:
-    branches: [ "master", "1.x" ]
+    branches: [ "1.x" ]
 
 permissions:
   contents: read
@@ -19,7 +19,8 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 7.4
+        php-version: 5.6
+        tools: composer:v1
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
@@ -34,7 +35,7 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install php-coveralls dev
-      run: composer require --dev php-coveralls/php-coveralls ^1 --with-all-dependencies
+      run: composer require --dev --update-with-all-dependencies php-coveralls/php-coveralls ^1
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
