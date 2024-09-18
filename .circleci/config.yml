@@ -8,7 +8,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: cimg/php:7.2-node
+      - image: cimg/php:7.4-node
     steps:
       - checkout
       - run: php --version
@@ -31,7 +31,7 @@ jobs:
       - run: sudo rm composer-setup.php
 
       # composer require
-      - run: composer require --dev php-coveralls/php-coveralls ^1 --with-all-dependencies
+      - run: composer require --dev --with-all-dependencies php-coveralls/php-coveralls ^1
 
       # composer cache
       - restore_cache:

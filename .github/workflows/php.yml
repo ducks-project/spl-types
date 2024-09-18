@@ -35,7 +35,7 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install php-coveralls dev
-      run: composer require --dev php-coveralls/php-coveralls ^1 --with-all-dependencies
+      run: composer require --dev --update-with-all-dependencies php-coveralls/php-coveralls ^1
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
