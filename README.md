@@ -52,7 +52,8 @@ It provides classes unavailable if you can't install [SPL Types](http://php.net/
 Because limitations of PHP it is impossible to directly reaffect Spl variables like the original extension.
 For example:
 
-```
+```php
+<?php
 // With Spl Extension.
 $int = new \SplInt();
 $int = 'test'; // Exception.
@@ -64,7 +65,8 @@ $int = 'test'; // Just unset Object and affect 'test' to $int variable.
 
 In the same way, Spl_Types polyfill is not really strict typing the extension. So, the code below is not "correct".
 
-```
+```php
+<?php
 // With Spl Extension.
 $test = 10;
 $value = new \SplInt($test);
@@ -84,7 +86,8 @@ if ($test === $string) { // Cast Error.
 
 Because of PHP behaviors you can't easily do operations like:
 
-```
+```php
+<?php
 $int = new \SplInt();
 $int++; // Exception.
 
@@ -93,7 +96,8 @@ $int + 10; // Exception.
 
 Unfortunately, you need to do like below:
 
-```
+```php
+<?php
 $int = new \SplInt();
 
 $result = (int) (string) $int + 10; // Shame...
@@ -103,7 +107,8 @@ $result = (int) (string) $int + 10; // Shame...
 
 As it was said, you need to manually cast your object to string in order to make comparison.
 
-```
+```php
+<?php
 class Month extends \SplEnum {
     const __default = self::January;
     const January = 1;
@@ -126,7 +131,8 @@ if (Month::January == (string) $enum) {
 
 Like it was explain above, the \SplBool object isn't a strict boolean so take care about your equality test.
 
-```
+```php
+<?php
 $bool = new \SplBool(false);
 if ($bool) {
     echo 'This is true'; // Object is not null so it pass test...
