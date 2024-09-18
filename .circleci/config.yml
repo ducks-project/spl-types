@@ -31,7 +31,7 @@ jobs:
       - run: sudo rm composer-setup.php
 
       # composer require
-      - run: composer require --dev php-coveralls/php-coveralls ^1 --with-all-dependencies
+      - run: composer require --dev --update-with-all-dependencies php-coveralls/php-coveralls ^1
 
       # composer cache
       - restore_cache:
