@@ -20,7 +20,7 @@ use mageekguy\atoum;
 class SplString extends atoum\test
 {
     /**
-     * Unit test
+     * Unit test.
      *
      * @return void
      */
@@ -55,7 +55,7 @@ class SplString extends atoum\test
     }
 
     /**
-     * Unit test
+     * Unit test.
      *
      * @throws \UnexpectedValueException
      *
@@ -76,7 +76,7 @@ class SplString extends atoum\test
     }
 
     /**
-     * Unit test
+     * Unit test.
      *
      * @throws \UnexpectedValueException
      *

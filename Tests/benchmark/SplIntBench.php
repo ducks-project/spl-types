@@ -17,6 +17,7 @@ class SplIntBench
 {
     /**
      * @Revs(1000)
+     *
      * @Iterations(5)
      *
      * @return void
@@ -28,6 +29,7 @@ class SplIntBench
 
     /**
      * @Revs(1000)
+     *
      * @Iterations(5)
      *
      * @return void
@@ -39,6 +41,7 @@ class SplIntBench
 
     /**
      * @Revs(1000)
+     *
      * @Iterations(5)
      *
      * @return void
@@ -50,6 +53,7 @@ class SplIntBench
 
     /**
      * @Revs(1000)
+     *
      * @Iterations(5)
      *
      * @return void

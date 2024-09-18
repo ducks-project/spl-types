@@ -25,7 +25,7 @@ abstract class SplEnum extends SplType
      */
     public function __construct($initial_value = null, $strict = true)
     {
-        if ($initial_value === null) {
+        if (null === $initial_value) {
             $initial_value = static::__default;
         }
         $class = new \ReflectionClass($this);

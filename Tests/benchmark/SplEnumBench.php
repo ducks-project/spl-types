@@ -17,6 +17,7 @@ class SplEnumBench
 {
     /**
      * @Revs(1000)
+     *
      * @Iterations(5)
      *
      * @return void
@@ -28,6 +29,7 @@ class SplEnumBench
 
     /**
      * @Revs(1000)
+     *
      * @Iterations(5)
      *
      * @return void
@@ -39,6 +41,7 @@ class SplEnumBench
 
     /**
      * @Revs(1000)
+     *
      * @Iterations(5)
      *
      * @return void

@@ -16,12 +16,11 @@ use atoum;
 
 /**
  * @namespace \Tests\atoum
- *
  */
 class SplBool extends atoum
 {
     /**
-     * Unit test
+     * Unit test.
      *
      * @return void
      */
@@ -54,7 +53,7 @@ class SplBool extends atoum
     }
 
     /**
-     * Unit test
+     * Unit test.
      *
      * @throws \UnexpectedValueException
      *
@@ -74,7 +73,7 @@ class SplBool extends atoum
     }
 
     /**
-     * Unit test
+     * Unit test.
      *
      * @throws \UnexpectedValueException
      *
@@ -94,7 +93,7 @@ class SplBool extends atoum
     }
 
     /**
-     * Unit test
+     * Unit test.
      *
      * @return void
      */

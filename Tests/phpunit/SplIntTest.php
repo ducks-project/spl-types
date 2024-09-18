@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 class SplIntTest extends TestCase
 {
     /**
-     * Unit test
+     * Unit test.
      *
      * @return void
      */
@@ -34,7 +34,7 @@ class SplIntTest extends TestCase
     }
 
     /**
-     * Unit test
+     * Unit test.
      *
      * @throws \UnexpectedValueException
      *
@@ -48,7 +48,7 @@ class SplIntTest extends TestCase
     }
 
     /**
-     * Unit test
+     * Unit test.
      *
      * @throws \UnexpectedValueException
      *

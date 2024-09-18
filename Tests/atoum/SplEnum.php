@@ -20,7 +20,7 @@ use mageekguy\atoum;
 class SplEnum extends atoum\test
 {
     /**
-     * Unit test
+     * Unit test.
      *
      * @return void
      */
@@ -56,7 +56,7 @@ class SplEnum extends atoum\test
     }
 
     /**
-     * Unit test
+     * Unit test.
      *
      * @throws \UnexpectedValueException
      *
@@ -77,7 +77,7 @@ class SplEnum extends atoum\test
     }
 
     /**
-     * Unit test
+     * Unit test.
      *
      * @return void
      */

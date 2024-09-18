@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 class SplBoolTest extends TestCase
 {
     /**
-     * Unit test
+     * Unit test.
      *
      * @return void
      */
@@ -37,7 +37,7 @@ class SplBoolTest extends TestCase
     }
 
     /**
-     * Unit test
+     * Unit test.
      *
      * @throws \UnexpectedValueException
      *
@@ -51,7 +51,7 @@ class SplBoolTest extends TestCase
     }
 
     /**
-     * Unit test
+     * Unit test.
      *
      * @throws \UnexpectedValueException
      *
@@ -65,7 +65,7 @@ class SplBoolTest extends TestCase
     }
 
     /**
-     * Unit test
+     * Unit test.
      *
      * @return void
      */
@@ -75,7 +75,7 @@ class SplBoolTest extends TestCase
         $list = [
             '__default' => false,
             'false' => false,
-            'true' => true
+            'true' => true,
         ];
         $bool = new DuckBool();
 

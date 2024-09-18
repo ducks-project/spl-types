@@ -17,6 +17,7 @@ class SplBoolBench
 {
     /**
      * @Revs(1000)
+     *
      * @Iterations(5)
      *
      * @return void
@@ -28,6 +29,7 @@ class SplBoolBench
 
     /**
      * @Revs(1000)
+     *
      * @Iterations(5)
      *
      * @return void
