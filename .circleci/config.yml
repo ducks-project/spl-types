@@ -8,7 +8,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: cimg/php:7.4-node
+      - image: cimg/php:7.0-node
     steps:
       - checkout
       - run: php --version
@@ -24,6 +24,11 @@ jobs:
 
       - run: echo -e "[Date]\ndate.timezone = Europe/Paris" | sudo tee /usr/local/etc/php/php.ini > /dev/null
       - run: echo -e "memory_limit = -1" | sudo tee -a /usr/local/etc/php/conf.d/docker-php-memlimit.ini
+
+      # Overriding composer installation to use v1
+      - run: curl -sS https://getcomposer.org/installer -o composer-setup.php
+      - run: sudo php composer-setup.php --filename=composer --install-dir=/usr/local/bin --version=1.10.27
+      - run: sudo rm composer-setup.php
 
       # composer require
       - run: composer require --dev php-coveralls/php-coveralls ^1 --with-all-dependencies
