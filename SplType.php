@@ -46,7 +46,7 @@ abstract class SplType
      *
      * @phpstan-ignore-next-line
      */
-    public function __construct($initial_value = self::__default, $strict = true)
+    public function __construct($initial_value = self::__default, bool $strict = true)
     {
         if (null === $initial_value) {
             $initial_value = static::__default;
@@ -71,7 +71,7 @@ abstract class SplType
      *
      * @return SplType
      */
-    final public static function __set_state($properties)
+    final public static function __set_state(array $properties)
     {
         // @phpstan-ignore-next-line
         return new static($properties['__default']);

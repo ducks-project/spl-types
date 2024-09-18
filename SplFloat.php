@@ -29,7 +29,7 @@ class SplFloat extends SplType
     /**
      * {@inheritdoc}
      */
-    public function __construct($initial_value = self::__default, $strict = true)
+    public function __construct($initial_value = self::__default, bool $strict = true)
     {
         parent::__construct($initial_value, $strict);
         if (!$strict) {

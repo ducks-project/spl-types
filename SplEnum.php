@@ -23,7 +23,7 @@ abstract class SplEnum extends SplType
     /**
      * {@inheritdoc}
      */
-    public function __construct($initial_value = null, $strict = true)
+    public function __construct($initial_value = null, bool $strict = true)
     {
         if (null === $initial_value) {
             $initial_value = static::__default;
@@ -42,7 +42,7 @@ abstract class SplEnum extends SplType
      *
      * @return array<mixed, mixed>
      */
-    final public function getConstList($include_default = false)
+    final public function getConstList(bool $include_default = false)
     {
         $class = new \ReflectionClass($this);
         $constants = $class->getConstants();
