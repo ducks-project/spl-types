@@ -8,7 +8,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: cimg/php:7.0-node
+      - image: cimg/php:7.2-node
     steps:
       - checkout
       - run: php --version
