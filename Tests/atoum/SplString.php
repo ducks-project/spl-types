@@ -12,22 +12,21 @@
 namespace Ducks\Component\SplTypes\Tests\atoum;
 
 use Ducks\Component\SplTypes\SplString as DuckString;
-use mageekguy\atoum;
+use atoum;
 
 /**
  * @namespace \Tests\atoum
  */
-class SplString extends atoum\test
+class SplString extends atoum
 {
     /**
      * Unit test.
      *
      * @return void
      */
-    public function test()
+    public function test(): void
     {
         $instance = new DuckString();
-        // @phpstan-ignore-next-line
         $this
             ->given($instance)
             ->then
@@ -36,7 +35,6 @@ class SplString extends atoum\test
         ;
 
         $instance = new DuckString('test');
-        // @phpstan-ignore-next-line
         $this
             ->given($instance)
             ->then
@@ -45,7 +43,6 @@ class SplString extends atoum\test
         ;
 
         $instance = new DuckString(0, false);
-        // @phpstan-ignore-next-line
         $this
             ->given($instance)
             ->then
@@ -62,12 +59,11 @@ class SplString extends atoum\test
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_int()
+    public function test_unexpected_value_exception_int(): void
     {
-        // @phpstan-ignore-next-line
         $this
             ->exception(
-                function () {
+                function (): void {
                     new DuckString(0);
                 }
             )
@@ -83,12 +79,11 @@ class SplString extends atoum\test
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_scalar()
+    public function test_unexpected_value_exception_scalar(): void
     {
-        // @phpstan-ignore-next-line
         $this
             ->exception(
-                function () {
+                function (): void {
                     new DuckString([]);
                 }
             )

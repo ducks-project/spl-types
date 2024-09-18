@@ -22,7 +22,7 @@ class SplBoolBench
      *
      * @return void
      */
-    public function benchCreateTrue()
+    public function benchCreateTrue(): void
     {
         new SplBool();
     }
@@ -34,7 +34,7 @@ class SplBoolBench
      *
      * @return void
      */
-    public function benchCreateFalse()
+    public function benchCreateFalse(): void
     {
         new SplBool();
     }

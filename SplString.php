@@ -23,8 +23,8 @@ class SplString extends SplType
     /**
      * @var string
      */
-    // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase, PSR12.Properties.ConstantVisibility.NotFound
-    const __default = '';
+    // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
+    public const __default = '';
 
     /**
      * {@inheritdoc}

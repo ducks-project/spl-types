@@ -21,7 +21,7 @@ class SplStringTest extends TestCase
      *
      * @return void
      */
-    public function test()
+    public function test(): void
     {
         $test = new DuckString();
         $this->assertSame('', (string) $test);
@@ -44,7 +44,7 @@ class SplStringTest extends TestCase
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_int()
+    public function test_unexpected_value_exception_int(): void
     {
         $this->expectException('\UnexpectedValueException');
         new DuckString(0);
@@ -58,7 +58,7 @@ class SplStringTest extends TestCase
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_scalar()
+    public function test_unexpected_value_exception_scalar(): void
     {
         $this->expectException('\UnexpectedValueException');
         new DuckString([]);

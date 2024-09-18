@@ -22,7 +22,7 @@ class SplIntBench
      *
      * @return void
      */
-    public function benchCreateZero()
+    public function benchCreateZero(): void
     {
         new SplInt();
     }
@@ -34,7 +34,7 @@ class SplIntBench
      *
      * @return void
      */
-    public function benchCreateRand()
+    public function benchCreateRand(): void
     {
         new SplInt(mt_rand());
     }
@@ -46,7 +46,7 @@ class SplIntBench
      *
      * @return void
      */
-    public function benchCreateMin()
+    public function benchCreateMin(): void
     {
         new SplInt(PHP_INT_MIN);
     }
@@ -58,7 +58,7 @@ class SplIntBench
      *
      * @return void
      */
-    public function benchCreateMax()
+    public function benchCreateMax(): void
     {
         new SplInt(PHP_INT_MAX);
     }

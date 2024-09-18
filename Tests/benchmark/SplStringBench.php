@@ -22,7 +22,7 @@ class SplStringBench
      *
      * @return void
      */
-    public function benchCreateEmpty()
+    public function benchCreateEmpty(): void
     {
         new SplString();
     }
@@ -34,7 +34,7 @@ class SplStringBench
      *
      * @return void
      */
-    public function benchCreateTest()
+    public function benchCreateTest(): void
     {
         new SplString('test');
     }
@@ -46,7 +46,7 @@ class SplStringBench
      *
      * @return void
      */
-    public function benchCreateNumeric()
+    public function benchCreateNumeric(): void
     {
         new SplString((string) mt_rand());
     }

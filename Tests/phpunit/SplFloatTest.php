@@ -21,7 +21,7 @@ class SplFloatTest extends TestCase
      *
      * @return void
      */
-    public function test()
+    public function test(): void
     {
         $test = new DuckFloat();
         $this->assertSame(0.0, (float) (string) $test);
@@ -44,7 +44,7 @@ class SplFloatTest extends TestCase
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_bool()
+    public function test_unexpected_value_exception_bool(): void
     {
         $this->expectException('\UnexpectedValueException');
         new DuckFloat(false);
@@ -58,7 +58,7 @@ class SplFloatTest extends TestCase
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_string()
+    public function test_unexpected_value_exception_string(): void
     {
         $this->expectException('\UnexpectedValueException');
         new DuckFloat('10');

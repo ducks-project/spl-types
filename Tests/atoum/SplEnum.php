@@ -12,23 +12,21 @@
 namespace Ducks\Component\SplTypes\Tests\atoum;
 
 use Ducks\Component\SplTypes\Tests\common\Month;
-use mageekguy\atoum;
+use atoum;
 
 /**
  * @namespace \Tests\atoum
  */
-class SplEnum extends atoum\test
+class SplEnum extends atoum
 {
     /**
      * Unit test.
      *
      * @return void
      */
-    public function test()
+    public function test(): void
     {
         $test = new Month();
-
-        // @phpstan-ignore-next-line
         $this
             ->given($test)
             ->then
@@ -37,7 +35,6 @@ class SplEnum extends atoum\test
         ;
 
         $test = new Month(Month::SEPTEMBER);
-        // @phpstan-ignore-next-line
         $this
             ->given($test)
             ->then
@@ -46,7 +43,6 @@ class SplEnum extends atoum\test
         ;
 
         $test = $test = new Month('1', false);
-        // @phpstan-ignore-next-line
         $this
             ->given()
             ->then
@@ -63,12 +59,11 @@ class SplEnum extends atoum\test
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception()
+    public function test_unexpected_value_exception(): void
     {
-        // @phpstan-ignore-next-line
         $this
             ->exception(
-                function () {
+                function (): void {
                     new Month('1');
                 }
             )
@@ -82,7 +77,7 @@ class SplEnum extends atoum\test
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_list()
+    public function test_list(): void
     {
         $list = [
             '__default' => 1,
@@ -101,7 +96,6 @@ class SplEnum extends atoum\test
         ];
 
         $test = new Month();
-        // @phpstan-ignore-next-line
         $this
             ->given($test)
             ->then
@@ -112,7 +106,6 @@ class SplEnum extends atoum\test
         unset($list['__default']);
 
         $test = new Month();
-        // @phpstan-ignore-next-line
         $this
             ->given($test)
             ->then

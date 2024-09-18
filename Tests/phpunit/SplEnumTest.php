@@ -21,7 +21,7 @@ class SplEnumTest extends TestCase
      *
      * @return void
      */
-    public function test()
+    public function test(): void
     {
         $test = new Month();
         $this->assertEquals(Month::__default, (string) $test);
@@ -44,7 +44,7 @@ class SplEnumTest extends TestCase
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception()
+    public function test_unexpected_value_exception(): void
     {
         $this->expectException('\UnexpectedValueException');
         new Month('1');
@@ -56,7 +56,7 @@ class SplEnumTest extends TestCase
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_list()
+    public function test_list(): void
     {
         $list = [
             '__default' => 1,

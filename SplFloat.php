@@ -23,8 +23,8 @@ class SplFloat extends SplType
     /**
      * @var float
      */
-    // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase, PSR12.Properties.ConstantVisibility.NotFound
-    const __default = 0.0;
+    // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
+    public const __default = 0.0;
 
     /**
      * {@inheritdoc}

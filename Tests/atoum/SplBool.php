@@ -24,10 +24,9 @@ class SplBool extends atoum
      *
      * @return void
      */
-    public function test()
+    public function test(): void
     {
         $instance = new DuckBool();
-
         $this
             ->given($instance)
             ->then
@@ -60,11 +59,11 @@ class SplBool extends atoum
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_int()
+    public function test_unexpected_value_exception_int(): void
     {
         $this
             ->exception(
-                function () {
+                function (): void {
                     new DuckBool(0);
                 }
             )
@@ -80,11 +79,11 @@ class SplBool extends atoum
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_string()
+    public function test_unexpected_value_exception_string(): void
     {
         $this
             ->exception(
-                function () {
+                function (): void {
                     new DuckBool('test');
                 }
             )
@@ -98,7 +97,7 @@ class SplBool extends atoum
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_list()
+    public function test_list(): void
     {
         $list = [
             '__default' => false,

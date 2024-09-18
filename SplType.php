@@ -23,8 +23,8 @@ abstract class SplType
     /**
      * Default value.
      */
-    // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase, PSR12.Properties.ConstantVisibility.NotFound
-    const __default = null;
+    // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
+    public const __default = null;
 
     /**
      * Internal enum value.

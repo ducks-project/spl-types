@@ -21,7 +21,7 @@ class SplIntTest extends TestCase
      *
      * @return void
      */
-    public function test()
+    public function test(): void
     {
         $test = new DuckInt();
         $this->assertSame(0, (int) (string) $test);
@@ -41,7 +41,7 @@ class SplIntTest extends TestCase
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_float()
+    public function test_unexpected_value_exception_float(): void
     {
         $this->expectException('\UnexpectedValueException');
         new DuckInt(10.0);
@@ -55,7 +55,7 @@ class SplIntTest extends TestCase
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_string()
+    public function test_unexpected_value_exception_string(): void
     {
         $this->expectException('\UnexpectedValueException');
         new DuckInt('test');

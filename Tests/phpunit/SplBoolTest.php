@@ -21,7 +21,7 @@ class SplBoolTest extends TestCase
      *
      * @return void
      */
-    public function test()
+    public function test(): void
     {
         $test = new DuckBool();
         $this->assertFalse((bool) (string) $test);
@@ -44,7 +44,7 @@ class SplBoolTest extends TestCase
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_int()
+    public function test_unexpected_value_exception_int(): void
     {
         $this->expectException('\UnexpectedValueException');
         new DuckBool(0);
@@ -58,7 +58,7 @@ class SplBoolTest extends TestCase
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_string()
+    public function test_unexpected_value_exception_string(): void
     {
         $this->expectException('\UnexpectedValueException');
         new DuckBool('test');
@@ -70,7 +70,7 @@ class SplBoolTest extends TestCase
      * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_list()
+    public function test_list(): void
     {
         $list = [
             '__default' => false,

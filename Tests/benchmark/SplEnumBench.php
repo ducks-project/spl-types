@@ -22,7 +22,7 @@ class SplEnumBench
      *
      * @return void
      */
-    public function benchCreateMonth()
+    public function benchCreateMonth(): void
     {
         new Month();
     }
@@ -34,7 +34,7 @@ class SplEnumBench
      *
      * @return void
      */
-    public function benchCreateSeptemberMonth()
+    public function benchCreateSeptemberMonth(): void
     {
         new Month(Month::SEPTEMBER);
     }
@@ -46,7 +46,7 @@ class SplEnumBench
      *
      * @return void
      */
-    public function benchCreateUnstrictMonth()
+    public function benchCreateUnstrictMonth(): void
     {
         new Month('1', false);
     }
