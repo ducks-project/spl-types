@@ -2,9 +2,9 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ "5.x" ]
+    branches: [ "7.x" ]
   pull_request:
-    branches: [ "5.x" ]
+    branches: [ "7.x" ]
 
 permissions:
   contents: read
@@ -19,7 +19,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 7.3
+        php-version: 7.4
         tools: composer:v2
 
     - name: Validate composer.json and composer.lock

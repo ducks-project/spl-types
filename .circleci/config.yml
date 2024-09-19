@@ -61,4 +61,4 @@ workflows:
       - test:
           filters:
             branches:
-              only: /5\..*/
+              only: /7\..*/
