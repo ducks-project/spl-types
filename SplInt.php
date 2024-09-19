@@ -9,14 +9,12 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Ducks\Component\SplTypes;
 
 /**
  * The SplInt class is used to enforce strong typing of the integer type.
- *
- * @see SplInt http://php.net/manual/en/class.splint.php
- *
- * @psalm-api
  */
 class SplInt extends SplType
 {
@@ -28,16 +26,11 @@ class SplInt extends SplType
 
     /**
      * {@inheritdoc}
+     *
+     * @param int $initial_value
      */
-    public function __construct($initial_value = self::__default, bool $strict = true)
+    public function __construct(int $initial_value = self::__default)
     {
-        parent::__construct($initial_value, $strict);
-        if (!$strict) {
-            $initial_value = (int) $initial_value;
-        }
-        if (!is_int($initial_value)) {
-            throw new \UnexpectedValueException('Value not an integer');
-        }
-        $this->__default = $initial_value;
+        parent::__construct($initial_value);
     }
 }

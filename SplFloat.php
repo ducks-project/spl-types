@@ -9,14 +9,12 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Ducks\Component\SplTypes;
 
 /**
  * The SplFloat class is used to enforce strong typing of the float type.
- *
- * @see http://php.net/manual/en/class.splfloat.php
- *
- * @psalm-api
  */
 class SplFloat extends SplType
 {
@@ -28,16 +26,11 @@ class SplFloat extends SplType
 
     /**
      * {@inheritdoc}
+     *
+     * @param float $initial_value
      */
-    public function __construct($initial_value = self::__default, bool $strict = true)
+    public function __construct(float $initial_value = self::__default)
     {
-        parent::__construct($initial_value, $strict);
-        if (!$strict) {
-            $initial_value = (float) $initial_value;
-        }
-        if (!is_float($initial_value) && !is_int($initial_value)) {
-            throw new \UnexpectedValueException('Value not a float');
-        }
-        $this->__default = $initial_value;
+        parent::__construct($initial_value);
     }
 }

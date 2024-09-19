@@ -9,30 +9,33 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Ducks\Component\SplTypes;
 
 /**
  * SplEnum gives the ability to emulate and create enumeration objects natively in PHP.
- *
- * @see SplEnum http://php.net/manual/en/class.splenum.php
- *
- * @psalm-api
  */
 abstract class SplEnum extends SplType
 {
     /**
      * {@inheritdoc}
+     *
+     * @param mixed $initial_value
+     * @param bool $strict
+     *
+     * @throws \UnexpectedValueException if incompatible type is given.
      */
     public function __construct($initial_value = null, bool $strict = true)
     {
-        if (null === $initial_value) {
-            $initial_value = static::__default;
-        }
+        $initial_value ??= static::__default;
+
         $class = new \ReflectionClass($this);
-        if (!in_array($initial_value, $class->getConstants(), $strict)) {
+        if (!\in_array($initial_value, $class->getConstants(), $strict)) {
             throw new \UnexpectedValueException('Value not a const in enum ' . $class->getShortName());
         }
-        $this->__default = $initial_value;
+
+        parent::__construct($initial_value);
     }
 
     /**
@@ -49,6 +52,7 @@ abstract class SplEnum extends SplType
         if (!$include_default) {
             unset($constants['__default']);
         }
+
         return $constants;
     }
 }

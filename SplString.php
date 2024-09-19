@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Ducks\Component\SplTypes;
 
 /**
  * The SplString class is used to enforce strong typing of the string type.
  *
  * @see SplString http://php.net/manual/en/class.splstring.php
- *
- * @psalm-api
  */
 class SplString extends SplType
 {
@@ -28,16 +28,11 @@ class SplString extends SplType
 
     /**
      * {@inheritdoc}
+     *
+     * @param string $initial_value
      */
-    public function __construct($initial_value = self::__default, bool $strict = true)
+    public function __construct(string $initial_value = self::__default)
     {
-        parent::__construct($initial_value, $strict);
-        if (!$strict) {
-            $initial_value = (string) $initial_value;
-        }
-        if (!is_string($initial_value)) {
-            throw new \UnexpectedValueException('Value not a string');
-        }
-        $this->__default = $initial_value;
+        parent::__construct($initial_value);
     }
 }
