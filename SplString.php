@@ -31,6 +31,14 @@ class SplString extends SplType
      */
     public function __construct($initial_value = self::__default, bool $strict = true)
     {
+        if (!$strict) {
+            trigger_error(
+                'Since 6.x argument $strict is deprecated for ' . __CLASS__
+                    . ' and will be remove in 7.x in favor of strict typing.',
+                \E_USER_DEPRECATED
+            );
+        }
+
         parent::__construct($initial_value, $strict);
         if (!$strict) {
             $initial_value = (string) $initial_value;

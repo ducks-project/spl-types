@@ -23,7 +23,7 @@ abstract class SplEnum extends SplType
     /**
      * {@inheritdoc}
      */
-    public function __construct($initial_value = null, bool $strict = true)
+    public function __construct($initial_value = self::__default, bool $strict = true)
     {
         if (null === $initial_value) {
             $initial_value = static::__default;
