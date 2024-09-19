@@ -30,6 +30,5 @@ class SplIntUnstrictTest extends TestCase
         // @phpstan-ignore-next-line
         $instance = new DuckInt(10.0);
         $this->assertSame(10, $instance());
-        unset($instance);
     }
 }

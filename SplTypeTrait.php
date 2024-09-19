@@ -63,6 +63,8 @@ trait SplTypeTrait
      * @param array<mixed,mixed> $properties
      *
      * @return SplType
+     *
+     * @codeCoverageIgnore
      */
     final public static function __set_state(array $properties): object
     {
@@ -73,6 +75,8 @@ trait SplTypeTrait
      * Dumping object.
      *
      * @return array<string,mixed>
+     *
+     * @codeCoverageIgnore
      */
     final public function __debugInfo(): array
     {

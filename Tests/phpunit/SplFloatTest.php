@@ -27,11 +27,9 @@ class SplFloatTest extends TestCase
     {
         $instance = new DuckFloat();
         $this->assertSame(0.0, $instance());
-        unset($instance);
 
         $instance = new DuckFloat(10.1);
         $this->assertSame(10.1, $instance());
-        unset($instance);
     }
 
     /**
@@ -50,6 +48,20 @@ class SplFloatTest extends TestCase
 
         $this->assertSame(11.1, $value);
         $this->assertSame(11.1, $instance());
-        unset($instance);
+    }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testSerialization(): void
+    {
+        $instance = new DuckFloat(22.9);
+        $serialized = \serialize($instance);
+        $unserialized = \unserialize($serialized);
+
+        $this->assertEquals($instance, $unserialized);
+        $this->assertEquals(22.9, $instance());
     }
 }

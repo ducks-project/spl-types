@@ -27,11 +27,9 @@ class SplBoolTest extends TestCase
     {
         $instance = new DuckBool();
         $this->assertFalse($instance());
-        unset($instance);
 
         $instance = new DuckBool(true);
         $this->assertTrue($instance());
-        unset($instance);
     }
 
     /**
@@ -50,10 +48,24 @@ class SplBoolTest extends TestCase
 
         $test = $instance->getConstList(true);
         $this->assertSame($list, $test);
-        unset($test, $list['__default']);
 
         $test = $instance->getConstList();
+        unset($list['__default']);
         $this->assertSame($list, $test);
-        unset($instance, $test, $list);
+    }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testSerialization(): void
+    {
+        $instance = new DuckBool();
+        $serialized = \serialize($instance);
+        $unserialized = \unserialize($serialized);
+
+        $this->assertEquals($instance, $unserialized);
+        $this->assertFalse($instance());
     }
 }

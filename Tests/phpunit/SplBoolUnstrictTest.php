@@ -30,11 +30,9 @@ class SplBoolUnstrictTest extends TestCase
         // @phpstan-ignore-next-line
         $instance = new DuckBool(0);
         $this->assertFalse($instance());
-        unset($instance);
 
         // @phpstan-ignore-next-line
         $instance = new DuckBool(1);
         $this->assertTrue($instance());
-        unset($instance);
     }
 }

@@ -30,6 +30,5 @@ class SplStringUnstrictTest extends TestCase
         // @phpstan-ignore-next-line
         $instance = new DuckString(0);
         $this->assertSame('0', $instance());
-        unset($instance);
     }
 }

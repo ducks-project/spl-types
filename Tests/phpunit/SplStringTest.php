@@ -27,11 +27,9 @@ class SplStringTest extends TestCase
     {
         $instance = new DuckString();
         $this->assertSame('', $instance());
-        unset($instance);
 
-        $instance = new DuckString('test');
-        $this->assertSame('test', $instance());
-        unset($instance);
+        $instance = new DuckString('hello world');
+        $this->assertSame('hello world', $instance());
     }
 
     /**
@@ -50,6 +48,20 @@ class SplStringTest extends TestCase
 
         $this->assertSame('hello world', $value);
         $this->assertSame('hello world', $instance());
-        unset($instance);
+    }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testSerialization(): void
+    {
+        $instance = new DuckString('hello world');
+        $serialized = \serialize($instance);
+        $unserialized = \unserialize($serialized);
+
+        $this->assertEquals($instance, $unserialized);
+        $this->assertSame('hello world', $instance());
     }
 }

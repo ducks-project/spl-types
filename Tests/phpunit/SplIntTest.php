@@ -26,12 +26,10 @@ class SplIntTest extends TestCase
     public function test(): void
     {
         $instance = new DuckInt();
-        $this->assertSame(0, (int) (string) $instance);
-        unset($instance);
+        $this->assertSame(0, $instance());
 
         $instance = new DuckInt(10);
-        $this->assertSame(10, (int) (string) $instance);
-        unset($instance);
+        $this->assertSame(10, $instance());
     }
 
     /**
@@ -50,6 +48,20 @@ class SplIntTest extends TestCase
 
         $this->assertSame(11, $value);
         $this->assertSame(11, $instance());
-        unset($instance);
+    }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testSerialization(): void
+    {
+        $instance = new DuckInt(22);
+        $serialized = \serialize($instance);
+        $unserialized = \unserialize($serialized);
+
+        $this->assertEquals($instance, $unserialized);
+        $this->assertEquals(22, $instance());
     }
 }

@@ -27,15 +27,12 @@ class SplEnumTest extends TestCase
     {
         $instance = new Month();
         $this->assertEquals(Month::__default, $instance());
-        unset($instance);
 
         $instance = new Month(Month::SEPTEMBER);
         $this->assertEquals(Month::SEPTEMBER, $instance());
-        unset($instance);
 
         $instance = new Month('1', false);
         $this->assertEquals(Month::JANUARY, $instance());
-        unset($instance);
     }
 
     /**
@@ -77,10 +74,24 @@ class SplEnumTest extends TestCase
 
         $test = $instance->getConstList(true);
         $this->assertSame($list, $test);
-        unset($test, $list['__default']);
 
         $test = $instance->getConstList();
+        unset($list['__default']);
         $this->assertSame($list, $test);
-        unset($instance, $test, $list);
+    }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testSerialization(): void
+    {
+        $instance = new Month(Month::SEPTEMBER);
+        $serialized = \serialize($instance);
+        $unserialized = \unserialize($serialized);
+
+        $this->assertEquals($instance, $unserialized);
+        $this->assertEquals(Month::SEPTEMBER, $instance());
     }
 }

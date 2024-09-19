@@ -30,6 +30,5 @@ class SplFloatUnstrictTest extends TestCase
         // @phpstan-ignore-next-line
         $instance = new DuckFloat('10.1');
         $this->assertSame(10.1, $instance());
-        unset($instance);
     }
 }
