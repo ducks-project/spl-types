@@ -17,7 +17,7 @@
         "email": "adrien.loyant@gmail.com"
     },
     "require": {
-        "php": ">=7.3"
+        "php": ">=7.4"
     },
     "require-dev": {
         "atoum/stubs": "^2.6",

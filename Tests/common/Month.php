@@ -17,6 +17,11 @@ use Ducks\Component\SplTypes\SplEnum as DuckEnum;
 
 class Month extends DuckEnum
 {
+    /**
+     * @var int
+     *
+     * @psalm-suppress InvalidClassConstantType
+     */
     // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
     public const __default = self::JANUARY;
 
