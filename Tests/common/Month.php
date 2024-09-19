@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-// phpcs:disable PSR12.Properties.ConstantVisibility.NotFound
+declare(strict_types=1);
 
 namespace Ducks\Component\SplTypes\Tests\common;
 
-use Ducks\Component\SplTypes\SplEnum;
+use Ducks\Component\SplTypes\SplEnum as DuckEnum;
 
-class Month extends SplEnum
+class Month extends DuckEnum
 {
     // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
     public const __default = self::JANUARY;

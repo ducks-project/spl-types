@@ -20,6 +20,8 @@ class SplFloat extends SplType
 {
     /**
      * @var float
+     *
+     * @psalm-suppress InvalidClassConstantType
      */
     // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
     public const __default = 0.0;
@@ -32,5 +34,10 @@ class SplFloat extends SplType
     public function __construct(float $initial_value = self::__default)
     {
         parent::__construct($initial_value);
+    }
+
+    final public function &__invoke(): float
+    {
+        return $this->__default;
     }
 }

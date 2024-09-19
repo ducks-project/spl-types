@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Ducks\Component\SplTypes\Tests\benchmark;
 
 use Ducks\Component\SplTypes\SplBool;

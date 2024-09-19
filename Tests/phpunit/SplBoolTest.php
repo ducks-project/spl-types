@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Ducks\Component\SplTypes\Tests\phpunit;
 
 use Ducks\Component\SplTypes\SplBool as DuckBool;
@@ -23,45 +25,13 @@ class SplBoolTest extends TestCase
      */
     public function test(): void
     {
-        $test = new DuckBool();
-        $this->assertFalse((bool) (string) $test);
-        unset($test);
+        $instance = new DuckBool();
+        $this->assertFalse($instance());
+        unset($instance);
 
-        $test = new DuckBool(true);
-        $this->assertTrue((bool) (string) $test);
-        unset($test);
-
-        $test = new DuckBool(1, false);
-        $this->assertTrue((bool) (string) $test);
-        unset($test);
-    }
-
-    /**
-     * Unit test.
-     *
-     * @throws \UnexpectedValueException
-     *
-     * @return void
-     */
-    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_int(): void
-    {
-        $this->expectException('\UnexpectedValueException');
-        new DuckBool(0);
-    }
-
-    /**
-     * Unit test.
-     *
-     * @throws \UnexpectedValueException
-     *
-     * @return void
-     */
-    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_string(): void
-    {
-        $this->expectException('\UnexpectedValueException');
-        new DuckBool('test');
+        $instance = new DuckBool(true);
+        $this->assertTrue($instance());
+        unset($instance);
     }
 
     /**
@@ -69,22 +39,21 @@ class SplBoolTest extends TestCase
      *
      * @return void
      */
-    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_list(): void
+    public function testGetConstList(): void
     {
         $list = [
             '__default' => false,
             'false' => false,
             'true' => true,
         ];
-        $bool = new DuckBool();
+        $instance = new DuckBool();
 
-        $test = $bool->getConstList(true);
+        $test = $instance->getConstList(true);
         $this->assertSame($list, $test);
         unset($test, $list['__default']);
 
-        $test = $bool->getConstList();
+        $test = $instance->getConstList();
         $this->assertSame($list, $test);
-        unset($bool, $test, $list);
+        unset($instance, $test, $list);
     }
 }

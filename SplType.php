@@ -42,4 +42,14 @@ abstract class SplType
     {
         $this->__default = $initial_value ?? static::__default;
     }
+
+    /**
+     * Method called when a script tries to call an object as a function.
+     *
+     * @return mixed
+     */
+    public function &__invoke()
+    {
+        return $this->__default;
+    }
 }

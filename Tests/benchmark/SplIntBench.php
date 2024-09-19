@@ -9,9 +9,11 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Ducks\Component\SplTypes\Tests\benchmark;
 
-use Ducks\Component\SplTypes\SplInt;
+use Ducks\Component\SplTypes\SplInt as DuckInt;
 
 class SplIntBench
 {
@@ -24,7 +26,7 @@ class SplIntBench
      */
     public function benchCreateZero(): void
     {
-        new SplInt();
+        new DuckInt();
     }
 
     /**
@@ -36,7 +38,7 @@ class SplIntBench
      */
     public function benchCreateRand(): void
     {
-        new SplInt(mt_rand());
+        new DuckInt(mt_rand());
     }
 
     /**
@@ -48,7 +50,7 @@ class SplIntBench
      */
     public function benchCreateMin(): void
     {
-        new SplInt(PHP_INT_MIN);
+        new DuckInt(PHP_INT_MIN);
     }
 
     /**
@@ -60,6 +62,26 @@ class SplIntBench
      */
     public function benchCreateMax(): void
     {
-        new SplInt(PHP_INT_MAX);
+        new DuckInt(PHP_INT_MAX);
+    }
+
+    /**
+     * @Revs(1000)
+     *
+     * @Iterations(5)
+     *
+     * @return void
+     *
+     * @psalm-suppress UnsupportedReferenceUsage
+     */
+    public function benchMath(): void
+    {
+        $instance = new DuckInt(10);
+
+        $value = &$instance();
+        $value++;
+
+        $result = $value;
+        unset($result);
     }
 }

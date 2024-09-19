@@ -20,6 +20,8 @@ class SplInt extends SplType
 {
     /**
      * @var int
+     *
+     * @psalm-suppress InvalidClassConstantType
      */
     // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
     public const __default = 0;
@@ -32,5 +34,10 @@ class SplInt extends SplType
     public function __construct(int $initial_value = self::__default)
     {
         parent::__construct($initial_value);
+    }
+
+    final public function &__invoke(): int
+    {
+        return $this->__default;
     }
 }

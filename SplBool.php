@@ -20,6 +20,8 @@ class SplBool extends SplEnum
 {
     /**
      * @var bool
+     *
+     * @psalm-suppress InvalidClassConstantType
      */
     // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
     public const __default = self::false;
@@ -44,5 +46,10 @@ class SplBool extends SplEnum
     public function __construct(bool $initial_value = self::__default)
     {
         parent::__construct($initial_value);
+    }
+
+    final public function &__invoke(): bool
+    {
+        return $this->__default;
     }
 }

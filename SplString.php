@@ -22,6 +22,8 @@ class SplString extends SplType
 {
     /**
      * @var string
+     *
+     * @psalm-suppress InvalidClassConstantType
      */
     // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
     public const __default = '';
@@ -34,5 +36,10 @@ class SplString extends SplType
     public function __construct(string $initial_value = self::__default)
     {
         parent::__construct($initial_value);
+    }
+
+    final public function &__invoke(): string
+    {
+        return $this->__default;
     }
 }

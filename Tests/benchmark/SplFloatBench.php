@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Ducks\Component\SplTypes\Tests\benchmark;
 
-use Ducks\Component\SplTypes\SplString as DuckString;
+use Ducks\Component\SplTypes\SplFloat as DuckFloat;
 
-class SplStringBench
+class SplFloatBench
 {
     /**
      * @Revs(1000)
@@ -24,9 +24,9 @@ class SplStringBench
      *
      * @return void
      */
-    public function benchCreateEmpty(): void
+    public function benchCreateZero(): void
     {
-        new DuckString();
+        new DuckFloat();
     }
 
     /**
@@ -36,9 +36,9 @@ class SplStringBench
      *
      * @return void
      */
-    public function benchCreateTest(): void
+    public function benchCreateRand(): void
     {
-        new DuckString('test');
+        new DuckFloat((float) mt_rand());
     }
 
     /**
@@ -48,9 +48,21 @@ class SplStringBench
      *
      * @return void
      */
-    public function benchCreateNumeric(): void
+    public function benchCreateMin(): void
     {
-        new DuckString((string) mt_rand());
+        new DuckFloat(PHP_FLOAT_MIN);
+    }
+
+    /**
+     * @Revs(1000)
+     *
+     * @Iterations(5)
+     *
+     * @return void
+     */
+    public function benchCreateMax(): void
+    {
+        new DuckFloat(PHP_FLOAT_MAX);
     }
 
     /**
@@ -62,11 +74,12 @@ class SplStringBench
      *
      * @psalm-suppress UnsupportedReferenceUsage
      */
-    public function benchConcatenate(): void
+    public function benchMath(): void
     {
-        $string = new DuckString('hello ');
-        $value = &$string();
-        $value .= 'world';
+        $instance = new DuckFloat(10.1);
+
+        $value = &$instance();
+        $value++;
 
         $result = $value;
         unset($result);

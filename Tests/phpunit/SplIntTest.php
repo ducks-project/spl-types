@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Ducks\Component\SplTypes\Tests\phpunit;
 
 use Ducks\Component\SplTypes\SplInt as DuckInt;
@@ -23,41 +25,31 @@ class SplIntTest extends TestCase
      */
     public function test(): void
     {
-        $test = new DuckInt();
-        $this->assertSame(0, (int) (string) $test);
+        $instance = new DuckInt();
+        $this->assertSame(0, (int) (string) $instance);
+        unset($instance);
 
-        $test = new DuckInt(10);
-        $this->assertSame(10, (int) (string) $test);
-
-        $test = new DuckInt(10.0, false);
-        $this->assertSame(10, (int) (string) $test);
+        $instance = new DuckInt(10);
+        $this->assertSame(10, (int) (string) $instance);
+        unset($instance);
     }
 
     /**
      * Unit test.
      *
-     * @throws \UnexpectedValueException
-     *
      * @return void
+     *
+     * @psalm-suppress UnsupportedReferenceUsage
      */
-    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_float(): void
+    public function testMath(): void
     {
-        $this->expectException('\UnexpectedValueException');
-        new DuckInt(10.0);
-    }
+        $instance = new DuckInt(10);
 
-    /**
-     * Unit test.
-     *
-     * @throws \UnexpectedValueException
-     *
-     * @return void
-     */
-    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_string(): void
-    {
-        $this->expectException('\UnexpectedValueException');
-        new DuckInt('test');
+        $value = &$instance();
+        $value++;
+
+        $this->assertSame(11, $value);
+        $this->assertSame(11, $instance());
+        unset($instance);
     }
 }

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Ducks\Component\SplTypes\Tests\phpunit;
 
 use Ducks\Component\SplTypes\SplString as DuckString;
@@ -23,44 +25,31 @@ class SplStringTest extends TestCase
      */
     public function test(): void
     {
-        $test = new DuckString();
-        $this->assertSame('', (string) $test);
-        unset($test);
+        $instance = new DuckString();
+        $this->assertSame('', $instance());
+        unset($instance);
 
-        $test = new DuckString('test');
-        $this->assertSame('test', (string) $test);
-        unset($test);
-
-        $test = new DuckString(0, false);
-        $this->assertSame('0', (string) $test);
-        unset($test);
+        $instance = new DuckString('test');
+        $this->assertSame('test', $instance());
+        unset($instance);
     }
 
     /**
      * Unit test.
      *
-     * @throws \UnexpectedValueException
-     *
      * @return void
+     *
+     * @psalm-suppress UnsupportedReferenceUsage
      */
-    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_int(): void
+    public function testConcatenate(): void
     {
-        $this->expectException('\UnexpectedValueException');
-        new DuckString(0);
-    }
+        $instance = new DuckString('hello ');
 
-    /**
-     * Unit test.
-     *
-     * @throws \UnexpectedValueException
-     *
-     * @return void
-     */
-    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_scalar(): void
-    {
-        $this->expectException('\UnexpectedValueException');
-        new DuckString([]);
+        $value = &$instance();
+        $value .= 'world';
+
+        $this->assertSame('hello world', $value);
+        $this->assertSame('hello world', $instance());
+        unset($instance);
     }
 }

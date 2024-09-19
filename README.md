@@ -45,108 +45,35 @@ It provides classes unavailable if you can't install [SPL Types](http://php.net/
 - [`SplBool`]
 - [`SplString`]
 
-## Known Issues & Limitations
+## General information
 
-### SplTypes
+Since [v7.0.0](./CHANGELOG.md#v700), breaking changes has appeared in relation to the pecl extension.
+This is mainly due to the lack of maintenance and relevance of the original extension,
+associated with the strong typing introduced in:
+[php 7.4](https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.strict)
+and the existence of [enums](https://www.php.net/manual/en/language.types.enumerations.php) since php 8.
 
-Because limitations of PHP it is impossible to directly reaffect Spl variables like the original extension.
-For example:
+## Lexique
 
-```php
-<?php
-// With Spl Extension.
-$int = new \SplInt();
-$int = 'test'; // Exception.
+- [Changelog]
+- [Classes]
+- [Issues And Limitations]
+- [How To]
 
-// With Spl Plyfill.
-$int = new \SplInt();
-$int = 'test'; // Just unset Object and affect 'test' to $int variable.
-```
-
-In the same way, Spl_Types polyfill is not really strict typing the extension. So, the code below is not "correct".
-
-```php
-<?php
-// With Spl Extension.
-$test = 10;
-$value = new \SplInt($test);
-if ($test == $value) {
-    echo 'OK';
-}
-
-// With Spl Plyfill.
-$test = 10;
-$string = new \SplInt($test);
-if ($test === $string) { // Cast Error.
-    echo 'OK';
-}
-```
-
-### SplInt & Splfloat
-
-Because of PHP behaviors you can't easily do operations like:
-
-```php
-<?php
-$int = new \SplInt();
-$int++; // Exception.
-
-$int + 10; // Exception.
-```
-
-Unfortunately, you need to do like below:
-
-```php
-<?php
-$int = new \SplInt();
-
-$result = (int) (string) $int + 10; // Shame...
-```
-
-### SplEnum
-
-As it was said, you need to manually cast your object to string in order to make comparison.
-
-```php
-<?php
-class Month extends \SplEnum {
-    const __default = self::January;
-    const January = 1;
-    // ...
-}
-$enum = new Month();
-
-// WARNING : Object of class Month could not be converted to int...
-if (Month::January == $enum) {
-    // KO ...
-}
-
-// But,
-if (Month::January == (string) $enum) {
-    // ... OK
-}
-```
-
-### SplBool
-
-Like it was explain above, the \SplBool object isn't a strict boolean so take care about your equality test.
-
-```php
-<?php
-$bool = new \SplBool(false);
-if ($bool) {
-    echo 'This is true'; // Object is not null so it pass test...
-}
-```
+##
 
 ## License
 
 This library is released under the [MIT license].
 
-[`SplType`]: /assets/documentation/SplType.md
-[`SplInt`]: /assets/documentation/SplInt.md
-[`SplFloat`]: /assets/documentation/SplFloat.md
-[`SplEnum`]: /assets/documentation/SplEnum.md
-[`SplBool`]: /assets/documentation/SplBool.md
-[`SplString`]: /assets/documentation/SplString.md
+[`SplType`]: /assets/documentation/classes/SplType.md
+[`SplInt`]: /assets/documentation/classes/SplInt.md
+[`SplFloat`]: /assets/documentation/classes/SplFloat.md
+[`SplEnum`]: /assets/documentation/classes/SplEnum.md
+[`SplBool`]: /assets/documentation/classes/SplBool.md
+[`SplString`]: /assets/documentation/classes/SplString.md
+[Classes]: /assets/documentation/Classes.md
+[Issues And Limitations]: /assets/documentation/IssuesAndLimitations.md
+[How To]: /assets/documentation/HowTo.md
+[Changelog]: CHANGELOG.md
 [MIT license]: LICENSE

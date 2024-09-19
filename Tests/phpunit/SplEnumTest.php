@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Ducks\Component\SplTypes\Tests\phpunit;
 
 use Ducks\Component\SplTypes\Tests\common\Month;
@@ -23,17 +25,17 @@ class SplEnumTest extends TestCase
      */
     public function test(): void
     {
-        $test = new Month();
-        $this->assertEquals(Month::__default, (string) $test);
-        unset($test);
+        $instance = new Month();
+        $this->assertEquals(Month::__default, $instance());
+        unset($instance);
 
-        $test = new Month(Month::SEPTEMBER);
-        $this->assertEquals(Month::SEPTEMBER, (string) $test);
-        unset($test);
+        $instance = new Month(Month::SEPTEMBER);
+        $this->assertEquals(Month::SEPTEMBER, $instance());
+        unset($instance);
 
-        $test = new Month('1', false);
-        $this->assertEquals(Month::JANUARY, (string) $test);
-        unset($test);
+        $instance = new Month('1', false);
+        $this->assertEquals(Month::JANUARY, $instance());
+        unset($instance);
     }
 
     /**
@@ -43,10 +45,9 @@ class SplEnumTest extends TestCase
      *
      * @return void
      */
-    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception(): void
+    public function testUnexpectedValueRxception(): void
     {
-        $this->expectException('\UnexpectedValueException');
+        $this->expectException(\UnexpectedValueException::class);
         new Month('1');
     }
 
@@ -55,8 +56,7 @@ class SplEnumTest extends TestCase
      *
      * @return void
      */
-    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_list(): void
+    public function testGetConstList(): void
     {
         $list = [
             '__default' => 1,
@@ -73,14 +73,14 @@ class SplEnumTest extends TestCase
             'NOVEMBER' => 11,
             'DECEMBER' => 12,
         ];
-        $month = new Month();
+        $instance = new Month();
 
-        $test = $month->getConstList(true);
+        $test = $instance->getConstList(true);
         $this->assertSame($list, $test);
         unset($test, $list['__default']);
 
-        $test = $month->getConstList();
+        $test = $instance->getConstList();
         $this->assertSame($list, $test);
-        unset($month, $test, $list);
+        unset($instance, $test, $list);
     }
 }

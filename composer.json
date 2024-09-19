@@ -39,13 +39,18 @@
             "/Tests/"
         ]
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Ducks\\Component\\SplTypes\\Tests\\": "Tests/"
+        }
+    },
     "scripts": {
         "test": [
             "@unittest",
             "@bench"
         ],
         "unittest": "XDEBUG_MODE=coverage ./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist",
-        "bench": "./vendor/bin/phpbench run Tests/benchmark/ --report=default"
+        "bench": "./vendor/bin/phpbench run Tests/benchmark/ --report=aggregate --retry-threshold=5"
     },
     "scripts-descriptions": {
         "test": "Run all tests!"

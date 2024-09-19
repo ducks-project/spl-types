@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Ducks\Component\SplTypes\Tests\phpunit;
 
 use Ducks\Component\SplTypes\SplFloat as DuckFloat;
@@ -23,44 +25,31 @@ class SplFloatTest extends TestCase
      */
     public function test(): void
     {
-        $test = new DuckFloat();
-        $this->assertSame(0.0, (float) (string) $test);
-        unset($test);
+        $instance = new DuckFloat();
+        $this->assertSame(0.0, $instance());
+        unset($instance);
 
-        $test = new DuckFloat(10.1);
-        $this->assertSame(10.1, (float) (string) $test);
-        unset($test);
-
-        $test = new DuckFloat('10.1', false);
-        $this->assertSame(10.1, (float) (string) $test);
-        unset($test);
+        $instance = new DuckFloat(10.1);
+        $this->assertSame(10.1, $instance());
+        unset($instance);
     }
 
     /**
      * Unit test.
      *
-     * @throws \UnexpectedValueException
-     *
      * @return void
+     *
+     * @psalm-suppress UnsupportedReferenceUsage
      */
-    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_bool(): void
+    public function testMath(): void
     {
-        $this->expectException('\UnexpectedValueException');
-        new DuckFloat(false);
-    }
+        $instance = new DuckFloat(10.1);
 
-    /**
-     * Unit test.
-     *
-     * @throws \UnexpectedValueException
-     *
-     * @return void
-     */
-    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function test_unexpected_value_exception_string(): void
-    {
-        $this->expectException('\UnexpectedValueException');
-        new DuckFloat('10');
+        $value = &$instance();
+        $value++;
+
+        $this->assertSame(11.1, $value);
+        $this->assertSame(11.1, $instance());
+        unset($instance);
     }
 }
