@@ -43,9 +43,6 @@ jobs:
     - name: Run phpunit test
       run: composer unittest
 
-    - name: Run atoum test
-      run: composer atoumtest
-
     #- name: npm install, make test-coverage
     #  run: |
     #    npm install

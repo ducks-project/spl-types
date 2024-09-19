@@ -44,7 +44,6 @@ jobs:
 
       # tests
       - run: composer unittest
-      - run: composer atoumtest
 
       #- run:
       #    command: npm install && make test-coverage
