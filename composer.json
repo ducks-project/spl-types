@@ -49,7 +49,8 @@
             "@unittest",
             "@bench"
         ],
-        "unittest": "XDEBUG_MODE=coverage ./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist",
+        "unittest": "./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist",
+        "junittest": "./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist --log-junit junit.xml",
         "bench": "./vendor/bin/phpbench run Tests/benchmark/ --report=aggregate --retry-threshold=5"
     },
     "scripts-descriptions": {

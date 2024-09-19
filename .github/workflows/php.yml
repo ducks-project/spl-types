@@ -43,6 +43,9 @@ jobs:
     - name: Run phpunit test
       run: composer unittest
 
+    - name: Run phpunit test with junit
+      run: composer junittest
+
     #- name: npm install, make test-coverage
     #  run: |
     #    npm install
@@ -50,6 +53,14 @@ jobs:
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
 
     - name: Coveralls
       uses: coverallsapp/github-action@v2

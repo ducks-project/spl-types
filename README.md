@@ -8,7 +8,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/quality-score.png)](https://scrutinizer-ci.com/g/ducks-project/spl-types/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/coverage.png)](https://scrutinizer-ci.com/g/ducks-project/spl-types/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/build.png)](https://scrutinizer-ci.com/g/ducks-project/spl-types/build-status/master)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/ducks-project/spl-types/badges/code-intelligence.svg)](https://scrutinizer-ci.com/code-intelligence)
 [![Psalm Type Coverage](https://shepherd.dev/github/ducks-project/spl-types/coverage.svg)](https://shepherd.dev/github/ducks-project/spl-types)
 [![codecov Status](https://codecov.io/github/ducks-project/spl-types/graph/badge.svg?token=M3LBGQQ6N9)](https://codecov.io/github/ducks-project/spl-types)
 [![Appveyor status](https://ci.appveyor.com/api/projects/status/edj2aj94ebslnhy9?svg=true)](https://ci.appveyor.com/project/donaldinou/spl-types)
@@ -59,8 +59,6 @@ and the existence of [enums](https://www.php.net/manual/en/language.types.enumer
 - [Classes]
 - [Issues And Limitations]
 - [How To]
-
-##
 
 ## License
 
