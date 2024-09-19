@@ -23,7 +23,9 @@ SplBool extends SplEnum {
 ## [Predefined Constants](#Predefined-Constants)
 
 **SplBool::__default**
+
 **SplBool::false**
+
 **SplBool::true**
 
 ## [Examples](#Examples)
@@ -63,6 +65,7 @@ The above example will output:
 - [`SplString`]
 
 [SplType::__construct]: ./SplType.construct.md#SplType::__construct
+[SplEnum::getConstList]: ./SplType.getConstList.md#SplEnum::getConstList
 [pecl SPL_Types]:https://pecl.php.net/package/SPL_Types
 [`SplType`]: /assets/documentation/SplType.md
 [`SplInt`]: /assets/documentation/SplInt.md
