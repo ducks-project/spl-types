@@ -4,7 +4,5 @@ build:
       environment:
         php:
           version: 7.4
-          pecl_extensions:
-            - spl_Types
           ini:
             'date.timezone': 'Europe/Paris'
