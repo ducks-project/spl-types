@@ -9,6 +9,7 @@
       <directory>./Tests</directory>
       <directory>./vendor</directory>
       <file>./.php-cs-fixer.dist.php</file>
+      <file>./bootstrap.php</file>
     </exclude>
     <report>
       <clover outputFile="build/logs/clover.xml"/>

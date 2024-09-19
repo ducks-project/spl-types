@@ -55,6 +55,17 @@ class SplStringTest extends TestCase
      *
      * @return void
      */
+    public function testStringCast(): void
+    {
+        $instance = new DuckString('hello world');
+        $this->assertSame('hello world', (string) $instance);
+    }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
     public function testSerialization(): void
     {
         $instance = new DuckString('hello world');

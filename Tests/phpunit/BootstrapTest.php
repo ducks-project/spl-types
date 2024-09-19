@@ -27,6 +27,8 @@ class BootstrapTest extends TestCase
      * Unit test.
      *
      * @return void
+     *
+     * @coversNothing
      */
     public function test(): void
     {
