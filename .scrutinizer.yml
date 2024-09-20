@@ -6,3 +6,9 @@ build:
           version: 7.4
           ini:
             'date.timezone': 'Europe/Paris'
+
+filter:
+  excluded_paths: [Tests/*]
+
+tools:
+  external_code_coverage: true

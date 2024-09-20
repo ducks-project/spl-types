@@ -46,6 +46,9 @@ jobs:
     - name: Run phpunit test with junit
       run: composer junittest
 
+    - name: Run psalm
+      run: ./vendor/bin/psalm --config=psalm.xml.dist --no-cache --no-file-cache --shepherd
+
     #- name: npm install, make test-coverage
     #  run: |
     #    npm install
@@ -61,6 +64,11 @@ jobs:
       uses: codecov/test-results-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: Upload Scrutinizer coverage
+      uses: sudo-bot/action-scrutinizer@latest
+      with:
+          cli-args: "--format=php-clover build/logs/clover.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}"
 
     - name: Coveralls
       uses: coverallsapp/github-action@v2
