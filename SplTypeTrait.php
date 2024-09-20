@@ -68,11 +68,10 @@ trait SplTypeTrait
      *
      * @codeCoverageIgnore
      * @psalm-suppress UnsafeInstantiation
-     * @scrutinizer ignore-call
      */
     final public static function __set_state(array $properties): object
     {
-        return new static($properties['__default']);
+        return /** @scrutinizer ignore-call */ new static($properties['__default']);
     }
 
     /**
