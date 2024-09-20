@@ -1,6 +1,6 @@
 # [SplBool::__invoke](#SplBool::__invoke)
 
-(PHP 5, PHP 7, PHP 8)
+(PHP 7, PHP 8)
 SplBool::__invoke — Invoke object like a method
 
 ## [Description](#Description)

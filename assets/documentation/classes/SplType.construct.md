@@ -1,6 +1,6 @@
 # [SplType::__construct](#SplType::__construct)
 
-(PHP 5, PHP 7, PHP 8)
+(PHP 7, PHP 8)
 SplType::__construct — Creates a new value of some type
 
 ## [Description](#Description)

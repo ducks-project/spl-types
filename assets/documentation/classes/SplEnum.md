@@ -1,6 +1,6 @@
 # [The SplEnum class](#The-SplEnum-class)
 
-(PHP 5, PHP 7, PHP 8)
+(PHP 7, PHP 8)
 
 ## [Introduction](#Introduction)
 

@@ -1,6 +1,6 @@
 # [SplFloat::__invoke](#SplFloat::__invoke)
 
-(PHP 5, PHP 7, PHP 8)
+(PHP 7, PHP 8)
 SplFloat::__invoke — Invoke object like a method
 
 ## [Description](#Description)

@@ -1,7 +1,6 @@
 # [The SplType class](#The-SplType-class)
 
-(PHP 5, PHP 7, PHP 8)
-Check for [pecl SPL_Types]
+(PHP 7, PHP 8)
 
 ## [Introduction](#Introduction)
 

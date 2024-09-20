@@ -1,6 +1,6 @@
 # [SplEnum::getConstList](#SplEnum::getConstList)
 
-(PHP 5, PHP 7, PHP 8)
+(PHP 7, PHP 8)
 SplEnum::getConstList — Returns all consts (possible values) as an array.
 
 ## [Description](#Description)

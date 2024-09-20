@@ -1,6 +1,6 @@
 # [The SplString class](#The-SplString-class)
 
-(PHP 5, PHP 7, PHP 8)
+(PHP 7, PHP 8)
 
 ## [Introduction](#Introduction)
 

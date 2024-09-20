@@ -1,6 +1,6 @@
 # [SplInt::__invoke](#SplInt::__invoke)
 
-(PHP 5, PHP 7, PHP 8)
+(PHP 7, PHP 8)
 SplInt::__invoke — Invoke object like a method
 
 ## [Description](#Description)
