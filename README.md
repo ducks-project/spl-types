@@ -1,7 +1,6 @@
 # SplTypes
 
 [![Github Action Status](https://github.com/ducks-project/spl-types/actions/workflows/php.yml/badge.svg)](https://github.com/ducks-project/spl-types)
-[![Build Status](https://travis-ci.org/ducks-project/spl-types.svg)](https://travis-ci.org/ducks-project/spl-types)
 [![Coverage Status](https://coveralls.io/repos/github/ducks-project/spl-types/badge.svg)](https://coveralls.io/github/ducks-project/spl-types)
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/ducks-project/spl-types/tree/7.x.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ducks-project/spl-types/tree/master)
 
