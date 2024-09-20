@@ -15,6 +15,8 @@ namespace Ducks\Component\SplTypes;
 
 /**
  * SplEnum gives the ability to emulate and create enumeration objects natively in PHP.
+ *
+ * @psalm-api
  */
 abstract class SplEnum extends SplType
 {
@@ -25,6 +27,9 @@ abstract class SplEnum extends SplType
      * @param bool $strict
      *
      * @throws \UnexpectedValueException if incompatible type is given.
+     *
+     * @SuppressWarnings(PHPMD.CamelCaseParameterName)
+     * @SuppressWarnings(PHPMD.CamelCaseVariableName)
      */
     public function __construct($initial_value = null, bool $strict = true)
     {
@@ -44,6 +49,9 @@ abstract class SplEnum extends SplType
      * @param bool $include_default Whether to include __default property.
      *
      * @return array<mixed, mixed>
+     *
+     * @SuppressWarnings(PHPMD.CamelCaseParameterName)
+     * @SuppressWarnings(PHPMD.CamelCaseVariableName)
      */
     final public function getConstList(bool $include_default = false)
     {

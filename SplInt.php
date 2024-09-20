@@ -15,6 +15,8 @@ namespace Ducks\Component\SplTypes;
 
 /**
  * The SplInt class is used to enforce strong typing of the integer type.
+ *
+ * @psalm-api
  */
 class SplInt extends SplType
 {
@@ -30,6 +32,9 @@ class SplInt extends SplType
      * {@inheritdoc}
      *
      * @param int $initial_value
+     *
+     * @SuppressWarnings(PHPMD.CamelCaseParameterName)
+     * @SuppressWarnings(PHPMD.CamelCaseVariableName)
      */
     public function __construct(int $initial_value = self::__default)
     {

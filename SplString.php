@@ -16,7 +16,7 @@ namespace Ducks\Component\SplTypes;
 /**
  * The SplString class is used to enforce strong typing of the string type.
  *
- * @see SplString http://php.net/manual/en/class.splstring.php
+ * @psalm-api
  */
 class SplString extends SplType
 {
@@ -32,6 +32,9 @@ class SplString extends SplType
      * {@inheritdoc}
      *
      * @param string $initial_value
+     *
+     * @SuppressWarnings(PHPMD.CamelCaseParameterName)
+     * @SuppressWarnings(PHPMD.CamelCaseVariableName)
      */
     public function __construct(string $initial_value = self::__default)
     {

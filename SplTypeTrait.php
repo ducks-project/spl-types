@@ -13,6 +13,8 @@ namespace Ducks\Component\SplTypes;
 
 /**
  * Trait used for magic
+ *
+ * @psalm-api
  */
 trait SplTypeTrait
 {
@@ -65,6 +67,8 @@ trait SplTypeTrait
      * @return SplType
      *
      * @codeCoverageIgnore
+     * @psalm-suppress UnsafeInstantiation
+     * @scrutinizer ignore-call
      */
     final public static function __set_state(array $properties): object
     {

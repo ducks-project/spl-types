@@ -15,6 +15,8 @@ namespace Ducks\Component\SplTypes;
 
 /**
  * The SplBool class is used to enforce strong typing of the bool type.
+ *
+ * @psalm-api
  */
 class SplBool extends SplEnum
 {
@@ -42,6 +44,9 @@ class SplBool extends SplEnum
      * {@inheritdoc}
      *
      * @param bool $initial_value
+     *
+     * @SuppressWarnings(PHPMD.CamelCaseParameterName)
+     * @SuppressWarnings(PHPMD.CamelCaseVariableName)
      */
     public function __construct(bool $initial_value = self::__default)
     {

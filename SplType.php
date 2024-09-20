@@ -16,7 +16,7 @@ namespace Ducks\Component\SplTypes;
 /**
  * Parent class for all SPL types.
  *
- * @see SplType http://php.net/manual/en/class.spltype.php
+ * @psalm-api
  */
 abstract class SplType
 {
@@ -37,8 +37,12 @@ abstract class SplType
      * @return void
      *
      * @phpstan-ignore-next-line
+     * @psalm-suppress PossiblyUnusedParam
+     * @SuppressWarnings(PHPMD.CamelCaseParameterName)
+     * @SuppressWarnings(PHPMD.CamelCaseVariableName)
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function __construct($initial_value = self::__default, bool $strict = true)
+    public function __construct($initial_value = self::__default, /** @scrutinizer ignore-unused */ bool $strict = true)
     {
         $this->__default = $initial_value ?? static::__default;
     }

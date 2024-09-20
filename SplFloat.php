@@ -15,6 +15,8 @@ namespace Ducks\Component\SplTypes;
 
 /**
  * The SplFloat class is used to enforce strong typing of the float type.
+ *
+ * @psalm-api
  */
 class SplFloat extends SplType
 {
@@ -30,6 +32,9 @@ class SplFloat extends SplType
      * {@inheritdoc}
      *
      * @param float $initial_value
+     *
+     * @SuppressWarnings(PHPMD.CamelCaseParameterName)
+     * @SuppressWarnings(PHPMD.CamelCaseVariableName)
      */
     public function __construct(float $initial_value = self::__default)
     {
