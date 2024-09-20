@@ -68,7 +68,7 @@ jobs:
     - name: Upload Scrutinizer coverage
       uses: sudo-bot/action-scrutinizer@latest
       with:
-          cli-args: "--format=php-clover build/logs/clover.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}"
+          cli-args: "--format=php-clover build/logs/clover.xml
 
     - name: Coveralls
       uses: coverallsapp/github-action@v2
