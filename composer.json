@@ -1,10 +1,23 @@
 {
     "name": "ducks-project/spl-types",
-    "type": "library",
     "description": "Polyfill Module for SplType PHP extension. This extension aims at helping people making PHP a stronger typed language and can be a good alternative to scalar type hinting. It provides different typehandling classes as such as integer, float, bool, enum and string",
-    "keywords": ["Enum", "SplTypes", "SplEnum", "enumerator", "POO", "SplBool", "SplFloat", "SplInt", "SplString", "SplType", "polyfill", "php", "compat"],
-    "homepage": "https://github.com/ducks-project/spl-types/",
     "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "Enum",
+        "SplTypes",
+        "SplEnum",
+        "enumerator",
+        "POO",
+        "SplBool",
+        "SplFloat",
+        "SplInt",
+        "SplString",
+        "SplType",
+        "polyfill",
+        "php",
+        "compat"
+    ],
     "authors": [
         {
             "name": "Adrien Loyant",
@@ -13,6 +26,7 @@
             "role": "Owner"
         }
     ],
+    "homepage": "https://github.com/ducks-project/spl-types/",
     "support": {
         "email": "adrien.loyant@gmail.com"
     },
@@ -22,9 +36,10 @@
     "require-dev": {
         "atoum/stubs": "^2.6",
         "friendsofphp/php-cs-fixer": "^3.64",
-        "phpbench/phpbench": "^1.2||^1.3",
+        "phpbench/phpbench": "^1.2",
+        "phpmd/phpmd": "^2.15",
         "phpstan/phpstan": "^1.12",
-        "phpunit/phpunit": "^9.6||^10.5||^11.3",
+        "phpunit/phpunit": "^9.6 || ^10.5 || ^11.3",
         "squizlabs/php_codesniffer": "^3.10",
         "vimeo/psalm": "^5.26"
     },
@@ -45,13 +60,15 @@
         }
     },
     "scripts": {
+        "bench": "./vendor/bin/phpbench run Tests/benchmark/ --report=aggregate --retry-threshold=5",
+        "junittest": "./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist --log-junit junit.xml",
+        "phpmd": "./vendor/bin/phpmd . github phpmd.xml.dist --exclude 'Tests/*,vendor/*,.history/*'",
+        "psalm": "./vendor/bin/psalm --config=psalm.xml.dist --no-cache --no-file-cache",
         "test": [
             "@unittest",
             "@bench"
         ],
-        "unittest": "./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist",
-        "junittest": "./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist --log-junit junit.xml",
-        "bench": "./vendor/bin/phpbench run Tests/benchmark/ --report=aggregate --retry-threshold=5"
+        "unittest": "./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist"
     },
     "scripts-descriptions": {
         "test": "Run all tests!"
