@@ -9,7 +9,6 @@
   findUnusedCode="true"
 >
   <projectFiles>
-    <directory name="Tests" />
     <file name="SplBool.php" />
     <file name="SplEnum.php" />
     <file name="SplFloat.php" />
@@ -18,6 +17,7 @@
     <file name="SplType.php" />
     <file name="bootstrap.php" />
     <ignoreFiles>
+      <directory name="Tests" />
       <directory name="vendor" />
     </ignoreFiles>
   </projectFiles>
