@@ -68,4 +68,17 @@ class SplBoolTest extends TestCase
         $this->assertEquals($instance, $unserialized);
         $this->assertFalse($instance());
     }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testJsonSerialization(): void
+    {
+        $instance = new DuckBool();
+        $json = \json_encode($instance);
+
+        $this->assertEquals("false", $json);
+    }
 }

@@ -94,4 +94,17 @@ class SplEnumTest extends TestCase
         $this->assertEquals($instance, $unserialized);
         $this->assertEquals(Month::SEPTEMBER, $instance());
     }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testJsonSerialization(): void
+    {
+        $instance = new Month(Month::SEPTEMBER);
+        $json = \json_encode($instance);
+
+        $this->assertEquals("9", $json);
+    }
 }

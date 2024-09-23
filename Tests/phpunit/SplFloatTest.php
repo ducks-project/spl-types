@@ -64,4 +64,17 @@ class SplFloatTest extends TestCase
         $this->assertEquals($instance, $unserialized);
         $this->assertEquals(22.9, $instance());
     }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testJsonSerialization(): void
+    {
+        $instance = new DuckFloat(22.9);
+        $json = \json_encode($instance);
+
+        $this->assertEquals("22.9", $json);
+    }
 }

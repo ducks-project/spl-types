@@ -64,4 +64,17 @@ class SplIntTest extends TestCase
         $this->assertEquals($instance, $unserialized);
         $this->assertEquals(22, $instance());
     }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testJsonSerialization(): void
+    {
+        $instance = new DuckInt(22);
+        $json = \json_encode($instance);
+
+        $this->assertEquals("22", $json);
+    }
 }

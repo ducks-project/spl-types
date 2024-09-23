@@ -18,7 +18,9 @@ namespace Ducks\Component\SplTypes;
  *
  * @psalm-api
  */
-abstract class SplType
+abstract class SplType implements
+    \JsonSerializable,
+    \Stringable
 {
     use SplTypeTrait;
 

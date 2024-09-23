@@ -27,6 +27,16 @@ trait SplTypeTrait
     protected $__default;
 
     /**
+     * Specify data which should be serialized to JSON.
+     *
+     * @return mixed
+     */
+    public function jsonSerialize()
+    {
+        return $this->__default;
+    }
+
+    /**
      * Serialize object.
      *
      * @return array<string,mixed>

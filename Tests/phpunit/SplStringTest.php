@@ -75,4 +75,17 @@ class SplStringTest extends TestCase
         $this->assertEquals($instance, $unserialized);
         $this->assertSame('hello world', $instance());
     }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testJsonSerialization(): void
+    {
+        $instance = new DuckString("hello world");
+        $json = \json_encode($instance);
+
+        $this->assertEquals('"hello world"', $json);
+    }
 }
