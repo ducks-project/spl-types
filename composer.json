@@ -31,7 +31,9 @@
         "email": "adrien.loyant@gmail.com"
     },
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "ext-json": "*",
+        "symfony/polyfill-php80": "^1.31"
     },
     "require-dev": {
         "atoum/stubs": "^2.6",
@@ -40,8 +42,19 @@
         "phpmd/phpmd": "^2.15",
         "phpstan/phpstan": "^1.12",
         "phpunit/phpunit": "^9.6 || ^10.5 || ^11.3",
+        "rector/rector": "^1.2",
         "squizlabs/php_codesniffer": "^3.10",
         "vimeo/psalm": "^5.26"
+    },
+    "replace": {
+        "symfony/polyfill-php54": "*",
+        "symfony/polyfill-php55": "*",
+        "symfony/polyfill-php56": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php74": "*"
     },
     "autoload": {
         "psr-4": {
@@ -64,6 +77,7 @@
         "junittest": "./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist --log-junit junit.xml",
         "phpmd": "./vendor/bin/phpmd . github phpmd.xml.dist --exclude 'Tests/*,vendor/*,.history/*'",
         "psalm": "./vendor/bin/psalm --config=psalm.xml.dist --no-cache --no-file-cache",
+        "rector": "./vendor/bin/rector process . --dry-run",
         "test": [
             "@unittest",
             "@bench"

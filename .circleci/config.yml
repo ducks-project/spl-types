@@ -16,7 +16,7 @@ jobs:
 
       - run:
           name: Install PHP Extensions
-          command: sudo -E install-php-extensions zip intl
+          command: sudo -E install-php-extensions zip intl json
 
       #- run:
       #    name: Install xDebug

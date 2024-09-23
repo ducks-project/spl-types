@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Stringable interface
+- JsonSerializable capability
+
+### Changed
+
+- **BREAKING CHANGE**:
+  Now ext-json php library is mandatory because extension is always enable in php>=8
 
 ## <a name="v700"></a>[7.0.0] - 2024-09-18
 
