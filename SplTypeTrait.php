@@ -31,6 +31,7 @@ trait SplTypeTrait
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->__default;

@@ -26,7 +26,7 @@ class SplBool extends SplEnum
      * @psalm-suppress InvalidClassConstantType
      */
     // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
-    public const __default = self::false;
+    protected const __default = self::false;
 
     /**
      * @var bool

@@ -28,7 +28,7 @@ abstract class SplType implements
      * Default value.
      */
     // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
-    public const __default = null;
+    protected const __default = null;
 
     /**
      * Creates a new value of some type.
@@ -54,6 +54,7 @@ abstract class SplType implements
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function &__invoke()
     {
         return $this->__default;

@@ -26,7 +26,7 @@ class SplInt extends SplType
      * @psalm-suppress InvalidClassConstantType
      */
     // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
-    public const __default = 0;
+    protected const __default = 0;
 
     /**
      * {@inheritdoc}

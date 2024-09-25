@@ -26,7 +26,7 @@ class SplString extends SplType
      * @psalm-suppress InvalidClassConstantType
      */
     // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
-    public const __default = '';
+    protected const __default = '';
 
     /**
      * {@inheritdoc}
