@@ -1,0 +1,27 @@
+{
+    "name": "ducks-project/spl-types-subpackage-replace",
+    "type": "metapackage",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrien Loyant",
+            "email": "donald_duck@team-df.org",
+            "homepage": "http://adrien.loyant.net",
+            "role": "Owner"
+        }
+    ],
+    "homepage": "https://github.com/ducks-project/spl-types/",
+    "support": {
+        "email": "adrien.loyant@gmail.com"
+    },
+    "replace": {
+        "symfony/polyfill-php54": "*",
+        "symfony/polyfill-php55": "*",
+        "symfony/polyfill-php56": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php74": "*"
+    }
+}

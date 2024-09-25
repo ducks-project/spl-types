@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `name` case property for SplEnum like [Basic enumerations]
 - `value` property available for SplEnum like [Backed enumerations]
 - Dynamic static creation of SplEnum object with magic `__callStatic`.
+- Add `from` method from [Backed enumerations]
+- Add `tryFrom` method from [Backed enumerations]
 
 ### Changed
 

@@ -4,8 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee027b0cf93e3bda23863e18b6b2aad8",
+    "content-hash": "1b497eaf28f4b3d0356997e476f45958",
     "packages": [
+        {
+            "name": "ducks-project/spl-types-subpackage-replace",
+            "version": "7.x-dev",
+            "dist": {
+                "type": "path",
+                "url": "packages/replace",
+                "reference": "cde5b6044e97b55195e6cc60cd73f7e58c864a38"
+            },
+            "replace": {
+                "symfony/polyfill-php54": "*",
+                "symfony/polyfill-php55": "*",
+                "symfony/polyfill-php56": "*",
+                "symfony/polyfill-php70": "*",
+                "symfony/polyfill-php71": "*",
+                "symfony/polyfill-php72": "*",
+                "symfony/polyfill-php73": "*",
+                "symfony/polyfill-php74": "*"
+            },
+            "type": "metapackage",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adrien Loyant",
+                    "email": "donald_duck@team-df.org",
+                    "homepage": "http://adrien.loyant.net",
+                    "role": "Owner"
+                }
+            ],
+            "homepage": "https://github.com/ducks-project/spl-types/",
+            "support": {
+                "email": "adrien.loyant@gmail.com"
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "symfony/polyfill-php80",
             "version": "v1.31.0",
@@ -5507,82 +5545,6 @@
             "time": "2024-09-09T11:45:10+00:00"
         },
         {
-            "name": "symfony/polyfill-php73",
-            "version": "v1.31.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php73.git",
-                "reference": "0f68c03565dcaaf25a890667542e8bd75fe7e5bb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/0f68c03565dcaaf25a890667542e8bd75fe7e5bb",
-                "reference": "0f68c03565dcaaf25a890667542e8bd75fe7e5bb",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "type": "library",
-            "extra": {
-                "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php73\\": ""
-                },
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 7.3+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php73/tree/v1.31.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2024-09-09T11:45:10+00:00"
-        },
-        {
             "name": "symfony/polyfill-php81",
             "version": "v1.31.0",
             "source": {
@@ -6221,7 +6183,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ducks-project/spl-types-subpackage-replace": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

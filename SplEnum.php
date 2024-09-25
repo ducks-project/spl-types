@@ -20,6 +20,8 @@ namespace Ducks\Component\SplTypes;
  */
 abstract class SplEnum extends SplType
 {
+    use SplEnumTrait;
+
     /**
      * {@inheritdoc}
      *
