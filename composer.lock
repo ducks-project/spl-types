@@ -4,15 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b497eaf28f4b3d0356997e476f45958",
+    "content-hash": "707cf3566cd0f1c054edc629947fd22e",
     "packages": [
         {
             "name": "ducks-project/spl-types-subpackage-replace",
-            "version": "7.x-dev",
+            "version": "1.0.0",
             "dist": {
                 "type": "path",
-                "url": "packages/replace",
-                "reference": "cde5b6044e97b55195e6cc60cd73f7e58c864a38"
+                "url": "./packages/replace"
             },
             "replace": {
                 "symfony/polyfill-php54": "*",
@@ -6183,9 +6182,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "ducks-project/spl-types-subpackage-replace": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
