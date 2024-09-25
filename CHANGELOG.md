@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dynamic static creation of SplEnum object with magic `__callStatic`.
 - Add `from` method from [Backed enumerations]
 - Add `tryFrom` method from [Backed enumerations]
+- Add [SplUnitEnum]
+- Add [SplBackedEnum]
 
 ### Changed
 
@@ -142,6 +144,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [`SplEnum`]: /assets/documentation/classes/SplEnum.md
 [`SplBool`]: /assets/documentation/classes/SplBool.md
 [`SplString`]: /assets/documentation/classes/SplString.md
+[`SplUnitEnum`]: /assets/documentation/classes/SplUnitEnum.md
+[`SplBackedEnum`]: /assets/documentation/classes/SplBackedEnum.md
 [SplType::__construct]: /assets/documentation/classes/SplType.construct.md#SplType::__construct
 [pecl SPL_Types]: https://pecl.php.net/package/SPL_Types
 [Basic enumerations]: https://www.php.net/manual/en/language.enumerations.basics.php

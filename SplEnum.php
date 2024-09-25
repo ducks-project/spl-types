@@ -17,8 +17,10 @@ namespace Ducks\Component\SplTypes;
  * SplEnum gives the ability to emulate and create enumeration objects natively in PHP.
  *
  * @psalm-api
+ * @psalm-suppress MissingDependency
+ * @psalm-suppress UndefinedClass
  */
-abstract class SplEnum extends SplType
+abstract class SplEnum extends SplType implements SplBackedEnum
 {
     use SplEnumTrait;
 
