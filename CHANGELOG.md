@@ -11,11 +11,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Stringable interface
 - JsonSerializable capability
+- `name` case property for SplEnum like [Basic enumerations]
+- `value` property available for SplEnum like [Backed enumerations]
+- Dynamic static creation of SplEnum object with magic `__callStatic`.
 
 ### Changed
 
 - **BREAKING CHANGE**:
   Now ext-json php library is mandatory because extension is always enable in php>=8
+- **BREAKING CHANGE**:
+  `__default` constant from `SplTypes` and derivated not public anymore.
 
 ## <a name="v700"></a>[7.0.0] - 2024-09-18
 
@@ -136,7 +141,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [`SplBool`]: /assets/documentation/classes/SplBool.md
 [`SplString`]: /assets/documentation/classes/SplString.md
 [SplType::__construct]: /assets/documentation/classes/SplType.construct.md#SplType::__construct
-[pecl SPL_Types]:https://pecl.php.net/package/SPL_Types
+[pecl SPL_Types]: https://pecl.php.net/package/SPL_Types
+[Basic enumerations]: https://www.php.net/manual/en/language.enumerations.basics.php
+[Backed enumerations]: https://www.php.net/manual/en/language.enumerations.backed.php
 [unreleased]: https://github.com/ducks-project/spl-types/compare/v7.0.0...HEAD
 [7.0.0]: https://github.com/ducks-project/spl-types/compare/v6.0.1...v7.0.0
 [6.0.1]: https://github.com/ducks-project/spl-types/compare/v6.0.0...v6.0.1
