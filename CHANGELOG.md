@@ -14,10 +14,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `name` case property for SplEnum like [Basic enumerations]
 - `value` property available for SplEnum like [Backed enumerations]
 - Dynamic static creation of SplEnum object with magic `__callStatic`.
+- Add `cases` method from [Basic enumerations]
 - Add `from` method from [Backed enumerations]
 - Add `tryFrom` method from [Backed enumerations]
-- Add [SplUnitEnum]
-- Add [SplBackedEnum]
+- Add [SplUnitEnum] and abstract class [SplEnumUnit] in order to emulate [Basic enumerations] (PHP Pure enum) and [UnitEnum]
+- Add [SplBackedEnum] and abstract class [SplEnumBacked] in order to emulate [Backed enumerations] and [BackedEnum]
+- Add [SplIntEnum]
+- Add [SplStringEnum]
+- Add `Reflection` classes
+-- [SplReflectionEnum] in order to simulate [ReflectionEnum]
+-- [SplReflectionEnumBackedCase] in order to simulate [ReflectionEnumBackedCase]
+-- [SplReflectionEnumUnitCase] in order to simulate [ReflectionEnumUnitCase]
+- Add [SplIntEnum] in order to simulate [Backed enumerations] typed as `int`
+- Add [SplStringEnum] in order to simulate [Backed enumerations] typed as `string`
+- Add `stubs` in order to use classes at root namespace
+-- [SplPureEnum] : alias of [SplEnumUnit]
+-- [SplIntEnum]
+-- [SplStringEnum]
+- Add [Tool] with [Tool::isSplEnumExists] to check if an enum exist. (alias is `spl_enum_exists`)
 
 ### Changed
 
@@ -146,10 +160,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [`SplString`]: /assets/documentation/classes/SplString.md
 [`SplUnitEnum`]: /assets/documentation/classes/SplUnitEnum.md
 [`SplBackedEnum`]: /assets/documentation/classes/SplBackedEnum.md
+[`SplEnumUnit`]: /assets/documentation/classes/SplEnumUnit.md
+[`SplPureEnum`]: /assets/documentation/classes/SplEnumUnit.md
+[`SplEnumBacked`]: /assets/documentation/classes/SplEnumBacked.md
+[`SplIntEnum`]: /assets/documentation/classes/SplIntEnum.md
+[`SplStringEnum`]: /assets/documentation/classes/SplStringEnum.md
+[`SplReflectionEnum`]: /assets/documentation/classes/Reflection/SplReflectionEnum.md
+[`SplReflectionEnumBackedCase`]: /assets/documentation/classes/Reflection/SplReflectionEnumBackedCase.md
+[`SplReflectionEnumUnitCase`]: /assets/documentation/classes/Reflection/SplReflectionEnumUnitCase.md
+[`SplReflectionEnumHelper`]: /assets/documentation/classes/Reflection/SplReflectionEnumHelper.md
+[`SplReflectionEnumProxy`]: /assets/documentation/classes/Reflection/SplReflectionEnumProxy.md
+[`Tools`]: /assets/documentation/classes/Util/Tools.md
 [SplType::__construct]: /assets/documentation/classes/SplType.construct.md#SplType::__construct
+[Tools::isSplEnumExists]: /assets/documentation/classes/Util/Tools.isSplEnumExist.md#Tools::isSplEnumExists
 [pecl SPL_Types]: https://pecl.php.net/package/SPL_Types
 [Basic enumerations]: https://www.php.net/manual/en/language.enumerations.basics.php
 [Backed enumerations]: https://www.php.net/manual/en/language.enumerations.backed.php
+[UnitEnum]: https://www.php.net/manual/en/class.unitenum.php
+[BackedEnum]: https://www.php.net/manual/en/class.backedenum.php
 [unreleased]: https://github.com/ducks-project/spl-types/compare/v7.0.0...HEAD
 [7.0.0]: https://github.com/ducks-project/spl-types/compare/v6.0.1...v7.0.0
 [6.0.1]: https://github.com/ducks-project/spl-types/compare/v6.0.0...v6.0.1

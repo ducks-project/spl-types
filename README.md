@@ -54,10 +54,10 @@ associated with the strong typing introduced in:
 [php 7.4](https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.strict)
 and the existence of [enums](https://www.php.net/manual/en/language.types.enumerations.php) since php 8.
 
-## Lexique
+## Glossary
 
 - [Changelog]
-- [Classes]
+- [Lexique]
 - [Issues And Limitations]
 - [How To]
 
@@ -73,7 +73,7 @@ This library is released under the [MIT license].
 [`SplString`]: /assets/documentation/classes/SplString.md
 [`SplUnitEnum`]: /assets/documentation/classes/SplUnitEnum.md
 [`SplBackedEnum`]: /assets/documentation/classes/SplBackedEnum.md
-[Classes]: /assets/documentation/Classes.md
+[Lexique]: /assets/documentation/Lexique.md
 [Issues And Limitations]: /assets/documentation/IssuesAndLimitations.md
 [How To]: /assets/documentation/HowTo.md
 [Changelog]: CHANGELOG.md
