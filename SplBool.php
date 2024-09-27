@@ -17,9 +17,13 @@ namespace Ducks\Component\SplTypes;
  * The SplBool class is used to enforce strong typing of the bool type.
  *
  * @psalm-api
+ * @psalm-suppress MissingDependency
+ * @psalm-suppress UndefinedClass
  */
-class SplBool extends SplEnum
+class SplBool extends SplEnum implements SplBackedEnum
 {
+    use SplBackedEnumTrait;
+
     /**
      * @var bool
      *
@@ -27,6 +31,13 @@ class SplBool extends SplEnum
      */
     // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
     protected const __default = self::false;
+
+    /**
+     * Value of enum instance
+     *
+     * @var bool
+     */
+    protected bool $value;
 
     /**
      * @var bool
@@ -51,6 +62,8 @@ class SplBool extends SplEnum
     public function __construct(bool $initial_value = self::__default)
     {
         parent::__construct($initial_value);
+
+        $this->value = &$this->__default;
     }
 
     final public function &__invoke(): bool

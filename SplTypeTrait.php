@@ -24,7 +24,7 @@ trait SplTypeTrait
      * @var mixed
      */
     // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
-    protected $__default;
+    protected $__default = null;
 
     /**
      * Specify data which should be serialized to JSON.
@@ -71,7 +71,7 @@ trait SplTypeTrait
     }
 
     /**
-     * Export object.
+     * Instanciate an exported object.
      *
      * @param array<mixed,mixed> $properties
      *
@@ -80,7 +80,7 @@ trait SplTypeTrait
      * @codeCoverageIgnore
      * @psalm-suppress UnsafeInstantiation
      */
-    final public static function __set_state(array $properties): object
+    public static function __set_state(array $properties): object
     {
         return /** @scrutinizer ignore-call */ new static($properties['__default']);
     }
@@ -92,7 +92,7 @@ trait SplTypeTrait
      *
      * @codeCoverageIgnore
      */
-    final public function __debugInfo(): array
+    public function __debugInfo(): array
     {
         return [
             '__default' => $this->__default,

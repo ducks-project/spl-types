@@ -19,60 +19,26 @@ namespace Ducks\Component\SplTypes;
 trait SplEnumTrait
 {
     /**
-     * Generates a list of cases on an enum
+     * Return a new instance of enum
      *
-     * @return array An array of all defined cases of this enumeration, in order of declaration.
+     * @param string $name
+     * @param array $arguments
+     *
+     * @return static
+     *
+     * @psalm-suppress UnsafeInstantiation
+     * @phpstan-ignore-next-line
      */
-    public static function cases(): array
+    #[\ReturnTypeWillChange]
+    public static function __callStatic(string $name, array $arguments)
     {
-        static $cases = null;
-
-        if (!isset($cases)) {
-            $enum = new \ReflectionEnum(static::class);
-            foreach ($enum->getCases() as $case) {
-                $cases[] = $case->getValue();
-            }
+        try {
+            $class = new \ReflectionClassConstant(static::class, $name);
+        } catch (\ReflectionException $th) {
+            throw new \Error('Undefined constant ' . static::class . '::' . $name);
         }
 
-        return $cases ?? [];
-    }
-
-    /**
-     * Maps a scalar to an enum instance
-     *
-     * @param int|string $value The scalar value to map to an enum case.
-     *
-     * @return SplEnum A case instance of this enumeration.
-     */
-    final public static function from($value): self
-    {
-        $case = static::tryFrom($value);
-
-        if (null === $case) {
-            throw new \ValueError(
-                sprintf('%s is not a valid backing value for enum "%s"', \json_encode($value), static::class)
-            );
-        }
-
-        return $case;
-    }
-
-    /**
-     * Maps a scalar to an enum instance or null
-     *
-     * @param int|string $value e scalar value to map to an enum case.
-     *
-     * @return SplEnum|null A case instance of this enumeration, or null if not found.
-     */
-    final public static function tryFrom($value): ?self
-    {
-        foreach (static::cases() as $case) {
-            if ($case->value === $value) {
-                $result = $case;
-                break;
-            }
-        }
-
-        return $result ?? null;
+        // @phpstan-ignore-next-line
+        return new static($class->getValue());
     }
 }

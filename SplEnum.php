@@ -20,7 +20,7 @@ namespace Ducks\Component\SplTypes;
  * @psalm-suppress MissingDependency
  * @psalm-suppress UndefinedClass
  */
-abstract class SplEnum extends SplType implements SplBackedEnum
+abstract class SplEnum extends SplType
 {
     use SplEnumTrait;
 
@@ -133,28 +133,5 @@ abstract class SplEnum extends SplType implements SplBackedEnum
         }
 
         \trigger_error('Cannot unset readonly property ' . static::class . '::$' . $name, E_USER_ERROR);
-    }
-
-    /**
-     * Return a new instance of enum
-     *
-     * @param string $name
-     * @param array $arguments
-     *
-     * @return SplEnum
-     *
-     * @psalm-suppress UnsafeInstantiation
-     * @phpstan-ignore-next-line
-     */
-    final public static function __callStatic(string $name, array $arguments): self
-    {
-        try {
-            $class = new \ReflectionClassConstant(static::class, $name);
-        } catch (\ReflectionException $th) {
-            throw new \Error('Undefined constant ' . static::class . '::' . $name);
-        }
-
-        // @phpstan-ignore-next-line
-        return new static($class->getValue());
     }
 }
