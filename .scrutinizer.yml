@@ -9,6 +9,7 @@ build:
 
 filter:
   excluded_paths:
+    - Resources/stubs/
     - Tests/
 
 tools:

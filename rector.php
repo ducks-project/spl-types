@@ -15,6 +15,7 @@ return RectorConfig::configure()
     // ])
     ->withSkip([
         __DIR__ . '/assets/*',
+        __DIR__ . '/Resources/stubs/*',
         __DIR__ . '/Tests/*',
         __DIR__ . '/vendor/*',
         RemoveUselessParamTagRector::class,

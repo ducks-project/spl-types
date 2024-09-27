@@ -17,6 +17,7 @@
     <file name="SplType.php" />
     <file name="bootstrap.php" />
     <ignoreFiles>
+      <directory name="Resources/stubs" />
       <directory name="Tests" />
       <directory name="vendor" />
     </ignoreFiles>
