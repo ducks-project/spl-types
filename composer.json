@@ -32,12 +32,9 @@
     },
     "require": {
         "php": ">=7.4",
-        "ext-json": "*",
-        "ducks-project/polyfill-enum": "^1.x-dev",
-        "symfony/polyfill-php80": "^1.31"
+        "ext-json": "*"
     },
     "require-dev": {
-        "atoum/stubs": "^2.6",
         "friendsofphp/php-cs-fixer": "^3.64",
         "phpbench/phpbench": "^1.2",
         "phpmd/phpmd": "^2.15",
@@ -63,8 +60,12 @@
         "psr-4": {
             "Ducks\\Component\\SplTypes\\": ""
         },
+        "classmap": [
+            "Resources/stubs"
+        ],
         "files": [
-            "bootstrap.php"
+            "bootstrap.php",
+            "Resources/functions.php"
         ],
         "exclude-from-classmap": [
             "/Tests/"
@@ -76,15 +77,8 @@
         }
     },
     "extra": {
-        "replace": {
-            "symfony/polyfill-php54": "*",
-            "symfony/polyfill-php55": "*",
-            "symfony/polyfill-php56": "*",
-            "symfony/polyfill-php70": "*",
-            "symfony/polyfill-php71": "*",
-            "symfony/polyfill-php72": "*",
-            "symfony/polyfill-php73": "*",
-            "symfony/polyfill-php74": "*"
+        "duck": {
+            "status": "validated"
         }
     },
     "scripts": {
