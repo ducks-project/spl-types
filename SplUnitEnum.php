@@ -18,6 +18,14 @@ namespace Ducks\Component\SplTypes;
  *
  * @psalm-api
  */
-interface SplUnitEnum extends \UnitEnum
+interface SplUnitEnum
 {
+    // public readonly string $name;
+
+    /**
+     * Generates a list of cases on an enum
+     *
+     * @return static[] An array of all defined cases of this enumeration, in order of declaration.
+     */
+    public static function cases(): array;
 }

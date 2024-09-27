@@ -14,10 +14,11 @@ declare(strict_types=1);
 namespace Ducks\Component\SplTypes;
 
 /**
- * Interface used in order to implements \BackedEnum one.
+ * Interface used in order to implements \UnitEnum one.
  *
  * @psalm-api
  */
-interface SplBackedEnum extends SplUnitEnum
+interface SplEnumSingletonable
 {
+    public static function getInstance(string $name): SplEnumSingletonable;
 }

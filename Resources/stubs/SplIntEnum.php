@@ -11,13 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Ducks\Component\SplTypes;
+use Ducks\Component\SplTypes\SplIntEnum as DuckSplIntEnum;
 
 /**
- * Interface used in order to implements \BackedEnum one.
- *
- * @psalm-api
+ * \class_alias(DuckSplIntEnum::class, '\\SplIntEnum', true);
  */
-interface SplBackedEnum extends SplUnitEnum
+// phpcs:ignore PSR1.Classes.ClassDeclaration.MissingNamespace
+class SplIntEnum extends DuckSplIntEnum
 {
 }
