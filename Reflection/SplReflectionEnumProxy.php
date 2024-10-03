@@ -18,8 +18,20 @@ use Ducks\Component\SplTypes\SplUnitEnum;
 
 final class SplReflectionEnumProxy
 {
+    /**
+     * The reflection class used in proxy
+     *
+     * @var \ReflectionClass
+     *
+     * @phpstan-var \ReflectionClass<object>
+     */
     private \ReflectionClass $class;
 
+    /**
+     * Is enum is backed
+     *
+     * @var boolean|null
+     */
     private ?bool $backed = null;
 
     /**
@@ -32,7 +44,7 @@ final class SplReflectionEnumProxy
     /**
      * Array of constants class, indexed by name, as enum cases.
      *
-     * @var array<string, \ReflectionClassConstant>
+     * @var array<string,\ReflectionClassConstant>
      */
     private array $constantCases = [];
 
@@ -45,6 +57,11 @@ final class SplReflectionEnumProxy
 
     public string $name;
 
+    /**
+     * Build a proxy SplReflectionEnum from a ReflectionClass
+     *
+     * @param \ReflectionClass<object> $class
+     */
     public function __construct(\ReflectionClass $class)
     {
         $this->class = $class;
@@ -126,7 +143,7 @@ final class SplReflectionEnumProxy
     /**
      * Return an array of class constants, indexed by name, that could be use as an enum case.
      *
-     * @return array<string, \ReflectionClassConstant>
+     * @return array<string,\ReflectionClassConstant>
      */
     public function getConstantCases(): array
     {
@@ -249,7 +266,7 @@ final class SplReflectionEnumProxy
     /**
      * Returns a list of all cases on an Enum
      *
-     * @return array<int, ReflectionEnumUnitCase|ReflectionEnumBackedCase>
+     * @return array<string,SplReflectionEnumUnitCase|SplReflectionEnumBackedCase>
      *
      * @link https://www.php.net/manual/en/reflectionenum.getcases.php
      */
@@ -341,7 +358,9 @@ final class SplReflectionEnumProxy
         if (null === $this->backingType) {
             if ($this->isBacked()) {
                 if ($this->class->hasProperty('value')) {
-                    $this->backingType = $this->class->getProperty('value')->getType() ?? false;
+                    /** @var \ReflectionNamedType|false $type */
+                    $type = $this->class->getProperty('value')->getType() ?? false;
+                    $this->backingType = $type;
                 } else {
                     $constant = $this->getFirstCaseConstant();
                     if ($constant instanceof \ReflectionClassConstant) {

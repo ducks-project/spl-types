@@ -16,6 +16,8 @@ namespace Ducks\Component\SplTypes;
 /**
  * The SplInt class is used to enforce strong typing of the integer type.
  *
+ * @extends SplType<int>
+ *
  * @psalm-api
  */
 class SplInt extends SplType
@@ -43,6 +45,7 @@ class SplInt extends SplType
 
     final public function &__invoke(): int
     {
+        /** @var int */
         return $this->__default;
     }
 }

@@ -16,6 +16,9 @@ namespace Ducks\Component\SplTypes;
 /**
  * SplEnumBacked gives the ability to emulate and create backed enumeration objects natively in PHP.
  *
+ * @template T
+ * @extends SplEnum<T>
+ *
  * @psalm-api
  */
 abstract class SplEnumUnit extends SplEnum implements
@@ -23,44 +26,12 @@ abstract class SplEnumUnit extends SplEnum implements
     SplUnitEnum
 {
     use SplUnitEnumTrait;
+    use SplEnumUnitTrait;
 
     /**
      * {@inheritdoc}
      */
     protected function __construct()
     {
-    }
-
-    /**
-     * Instanciate an exported object.
-     *
-     * @param array<mixed,mixed> $properties
-     *
-     * @return SplUnitEnum
-     *
-     * @codeCoverageIgnore
-     * @psalm-suppress UnsafeInstantiation
-     */
-    public static function __set_state(array $properties): SplUnitEnum
-    {
-        /** @var SplEnumUnit $object */
-        $object = /** @scrutinizer ignore-call */ new static();
-        $object->name = $properties['name'];
-
-        return $object;
-    }
-
-    /**
-     * Dumping object.
-     *
-     * @return array<string,string>
-     *
-     * @codeCoverageIgnore
-     */
-    public function __debugInfo(): array
-    {
-        return [
-            'name' => $this->name,
-        ];
     }
 }

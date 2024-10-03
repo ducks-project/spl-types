@@ -16,6 +16,8 @@ namespace Ducks\Component\SplTypes;
 /**
  * The SplString class is used to enforce strong typing of the string type.
  *
+ * @extends SplType<string>
+ *
  * @psalm-api
  */
 class SplString extends SplType
@@ -41,8 +43,12 @@ class SplString extends SplType
         parent::__construct($initial_value);
     }
 
+    /**
+     * @inheritdoc
+     */
     final public function &__invoke(): string
     {
+        /** @var string */
         return $this->__default;
     }
 }

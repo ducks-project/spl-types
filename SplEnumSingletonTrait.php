@@ -18,8 +18,22 @@ namespace Ducks\Component\SplTypes;
  */
 trait SplEnumSingletonTrait
 {
+    /**
+     * Undocumented variable
+     *
+     * @var array<int,SplEnumSingletonable>
+     *
+     * @phpstan-var list<SplEnumSingletonable>
+     */
     private static array $instances = [];
 
+    /**
+     * Return the singleton enum instance.
+     *
+     * @param string $name
+     *
+     * @return SplEnumSingletonable
+     */
     public static function getInstance(string $name): SplEnumSingletonable
     {
         if (!isset(self::$instances[$name])) {

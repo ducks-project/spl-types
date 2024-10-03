@@ -39,6 +39,7 @@
         "phpbench/phpbench": "^1.2",
         "phpmd/phpmd": "^2.15",
         "phpstan/phpstan": "^1.12",
+        "phpstan/phpstan-phpunit": "^1.4",
         "phpunit/phpunit": "^9.6 || ^10.5 || ^11.3",
         "rector/rector": "^1.2",
         "squizlabs/php_codesniffer": "^3.10",
@@ -83,15 +84,18 @@
     },
     "scripts": {
         "bench": "./vendor/bin/phpbench run Tests/benchmark/ --report=aggregate --retry-threshold=5",
-        "junittest": "./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist --log-junit junit.xml",
+        "junittest": "XDEBUG_MODE=coverage ./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist --log-junit junit.xml",
+        "phpcs": "./vendor/bin/phpcs --standard=phpcs.xml.dist .",
+        "phpcsfixer-check": "./vendor/bin/php-cs-fixer fix --dry-run --diff",
         "phpmd": "./vendor/bin/phpmd . github phpmd.xml.dist --exclude 'Tests/*,vendor/*,.history/*'",
+        "phpstan": "./vendor/bin/phpstan analyse --configuration phpstan.neon.dist",
         "psalm": "./vendor/bin/psalm --config=psalm.xml.dist --no-cache --no-file-cache",
         "rector": "./vendor/bin/rector process . --dry-run",
         "test": [
             "@unittest",
             "@bench"
         ],
-        "unittest": "./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist"
+        "unittest": "XDEBUG_MODE=coverage ./vendor/bin/phpunit Tests/phpunit --process-isolation -c phpunit.xml.dist"
     },
     "scripts-descriptions": {
         "test": "Run all tests!"

@@ -16,12 +16,15 @@ namespace Ducks\Component\SplTypes;
 /**
  * Parent class for all SPL types.
  *
+ * @template T
+ *
  * @psalm-api
  */
 abstract class SplType implements
     \JsonSerializable,
     \Stringable
 {
+    /** @use SplTypeTrait<T> */
     use SplTypeTrait;
 
     /**
@@ -39,7 +42,9 @@ abstract class SplType implements
      * @return void
      *
      * @phpstan-ignore-next-line
+     *
      * @psalm-suppress PossiblyUnusedParam
+     *
      * @SuppressWarnings(PHPMD.CamelCaseParameterName)
      * @SuppressWarnings(PHPMD.CamelCaseVariableName)
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
@@ -47,16 +52,5 @@ abstract class SplType implements
     public function __construct($initial_value = self::__default, /** @scrutinizer ignore-unused */ bool $strict = true)
     {
         $this->__default = $initial_value ?? static::__default;
-    }
-
-    /**
-     * Method called when a script tries to call an object as a function.
-     *
-     * @return mixed
-     */
-    #[\ReturnTypeWillChange]
-    public function &__invoke()
-    {
-        return $this->__default;
     }
 }

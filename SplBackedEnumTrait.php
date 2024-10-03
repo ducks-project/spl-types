@@ -15,16 +15,25 @@ namespace Ducks\Component\SplTypes;
 
 use Ducks\Component\SplTypes\Reflection\SplReflectionEnumBackedCase;
 
+/**
+ * Simplify SplBackedEnum integration
+ *
+ * @template T
+ *
+ * @phpstan-require-implements SplBackedEnum
+ */
 trait SplBackedEnumTrait
 {
     use SplUnitEnumTrait;
 
     /**
-     * Maps a scalar to an enum instance
+     * Maps a scalar to an enum instance.
      *
      * @param int|string $value The scalar value to map to an enum case.
      *
      * @return static A case instance of this enumeration.
+     *
+     * @throws \ValueError if $value is not a valid backing value for enum
      */
     final public static function from($value): self
     {
@@ -40,34 +49,45 @@ trait SplBackedEnumTrait
     }
 
     /**
-     * Maps a scalar to an enum instance or null
+     * Maps a scalar to an enum instance or null.
      *
-     * @param int|string $value e scalar value to map to an enum case.
+     * @param int|string|mixed $value e scalar value to map to an enum case.
      *
      * @return static|null A case instance of this enumeration, or null if not found.
      */
     final public static function tryFrom($value): ?self
     {
         foreach (static::cases() as $case) {
+            /**
+             * @var SplEnumBacked $case
+             * @phpstan-var SplEnumBacked<T> $case
+             */
             if ($case->value === $value) {
                 $result = $case;
                 break;
             }
         }
 
+        /** @var static $result */
         return $result ?? null;
     }
 
     /**
-     * Return a new instance of enum
+     * Return a new instance of enum.
      *
      * @param string $name
-     * @param array $arguments
+     * @param array<int,mixed> $arguments
      *
      * @return static self keywords not an equivalent
      *
-     * @psalm-suppress UnsafeInstantiation
+     * @throws \Error if $name is not a valid constant enum
+     *
+     * @phpstan-param string $name
+     * @phpstan-param list<mixed> $arguments
+     * @phpstan-return static
      * @phpstan-ignore-next-line
+     *
+     * @psalm-suppress UnsafeInstantiation
      */
     #[\ReturnTypeWillChange]
     public static function __callStatic(string $name, array $arguments)

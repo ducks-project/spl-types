@@ -11,6 +11,10 @@
 /phpunit.xml
 .phpunit.result.cache
 
+# phpcs
+.phpcs.cache
+.php-cs-fixer.cache
+
 # Composer PHAR
 /composer.phar
 #/composer.lock
@@ -27,6 +31,8 @@
 
 # vscode
 *.code-workspace
+.vscode
+.vscode-insiders
 
 # Swap & temp files
 *~

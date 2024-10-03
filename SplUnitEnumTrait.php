@@ -13,8 +13,12 @@ declare(strict_types=1);
 
 namespace Ducks\Component\SplTypes;
 
+use Ducks\Component\SplTypes\Reflection\SplReflectionEnum;
 use Ducks\Component\SplTypes\Reflection\SplReflectionEnumUnitCase;
 
+/**
+ * @phpstan-require-implements SplUnitEnum
+ */
 trait SplUnitEnumTrait
 {
     use SplEnumSingletonTrait;
@@ -27,17 +31,14 @@ trait SplUnitEnumTrait
     protected string $name;
 
     /**
-     * Generates a list of cases on an enum
-     *
-     * @return array<int, UnitEnum|BackedEnum>
-     * An array of all defined cases of this enumeration, in order of declaration.
+     * @inheritDoc
      */
     public static function cases(): array
     {
         static $cases = null;
 
         if (null === $cases) {
-            $enum = new \ReflectionEnum(static::class);
+            $enum = new SplReflectionEnum(static::class);
             foreach ($enum->getCases() as $case) {
                 /** @var Reflection\SplReflectionEnumUnitCase $case */
                 $cases[] = $case->getValue();
@@ -51,12 +52,18 @@ trait SplUnitEnumTrait
      * Return a new instance of enum
      *
      * @param string $name
-     * @param array $arguments
+     * @param array<int, mixed> $arguments
      *
      * @return static self keywords not an equivalent
      *
-     * @psalm-suppress UnsafeInstantiation
+     * @throws \Error if $name is not a valid constant enum
+     *
+     * @phpstan-param string $name
+     * @phpstan-param list<mixed> $arguments
+     * @phpstan-return static
      * @phpstan-ignore-next-line
+     *
+     * @psalm-suppress UnsafeInstantiation
      */
     #[\ReturnTypeWillChange]
     public static function __callStatic(string $name, array $arguments)

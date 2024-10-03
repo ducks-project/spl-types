@@ -15,8 +15,16 @@ namespace Ducks\Component\SplTypes\Reflection;
 
 use Ducks\Component\SplTypes\SplUnitEnum;
 
+/**
+ * The SplReflectionEnumUnitCase class reports information about an SplEnum unit case, which has no scalar equivalent.
+ */
 class SplReflectionEnumUnitCase extends \ReflectionClassConstant
 {
+    /**
+     * Internal instances enum
+     *
+     * @var array<string,array<string,SplUnitEnum>>
+     */
     private static array $instances = [];
 
     /**
@@ -25,7 +33,7 @@ class SplReflectionEnumUnitCase extends \ReflectionClassConstant
      * @param object|string $class An enum instance or a name.
      * @param string $constant An enum constant name.
      *
-     * @throws ReflectionException if $class is not a SplReflectionEnumUnitCase
+     * @throws \ReflectionException if $class is not a SplReflectionEnumUnitCase
      *
      * @link https://www.php.net/manual/en/reflectionenumunitcase.construct.php
      */
@@ -43,7 +51,9 @@ class SplReflectionEnumUnitCase extends \ReflectionClassConstant
     /**
      * Gets the reflection of the enum of this case
      *
-     * @return ReflectionEnum instance describing the Enum this case belongs to.
+     * @return SplReflectionEnum instance describing the Enum this case belongs to.
+     *
+     * @phpstan-return SplReflectionEnum<SplUnitEnum>
      *
      * @link https://www.php.net/manual/en/reflectionenumunitcase.getenum.php
      */

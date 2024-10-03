@@ -13,7 +13,11 @@ declare(strict_types=1);
 
 namespace Ducks\Component\SplTypes;
 
-/** @disregard P1009 Undefined type */
+/**
+ * @disregard P1009 Undefined type
+ *
+ * @phpstan-ignore-next-line
+ */
 if (!\function_exists(spl_enum_exists::class)) {
     /**
      * Checks if the spl enum has been defined
@@ -23,8 +27,8 @@ if (!\function_exists(spl_enum_exists::class)) {
      *
      * @return boolean Returns true if enum is a defined enum, false otherwise.
      */
-    function spl_enum_exists(string $class, bool $autoload = true): bool
+    function spl_enum_exists(string $enum, bool $autoload = true): bool
     {
-        return Util\Tools::isSplEnumExists($class, $autoload);
+        return Util\Tools::isSplEnumExists($enum, $autoload);
     }
 }

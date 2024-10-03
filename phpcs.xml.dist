@@ -2,4 +2,8 @@
 <ruleset name="duck" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
   <description>Make this project use the PSR-12 coding standard.</description>
   <rule ref="PSR12" />
+
+  <exclude-pattern>/vendor/*</exclude-pattern>
+  <exclude-pattern>/Tests/*\.php$</exclude-pattern>
+  <exclude-pattern>/.history/*</exclude-pattern>
 </ruleset>

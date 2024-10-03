@@ -16,6 +16,8 @@ namespace Ducks\Component\SplTypes;
 /**
  * The SplFloat class is used to enforce strong typing of the float type.
  *
+ * @extends SplType<float>
+ *
  * @psalm-api
  */
 class SplFloat extends SplType

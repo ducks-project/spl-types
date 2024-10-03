@@ -16,6 +16,8 @@ namespace Ducks\Component\SplTypes;
 /**
  * Interface used in order to implements \BackedEnum one.
  *
+ * @template T
+ *
  * @psalm-api
  */
 interface SplBackedEnum extends SplUnitEnum

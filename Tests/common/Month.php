@@ -15,6 +15,9 @@ namespace Ducks\Component\SplTypes\Tests\common;
 
 use Ducks\Component\SplTypes\SplEnum as DuckEnum;
 
+/**
+ * @extends DuckEnum<int>
+ */
 class Month extends DuckEnum
 {
     /**

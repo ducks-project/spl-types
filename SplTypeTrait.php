@@ -12,7 +12,11 @@
 namespace Ducks\Component\SplTypes;
 
 /**
- * Trait used for magic
+ * Trait used for magic.
+ *
+ * @template T
+ *
+ * @phpstan-require-extends SplType
  *
  * @psalm-api
  */
@@ -22,6 +26,8 @@ trait SplTypeTrait
      * Internal enum value.
      *
      * @var mixed
+     *
+     * @phpstan-var T
      */
     // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
     protected $__default = null;
@@ -30,6 +36,8 @@ trait SplTypeTrait
      * Specify data which should be serialized to JSON.
      *
      * @return mixed
+     *
+     * @phpstan-return T
      */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
@@ -41,8 +49,10 @@ trait SplTypeTrait
      * Serialize object.
      *
      * @return array<string,mixed>
+     *
+     * @phpstan-return array<string,T>
      */
-    final public function __serialize(): array
+    public function __serialize(): array
     {
         return [
             '__default' => $this->__default,
@@ -53,11 +63,23 @@ trait SplTypeTrait
      * Unserialize object.
      *
      * @param array<string,mixed> $data
+     *
      * @return void
      */
-    final public function __unserialize(array $data): void
+    public function __unserialize(array $data): void
     {
         $this->__default = $data['__default'];
+    }
+
+    /**
+     * Method called when a script tries to call an object as a function.
+     *
+     * @return mixed
+     */
+    #[\ReturnTypeWillChange]
+    public function &__invoke()
+    {
+        return $this->__default;
     }
 
     /**
@@ -73,22 +95,27 @@ trait SplTypeTrait
     /**
      * Instanciate an exported object.
      *
-     * @param array<mixed,mixed> $properties
+     * @param array<string,mixed> $properties
      *
-     * @return SplType
+     * @return static
      *
-     * @codeCoverageIgnore
+     * @phpstan-param array<string,T> $properties
+     * @phpstan-return static
+     *
      * @psalm-suppress UnsafeInstantiation
      */
     public static function __set_state(array $properties): object
     {
-        return /** @scrutinizer ignore-call */ new static($properties['__default']);
+        // @phpstan-ignore-next-line
+        return /** @scrutinizer ignore-call */ new static($properties['__default'] ?? null);
     }
 
     /**
      * Dumping object.
      *
      * @return array<string,mixed>
+     *
+     * @phpstan-return array<string,T>
      *
      * @codeCoverageIgnore
      */

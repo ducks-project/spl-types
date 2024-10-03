@@ -35,10 +35,12 @@ final class SplReflectionEnumHelper
     public static function getStringReflectionNamedType(): \ReflectionNamedType
     {
         if (null === static::$rnts) {
-            $func = new \ReflectionFunction(static fn(string $param): string => $param);
+            $func = new \ReflectionFunction(static fn (string $param): string => $param);
+            // @phpstan-ignore-next-line
             static::$rnts = ($func->getParameters()[0])->getType();
         }
 
+        // @phpstan-ignore-next-line
         return static::$rnts;
     }
 
@@ -51,9 +53,11 @@ final class SplReflectionEnumHelper
     {
         if (null === static::$rnti) {
             $func = new \ReflectionFunction(static fn(int $param): int => $param);
+            // @phpstan-ignore-next-line
             static::$rnti = ($func->getParameters()[0])->getType();
         }
 
+        // @phpstan-ignore-next-line
         return static::$rnti;
     }
 }

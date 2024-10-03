@@ -16,6 +16,8 @@ namespace Ducks\Component\SplTypes\Tests\common;
 use Ducks\Component\SplTypes\SplEnum as DuckEnum;
 
 /**
+ * @extends DuckEnum<string>
+ *
  * @method static Suit Hearts()
  * @method static Suit Diamonds()
  * @method static Suit Clubs()

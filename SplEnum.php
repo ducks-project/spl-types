@@ -16,13 +16,19 @@ namespace Ducks\Component\SplTypes;
 /**
  * SplEnum gives the ability to emulate and create enumeration objects natively in PHP.
  *
+ * @template T
+ * @extends SplType<mixed>
+ *
  * @psalm-api
+ *
  * @psalm-suppress MissingDependency
  * @psalm-suppress UndefinedClass
  */
 abstract class SplEnum extends SplType
 {
     use SplEnumTrait;
+    /** @use SplEnumAccessorsTrait<T> */
+    use SplEnumAccessorsTrait;
 
     /**
      * {@inheritdoc}
@@ -65,73 +71,5 @@ abstract class SplEnum extends SplType
         }
 
         return $constants;
-    }
-
-    /**
-     * Return the case-sensitive name of the case class itself
-     *
-     * @param string $name
-     *
-     * @return mixed
-     */
-    final public function __get(string $name)
-    {
-        switch ($name) {
-            case 'name':
-                $result = \array_search($this->__default, $this->getConstList());
-                break;
-
-            case 'value':
-                $result = $this->__default;
-                break;
-
-            default:
-                \trigger_error('Undefined property: ' . static::class . '::$' . $name, E_USER_WARNING);
-                break;
-        }
-
-        return $result ?? null;
-    }
-
-    /**
-     * Writing data to inaccessible (protected or private) or non-existing properties.
-     *
-     * @psalm-suppress MissingParamType
-     * @phpstan-ignore-next-line
-     */
-    final public function __set(string $name, $value): void
-    {
-        // Fast return
-        if ('name' === $name || 'value' === $name) {
-            \trigger_error('Cannot modify readonly property ' . static::class . '::$' . $name, E_USER_ERROR);
-        }
-
-        \trigger_error('Cannot create dynamic property ' . static::class . '::$' . $name, E_USER_ERROR);
-    }
-
-    final public function __isset(string $name): bool
-    {
-        switch ($name) {
-            case 'name':
-            case 'value':
-                $result = true;
-                break;
-
-            default:
-                $result = isset($this->$name);
-                break;
-        }
-
-        return $result;
-    }
-
-    final public function __unset(string $name): void
-    {
-        // Fast return
-        if ('name' !== $name) {
-            return;
-        }
-
-        \trigger_error('Cannot unset readonly property ' . static::class . '::$' . $name, E_USER_ERROR);
     }
 }

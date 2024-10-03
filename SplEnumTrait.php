@@ -14,6 +14,8 @@ namespace Ducks\Component\SplTypes;
 /**
  * Trait used for enum emulation
  *
+ * @phpstan-require-extends SplEnum
+ *
  * @psalm-api
  */
 trait SplEnumTrait
@@ -22,12 +24,16 @@ trait SplEnumTrait
      * Return a new instance of enum
      *
      * @param string $name
-     * @param array $arguments
+     * @param array<int, mixed> $arguments
      *
      * @return static
      *
-     * @psalm-suppress UnsafeInstantiation
+     * @phpstan-param string $name
+     * @phpstan-param list<mixed> $arguments
+     * @phpstan-return static
      * @phpstan-ignore-next-line
+     *
+     * @psalm-suppress UnsafeInstantiation
      */
     #[\ReturnTypeWillChange]
     public static function __callStatic(string $name, array $arguments)

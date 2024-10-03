@@ -18,6 +18,9 @@ use Ducks\Component\SplTypes\SplUnitEnum;
 /**
  * The ReflectionEnum class reports information about an Enum.
  *
+ * @template T of SplUnitEnum
+ * @extends \ReflectionClass<\Ducks\Component\SplTypes\SplUnitEnum>
+ *
  * @link https://php.net/manual/en/class.reflectionenum.php
  */
 class SplReflectionEnum extends \ReflectionClass
@@ -38,11 +41,11 @@ class SplReflectionEnum extends \ReflectionClass
      */
     private function getProxy(): SplReflectionEnumProxy
     {
-        if (!isset(static::$instances[$this->name])) {
-            static::$instances[$this->name] = new SplReflectionEnumProxy($this);
+        if (!isset(self::$instances[$this->name])) {
+            self::$instances[$this->name] = new SplReflectionEnumProxy($this);
         }
 
-        return static::$instances[$this->name];
+        return self::$instances[$this->name];
     }
 
     /**
@@ -50,7 +53,9 @@ class SplReflectionEnum extends \ReflectionClass
      *
      * @param object|string $objectOrClass
      *
-     * @throws ReflectionException if objectOrClass is not a SplUnitEnum
+     * @throws \ReflectionException if objectOrClass is not a SplUnitEnum
+     *
+     * @phpstan-param SplUnitEnum|class-string<T> $objectOrClass
      *
      * @link https://www.php.net/manual/en/reflectionenum.construct.php
      */
@@ -58,6 +63,7 @@ class SplReflectionEnum extends \ReflectionClass
     {
         // Fast check
         if (!\is_a($objectOrClass, SplUnitEnum::class, true)) {
+            // @phpstan-ignore ternary.elseUnreachable
             $classname = \is_object($objectOrClass) ? \get_class($objectOrClass) : $objectOrClass;
             throw new \ReflectionException("Class \"$classname\" is not an enum");
         }
@@ -98,11 +104,13 @@ class SplReflectionEnum extends \ReflectionClass
      *
      * @return array<int, SplReflectionEnumUnitCase|SplReflectionEnumBackedCase>
      *
+     * @phpstan-return list<SplReflectionEnumUnitCase|SplReflectionEnumBackedCase>
+     *
      * @link https://www.php.net/manual/en/reflectionenum.getcases.php
      */
     public function getCases(): array
     {
-        return $this->getProxy()->getCases();
+        return \array_values($this->getProxy()->getCases());
     }
 
     /**

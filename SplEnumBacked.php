@@ -16,12 +16,21 @@ namespace Ducks\Component\SplTypes;
 /**
  * SplEnumBacked gives the ability to emulate and create backed enumeration objects natively in PHP.
  *
+ * @property mixed $value
+ *
+ * @template T
+ * @extends SplEnumUnit<T>
+ * @implements SplBackedEnum<T>
+ *
  * @psalm-api
  */
 #[\AllowDynamicProperties]
 abstract class SplEnumBacked extends SplEnumUnit implements SplBackedEnum
 {
+    /** @use SplBackedEnumTrait<T> */
     use SplBackedEnumTrait;
+    /** @use SplEnumBackedTrait<T> */
+    use SplEnumBackedTrait;
 
     /**
      * {@inheritdoc}
@@ -30,40 +39,5 @@ abstract class SplEnumBacked extends SplEnumUnit implements SplBackedEnum
     {
         // Value can be undeclare because typed definition can change.
         $this->value = &$this->__default;
-    }
-
-    /**
-     * Instanciate an exported object.
-     *
-     * @param array<mixed,mixed> $properties
-     *
-     * @return SplBackedEnum
-     *
-     * @codeCoverageIgnore
-     * @psalm-suppress UnsafeInstantiation
-     */
-    #[\ReturnTypeWillChange]
-    public static function __set_state(array $properties): SplBackedEnum
-    {
-        /** @var SplEnumBacked $object */
-        $object = parent::__set_state($properties);
-        $object->value = $properties['value'];
-
-        return $object;
-    }
-
-    /**
-     * Dumping object.
-     *
-     * @return array<string,string>
-     *
-     * @codeCoverageIgnore
-     */
-    public function __debugInfo(): array
-    {
-        return [
-            'name' => $this->name,
-            'value' => $this->value,
-        ];
     }
 }

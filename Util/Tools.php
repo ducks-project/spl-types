@@ -24,7 +24,7 @@ final class Tools
     /**
      * Checks if the spl enum has been defined
      *
-     * @param string $enum Checks if the enum has been defined
+     * @param string $class Checks if the enum has been defined
      * @param boolean $autoload Whether to autoload if not already loaded.
      *
      * @return boolean Returns true if enum is a defined enum, false otherwise.

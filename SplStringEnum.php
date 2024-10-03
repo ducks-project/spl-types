@@ -16,12 +16,14 @@ namespace Ducks\Component\SplTypes;
 /**
  * SplStringEnum gives the ability to emulate and create int enumeration objects natively in PHP.
  *
+ * @extends SplEnumBacked<string>
+ *
  * @psalm-api
  */
 abstract class SplStringEnum extends SplEnumBacked
 {
     /**
-     * Value of enum instance
+     * Value of enum instance.
      *
      * @var string
      */
