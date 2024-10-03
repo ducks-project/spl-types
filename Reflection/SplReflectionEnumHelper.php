@@ -52,7 +52,7 @@ final class SplReflectionEnumHelper
     public static function getIntReflectionNamedType(): \ReflectionNamedType
     {
         if (null === static::$rnti) {
-            $func = new \ReflectionFunction(static fn(int $param): int => $param);
+            $func = new \ReflectionFunction(static fn (int $param): int => $param);
             // @phpstan-ignore-next-line
             static::$rnti = ($func->getParameters()[0])->getType();
         }
