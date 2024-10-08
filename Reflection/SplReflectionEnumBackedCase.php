@@ -31,6 +31,9 @@ class SplReflectionEnumBackedCase extends SplReflectionEnumUnitCase
      * @param string $constant An enum constant name.
      *
      * @throws \ReflectionException if $class is not a \ReflectionEnumBackedCase
+     * @throws \ReflectionException if $class is not a \Ducks\Component\SplTypes\SplEnumerable interface.
+     * @throws \ReflectionException in case the given class constant case does not exist.
+     * @throws \ReflectionException if $constant is not a case.
      *
      * @phpcs:ignore Generic.Files.LineLength.TooLong
      * @phpstan-param \Ducks\Component\SplTypes\SplEnumerable|class-string<\Ducks\Component\SplTypes\SplEnumerable> $class An enum instance or a name.

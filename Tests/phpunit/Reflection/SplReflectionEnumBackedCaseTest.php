@@ -13,6 +13,11 @@ declare(strict_types=1);
 
 namespace Ducks\Component\SplTypes\Tests\phpunit\Reflection;
 
+use Ducks\Component\SplTypes\Reflection\SplReflectionEnum;
+use Ducks\Component\SplTypes\Reflection\SplReflectionEnumBackedCase;
+use Ducks\Component\SplTypes\Tests\common\Foo;
+use Ducks\Component\SplTypes\Tests\common\SortOrder;
+use Ducks\Component\SplTypes\Tests\common\Suit;
 use PHPUnit\Framework\TestCase;
 
 class SplReflectionEnumBackedCaseTest extends TestCase
@@ -24,6 +29,59 @@ class SplReflectionEnumBackedCaseTest extends TestCase
      */
     public function test(): void
     {
-        $this->assertSame(true, true);
+        $instance = new SplReflectionEnumBackedCase(Suit::class, 'HEARTS');
+        $this->assertInstanceOf(SplReflectionEnum::class, $instance->getEnum());
+        $this->assertEquals(Suit::HEARTS(), $instance->getValue());
+    }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testBackedException(): void
+    {
+        $this->expectException(\ReflectionException::class);
+        $this->expectExceptionMessage('Enum case Ducks\Component\SplTypes\Tests\common\SortOrder::ASC is not a backed case');
+        new SplReflectionEnumBackedCase(SortOrder::class, 'ASC');
+    }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testEnumerableException(): void
+    {
+        $this->expectException(\ReflectionException::class);
+        $this->expectExceptionMessage('Class "Ducks\Component\SplTypes\Tests\common\Foo" is not an enum');
+        // @phpstan-ignore argument.type
+        new SplReflectionEnumBackedCase(Foo::class, 'ASC');
+    }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testConstantException(): void
+    {
+        $this->expectException(\ReflectionException::class);
+        $this->expectExceptionMessage('Class Constant ReflectionException::ASC does not exist');
+        // @phpstan-ignore argument.type
+        new SplReflectionEnumBackedCase(\ReflectionException::class, 'ASC');
+    }
+
+    /**
+     * Unit test.
+     *
+     * @return void
+     */
+    public function testCaseException(): void
+    {
+        $this->expectException(\ReflectionException::class);
+        $this->expectExceptionMessage('Enum case Ducks\Component\SplTypes\Tests\common\SortOrder::FOO is not a case');
+        // @phpstan-ignore argument.type
+        new SplReflectionEnumBackedCase(SortOrder::class, 'FOO');
     }
 }

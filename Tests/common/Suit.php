@@ -13,17 +13,15 @@ declare(strict_types=1);
 
 namespace Ducks\Component\SplTypes\Tests\common;
 
-use Ducks\Component\SplTypes\SplEnum as DuckEnum;
+use Ducks\Component\SplTypes\SplStringEnum as DuckStringEnum;
 
 /**
- * @extends DuckEnum<string>
- *
- * @method static Suit Hearts()
- * @method static Suit Diamonds()
- * @method static Suit Clubs()
- * @method static Suit Spades()
+ * @method static Suit HEARTS()
+ * @method static Suit DIAMONDS()
+ * @method static Suit CLUBS()
+ * @method static Suit SPADES()
  */
-class Suit extends DuckEnum
+class Suit extends DuckStringEnum
 {
     public const HEARTS = 'H';
     public const DIAMONDS = 'D';

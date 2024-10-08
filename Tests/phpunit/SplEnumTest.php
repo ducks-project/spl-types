@@ -43,7 +43,7 @@ class SplEnumTest extends TestCase
      *
      * @return void
      */
-    public function testUnexpectedValueRxception(): void
+    public function testUnexpectedValueException(): void
     {
         $this->expectException(\UnexpectedValueException::class);
         // @phpstan-ignore argument.type
