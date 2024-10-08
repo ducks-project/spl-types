@@ -34,7 +34,7 @@ class ToolsTest extends TestCase
      *
      * @return void
      *
-     * @covers Tools::__construct()
+     * @covers \Ducks\Component\SplTypes\Util\Tools::__construct()
      */
     public function testNew(): void
     {
