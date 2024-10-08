@@ -17,14 +17,14 @@ namespace Ducks\Component\SplTypes;
  * SplEnum gives the ability to emulate and create enumeration objects natively in PHP.
  *
  * @template T
- * @extends SplType<mixed>
+ * @extends SplType<T>
  *
  * @psalm-api
  *
  * @psalm-suppress MissingDependency
  * @psalm-suppress UndefinedClass
  */
-abstract class SplEnum extends SplType
+abstract class SplEnum extends SplType implements SplEnumerable
 {
     use SplEnumTrait;
     /** @use SplEnumAccessorsTrait<T> */
@@ -36,6 +36,9 @@ abstract class SplEnum extends SplType
      * @param mixed $initial_value
      * @param bool $strict
      *
+     * @phpstan-param T|null $initial_value
+     * @phpstan-param bool $strict
+     *
      * @throws \UnexpectedValueException if incompatible type is given.
      *
      * @SuppressWarnings(PHPMD.CamelCaseParameterName)
@@ -43,6 +46,7 @@ abstract class SplEnum extends SplType
      */
     public function __construct($initial_value = self::__default, bool $strict = true)
     {
+        /** @var T $initial_value */
         $initial_value ??= static::__default;
 
         if (!\in_array($initial_value, $this->getConstList(), $strict)) {
@@ -57,7 +61,7 @@ abstract class SplEnum extends SplType
      *
      * @param bool $include_default Whether to include __default property.
      *
-     * @return array<mixed, mixed>
+     * @return mixed[]
      *
      * @SuppressWarnings(PHPMD.CamelCaseParameterName)
      * @SuppressWarnings(PHPMD.CamelCaseVariableName)

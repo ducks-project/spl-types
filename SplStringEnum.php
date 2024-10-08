@@ -39,6 +39,13 @@ abstract class SplStringEnum extends SplEnumBacked
         parent::__construct();
     }
 
+    /**
+     * Method called when a script tries to call an object as a function.
+     *
+     * @return string
+     *
+     * @psalm-suppress MixedInferredReturnType
+     */
     final public function &__invoke(): string
     {
         return $this->__default;

@@ -4,14 +4,14 @@
 
 ## [Introduction](#Introduction)
 
-Interface used in order to implements \UnitEnum one.
+Interface used in order to act like \UnitEnum one.
 
 ## [Interface synopsis](#Interface-synopsis)
 
 ```php
-interface SplUnitEnum extends UnitEnum {
-    /* Inherited methods */
-    public static UnitEnum::cases(): array
+interface SplUnitEnum extends SplEnumerable {
+    /* Methods */
+    public static SplUnitEnum::cases(): array
 }
 ```
 

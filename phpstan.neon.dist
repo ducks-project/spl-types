@@ -1,7 +1,9 @@
 parameters:
-    level: 6
+    level: 8
     paths:
         - .
     excludePaths:
         - vendor/*
         - .history/*
+    tips:
+        treatPhpDocTypesAsCertain: false

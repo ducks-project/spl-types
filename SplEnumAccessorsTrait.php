@@ -28,8 +28,6 @@ trait SplEnumAccessorsTrait
      * @param string $name
      *
      * @return mixed
-     *
-     * @phpstan-return T|null
      */
     final public function __get(string $name)
     {
@@ -53,11 +51,17 @@ trait SplEnumAccessorsTrait
     /**
      * Writing data to inaccessible (protected or private) or non-existing properties.
      *
+     * @param string $name
+     * @param mixed $value
+     *
+     * @return void
+     *
      * @throws \Error
      *
-     * @psalm-suppress MissingParamType
-     *
      * @phpstan-ignore-next-line
+     *
+     * @psalm-suppress MissingParamType
+     * @psalm-suppress UnusedParam
      */
     final public function __set(string $name, $value): void
     {

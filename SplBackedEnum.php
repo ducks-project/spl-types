@@ -22,4 +22,27 @@ namespace Ducks\Component\SplTypes;
  */
 interface SplBackedEnum extends SplUnitEnum
 {
+    // public readonly string|int|mixed $value;
+
+    /**
+     * Maps a scalar to an enum instance.
+     *
+     * @param int|string $value The scalar value to map to an enum case.
+     *
+     * @return static A case instance of this enumeration.
+     *
+     * @throws \ValueError if $value is not a valid backing value for enum
+     */
+    public static function from($value): self;
+
+    /**
+     * Maps a scalar to an enum instance or null.
+     *
+     * @param int|string|mixed $value e scalar value to map to an enum case.
+     *
+     * @return static|null A case instance of this enumeration, or null if not found.
+     *
+     * @psalm-suppress UnusedVariable
+     */
+    public static function tryFrom($value): ?self;
 }

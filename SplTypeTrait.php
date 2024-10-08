@@ -48,7 +48,7 @@ trait SplTypeTrait
     /**
      * Serialize object.
      *
-     * @return array<string,mixed>
+     * @return mixed[]
      *
      * @phpstan-return array<string,T>
      */
@@ -62,12 +62,16 @@ trait SplTypeTrait
     /**
      * Unserialize object.
      *
-     * @param array<string,mixed> $data
+     * @param mixed[] $data
      *
      * @return void
+     *
+     * @phpstan-param array<string,mixed> $data
+     * @phpstan-return void
      */
     public function __unserialize(array $data): void
     {
+        /** @phpstan-var T $data['__default'] */
         $this->__default = $data['__default'];
     }
 
@@ -75,6 +79,8 @@ trait SplTypeTrait
      * Method called when a script tries to call an object as a function.
      *
      * @return mixed
+     *
+     * @phpstan-return T
      */
     #[\ReturnTypeWillChange]
     public function &__invoke()
@@ -95,7 +101,7 @@ trait SplTypeTrait
     /**
      * Instanciate an exported object.
      *
-     * @param array<string,mixed> $properties
+     * @param mixed[] $properties
      *
      * @return static
      *
@@ -103,6 +109,7 @@ trait SplTypeTrait
      * @phpstan-return static
      *
      * @psalm-suppress UnsafeInstantiation
+     * @psalm-suppress UndefinedDocblockClass
      */
     public static function __set_state(array $properties): object
     {
@@ -113,7 +120,7 @@ trait SplTypeTrait
     /**
      * Dumping object.
      *
-     * @return array<string,mixed>
+     * @return mixed[]
      *
      * @phpstan-return array<string,T>
      *

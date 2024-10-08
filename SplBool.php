@@ -19,11 +19,14 @@ namespace Ducks\Component\SplTypes;
  * @extends SplEnum<bool>
  * @implements SplBackedEnum<bool>
  *
+ * @property-read mixed $value
+ * @property-read string $name
+ *
  * @psalm-api
  * @psalm-suppress MissingDependency
  * @psalm-suppress UndefinedClass
  */
-class SplBool extends SplEnum implements SplBackedEnum
+class SplBool extends SplEnum implements SplBackedEnum, SplEnumSingletonable
 {
     /** @use SplBackedEnumTrait<bool> */
     use SplBackedEnumTrait;

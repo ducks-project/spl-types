@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `cases` method from [Basic enumerations]
 - Add `from` method from [Backed enumerations]
 - Add `tryFrom` method from [Backed enumerations]
+- Add [SplEnumerable] in order to render [SplEnum] more generic and usable with [SplReflectionEnum]
 - Add [SplUnitEnum] and abstract class [SplEnumUnit] in order to emulate [Basic enumerations] (PHP Pure enum) and [UnitEnum]
 - Add [SplBackedEnum] and abstract class [SplEnumBacked] in order to emulate [Backed enumerations] and [BackedEnum]
 - Add [SplIntEnum]
@@ -25,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -- [SplReflectionEnum] in order to simulate [ReflectionEnum]
 -- [SplReflectionEnumBackedCase] in order to simulate [ReflectionEnumBackedCase]
 -- [SplReflectionEnumUnitCase] in order to simulate [ReflectionEnumUnitCase]
+-- [SplReflectionNamedType] in order to simulate [ReflectionNamedType]
 - Add [SplIntEnum] in order to simulate [Backed enumerations] typed as `int`
 - Add [SplStringEnum] in order to simulate [Backed enumerations] typed as `string`
 - Add `stubs` in order to use classes at root namespace
@@ -158,6 +160,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [`SplEnum`]: /assets/documentation/classes/SplEnum.md
 [`SplBool`]: /assets/documentation/classes/SplBool.md
 [`SplString`]: /assets/documentation/classes/SplString.md
+[`SplEnumerable`]: /assets/documentation/classes/SplEnumerable.md
 [`SplUnitEnum`]: /assets/documentation/classes/SplUnitEnum.md
 [`SplBackedEnum`]: /assets/documentation/classes/SplBackedEnum.md
 [`SplEnumUnit`]: /assets/documentation/classes/SplEnumUnit.md
@@ -170,6 +173,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [`SplReflectionEnumUnitCase`]: /assets/documentation/classes/Reflection/SplReflectionEnumUnitCase.md
 [`SplReflectionEnumHelper`]: /assets/documentation/classes/Reflection/SplReflectionEnumHelper.md
 [`SplReflectionEnumProxy`]: /assets/documentation/classes/Reflection/SplReflectionEnumProxy.md
+[`SplReflectionNamedType`]: /assets/documentation/classes/Reflection/SplReflectionNamedType.md
 [`Tools`]: /assets/documentation/classes/Util/Tools.md
 [SplType::__construct]: /assets/documentation/classes/SplType.construct.md#SplType::__construct
 [Tools::isSplEnumExists]: /assets/documentation/classes/Util/Tools.isSplEnumExist.md#Tools::isSplEnumExists

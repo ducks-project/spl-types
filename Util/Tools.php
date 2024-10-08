@@ -17,6 +17,9 @@ use Ducks\Component\SplTypes\SplEnum;
 
 final class Tools
 {
+    /**
+     * @psalm-suppress UnusedConstructor
+     */
     private function __construct()
     {
     }

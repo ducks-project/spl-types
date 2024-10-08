@@ -71,6 +71,7 @@ This library is released under the [MIT license].
 [`SplEnum`]: /assets/documentation/classes/SplEnum.md
 [`SplBool`]: /assets/documentation/classes/SplBool.md
 [`SplString`]: /assets/documentation/classes/SplString.md
+[`SplEnumerable`]: /assets/documentation/classes/SplEnumerable.md
 [`SplUnitEnum`]: /assets/documentation/classes/SplUnitEnum.md
 [`SplBackedEnum`]: /assets/documentation/classes/SplBackedEnum.md
 [Lexique]: /assets/documentation/Lexique.md

@@ -89,7 +89,7 @@
         "phpcsfixer-check": "./vendor/bin/php-cs-fixer fix --dry-run --diff",
         "phpmd": "./vendor/bin/phpmd . github phpmd.xml.dist --exclude 'Tests/*,vendor/*,.history/*'",
         "phpstan": "./vendor/bin/phpstan analyse --configuration phpstan.neon.dist",
-        "psalm": "./vendor/bin/psalm --config=psalm.xml.dist --no-cache --no-file-cache",
+        "psalm": "./vendor/bin/psalm --config=psalm.xml.dist --no-cache --no-file-cache --shepherd",
         "rector": "./vendor/bin/rector process . --dry-run",
         "test": [
             "@unittest",

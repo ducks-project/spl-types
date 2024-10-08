@@ -50,6 +50,7 @@ class SplEnumBench
      */
     public function benchCreateUnstrictMonth(): void
     {
+        // @phpstan-ignore argument.type
         new Month('1', false);
     }
 }

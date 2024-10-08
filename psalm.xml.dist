@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <psalm
-  errorLevel="3"
+  errorLevel="1"
   resolveFromConfigFile="true"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="https://getpsalm.org/schema/config"
@@ -9,17 +9,15 @@
   findUnusedCode="true"
 >
   <projectFiles>
-    <file name="SplBool.php" />
-    <file name="SplEnum.php" />
-    <file name="SplFloat.php" />
-    <file name="SplInt.php" />
-    <file name="SplString.php" />
-    <file name="SplType.php" />
-    <file name="bootstrap.php" />
+    <directory name="." />
     <ignoreFiles>
+      <file name=".php-cs-fixer.dist.php" />
+      <file name="bootstrap.php" />
+      <file name="rector.php" />
       <directory name="Resources/stubs" />
       <directory name="Tests" />
       <directory name="vendor" />
+      <directory name=".history" />
     </ignoreFiles>
   </projectFiles>
 </psalm>

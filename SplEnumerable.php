@@ -14,18 +14,11 @@ declare(strict_types=1);
 namespace Ducks\Component\SplTypes;
 
 /**
- * Interface used in order to implements \UnitEnum one.
+ * Interface used in order to set a class enumerable.
  *
  * @psalm-api
  */
-interface SplUnitEnum extends SplEnumerable
+interface SplEnumerable
 {
     // public readonly string $name;
-
-    /**
-     * Generates a list of cases on an enum
-     *
-     * @return static[] An array of all defined cases of this enumeration, in order of declaration.
-     */
-    public static function cases(): array;
 }

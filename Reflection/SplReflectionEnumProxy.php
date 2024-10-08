@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ducks\Component\SplTypes\Reflection;
 
 use Ducks\Component\SplTypes\SplBackedEnum;
+use Ducks\Component\SplTypes\SplEnumerable;
 use Ducks\Component\SplTypes\SplUnitEnum;
 
 final class SplReflectionEnumProxy
@@ -44,17 +45,41 @@ final class SplReflectionEnumProxy
     /**
      * Array of constants class, indexed by name, as enum cases.
      *
-     * @var array<string,\ReflectionClassConstant>
+     * @var \ReflectionClassConstant[]
+     *
+     * @phpstan-var array<string,\ReflectionClassConstant>
      */
     private array $constantCases = [];
 
     /**
      * Array of Reflection enum cases, indexed by name.
      *
-     * @var array<string, SplReflectionEnumUnitCase|SplReflectionEnumBackedCase>
+     * @var (SplReflectionEnumUnitCase|SplReflectionEnumBackedCase)[]
+     *
+     * @phpstan-var array<string, SplReflectionEnumUnitCase|SplReflectionEnumBackedCase>
      */
     private array $cases = [];
 
+    /**
+     * The nameof the case beeing instanciate
+     *
+     * @var string|null
+     */
+    private ?string $running = null;
+
+    /**
+     * Name of the class constant.
+     *
+     * @var string
+     *
+     * @readonly
+     *
+     * @phpstan-var class-string
+     *
+     * @psalm-readonly
+     *
+     * @phan-read-only
+     */
     public string $name;
 
     /**
@@ -65,14 +90,16 @@ final class SplReflectionEnumProxy
     public function __construct(\ReflectionClass $class)
     {
         $this->class = $class;
-        $this->name = $class->name;
+        $this->name = $class->getName();
     }
 
     /**
      * Gets constants.
      *
-     * @return array<string, mixed> An array of constants,
+     * @return mixed[] An array of constants,
      * where the keys hold the name and the values the value of the constants.
+     *
+     * @phpstan-return array<string, mixed>
      */
     public function getConstants(): array
     {
@@ -82,7 +109,7 @@ final class SplReflectionEnumProxy
     /**
      * Gets a ReflectionClassConstant for a class's property
      *
-     * @param string $name ? The class constant name.
+     * @param string $name The class constant name.
      *
      * @return \ReflectionClassConstant|null
      */
@@ -115,6 +142,8 @@ final class SplReflectionEnumProxy
      * @param \ReflectionClassConstant ...$constants
      *
      * @return void
+     *
+     * @no-named-arguments
      */
     public function addConstantCase(\ReflectionClassConstant ...$constants): void
     {
@@ -124,7 +153,7 @@ final class SplReflectionEnumProxy
                 !isset($this->constantCases[$name])
                 && $constant->isPublic()
                 // Check consistency because of polyfilling or other bad overrides
-                && $constant->getDeclaringClass()->name === $this->name
+                && $constant->getDeclaringClass()->getName() === $this->name
                 // Do not use isBacked method because of infinite loop possibility
                 // Add if not BackedEnum or Backed but valid type
                 && (
@@ -143,7 +172,9 @@ final class SplReflectionEnumProxy
     /**
      * Return an array of class constants, indexed by name, that could be use as an enum case.
      *
-     * @return array<string,\ReflectionClassConstant>
+     * @return \ReflectionClassConstant[]
+     *
+     * @phpstan-return array<string,\ReflectionClassConstant>
      */
     public function getConstantCases(): array
     {
@@ -232,32 +263,30 @@ final class SplReflectionEnumProxy
             $name = $constant->getName();
             if (
                 !isset($this->cases[$name])
+                && \is_a($this->name, SplEnumerable::class, true)
             ) {
                 // Check type
                 $value = $constant->getValue();
 
-                if (
-                    (
-                        // Accept nullable value for UnitEnum
-                        null === $value && !($this->getBackingType() instanceof \ReflectionNamedType)
-                    ) || (
-                        // Filter acceptable value for BackedEnum
-                        $this->getBackingType() instanceof \ReflectionNamedType
-                        && isset($value)
-                        && (
-                            \is_scalar($value) && \call_user_func('is_' . $this->getBackingType(), $value)
-                            || \is_a($value, (string) $this->getBackingType())
-                        )
-                    )
-                ) {
-                    // Mandatory in order to prevent infinite loop
-                    $this->cases[$name] = true;
-                    $case = $this->isBacked()
-                        ? new SplReflectionEnumBackedCase($this->name, $name)
-                        : new SplReflectionEnumUnitCase($this->name, $name);
+                // Mandatory in order to prevent infinite loop
+                $this->running = $name;
 
-                    // Now link correct class on pointer
-                    $this->cases[$name] = $case;
+                if (!$this->isBacked() && null === $value) {
+                    $this->cases[$name] = new SplReflectionEnumUnitCase($this->name, $name);
+                    unset($this->running);
+                    continue;
+                }
+
+                $backingType = $this->getBackingType();
+
+                if (
+                    $this->isBacked()
+                    && $backingType instanceof \ReflectionNamedType
+                    && $backingType->getName() === \gettype($value)
+                ) {
+                    $this->cases[$name] = new SplReflectionEnumBackedCase($this->name, $name);
+                    unset($this->running);
+                    continue;
                 }
             }
         }
@@ -266,7 +295,9 @@ final class SplReflectionEnumProxy
     /**
      * Returns a list of all cases on an Enum
      *
-     * @return array<string,SplReflectionEnumUnitCase|SplReflectionEnumBackedCase>
+     * @return (SplReflectionEnumUnitCase|SplReflectionEnumBackedCase)[]
+     *
+     * @phpstan-return array<string,SplReflectionEnumUnitCase|SplReflectionEnumBackedCase>
      *
      * @link https://www.php.net/manual/en/reflectionenum.getcases.php
      */
@@ -313,7 +344,8 @@ final class SplReflectionEnumProxy
      */
     public function hasCase(string $name): bool
     {
-        if (isset($this->cases[$name])) {
+        // $this->cases could be empty
+        if (isset($this->cases[$name]) || $this->running === $name) {
             return true;
         }
 
@@ -339,7 +371,7 @@ final class SplReflectionEnumProxy
                 $this->backed = false;
             } else {
                 $constant = $this->getFirstCaseConstant();
-                $this->backed = null !== $constant->getValue();
+                $this->backed = $constant instanceof \ReflectionClassConstant && null !== $constant->getValue();
             }
         }
 
@@ -364,19 +396,9 @@ final class SplReflectionEnumProxy
                 } else {
                     $constant = $this->getFirstCaseConstant();
                     if ($constant instanceof \ReflectionClassConstant) {
-                        switch (\gettype($constant->getValue())) {
-                            case 'string':
-                                $this->backingType = SplReflectionEnumHelper::getStringReflectionNamedType();
-                                break;
-
-                            case 'integer':
-                                $this->backingType = SplReflectionEnumHelper::getIntReflectionNamedType();
-                                break;
-
-                            default:
-                                $this->backingType = false;
-                                break;
-                        }
+                        $this->backingType = SplReflectionEnumHelper::getReflectionNamedTypeFromType(
+                            \gettype($constant->getValue())
+                        );
                     }
                 }
             } else {

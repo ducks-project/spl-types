@@ -20,6 +20,8 @@ use Ducks\Component\SplTypes\Reflection\SplReflectionEnumBackedCase;
  *
  * @template T
  *
+ * @property-read mixed $value
+ *
  * @phpstan-require-implements SplBackedEnum
  */
 trait SplBackedEnumTrait
@@ -54,12 +56,15 @@ trait SplBackedEnumTrait
      * @param int|string|mixed $value e scalar value to map to an enum case.
      *
      * @return static|null A case instance of this enumeration, or null if not found.
+     *
+     * @psalm-suppress UnusedVariable
      */
     final public static function tryFrom($value): ?self
     {
         foreach (static::cases() as $case) {
             /**
              * @var SplEnumBacked $case
+             *
              * @phpstan-var SplEnumBacked<T> $case
              */
             if ($case->value === $value) {
@@ -68,7 +73,7 @@ trait SplBackedEnumTrait
             }
         }
 
-        /** @var static $result */
+        /** @var static|null $result */
         return $result ?? null;
     }
 
@@ -76,7 +81,7 @@ trait SplBackedEnumTrait
      * Return a new instance of enum.
      *
      * @param string $name
-     * @param array<int,mixed> $arguments
+     * @param mixed[] $arguments
      *
      * @return static self keywords not an equivalent
      *

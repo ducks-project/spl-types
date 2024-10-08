@@ -17,6 +17,8 @@ namespace Ducks\Component\SplTypes;
  * @disregard P1009 Undefined type
  *
  * @phpstan-ignore-next-line
+ *
+ * @psalm-suppress UndefinedClass
  */
 if (!\function_exists(spl_enum_exists::class)) {
     /**

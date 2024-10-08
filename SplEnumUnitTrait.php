@@ -26,7 +26,9 @@ trait SplEnumUnitTrait
     /**
      * Serialize object.
      *
-     * @return array<string,mixed>
+     * @return mixed[]
+     *
+     * @phpstan-return array<string,mixed>
      */
     public function __serialize(): array
     {
@@ -39,32 +41,40 @@ trait SplEnumUnitTrait
     /**
      * Unserialize object.
      *
-     * @param array<string,mixed> $data
+     * @param mixed[] $data
      *
      * @return void
+     *
+     * @phpstan-param array<string,mixed> $data
+     * @phpstan-return void
      */
     public function __unserialize(array $data): void
     {
         parent::__unserialize($data);
 
-        $this->name = $data['name'];
+        $this->name = (string) $data['name'];
     }
 
     /**
      * Instanciate an exported object.
      *
-     * @param array<string,mixed> $properties
+     * @param mixed[] $properties
      *
      * @return static
+     *
+     * @phpstan-param array<string,mixed> $properties
+     * @phpstan-return static
      *
      * @psalm-suppress UnsafeInstantiation
      */
     public static function __set_state(array $properties): SplUnitEnum
     {
-        /** @var static $object */
+        /**
+         * @var static $object
+         */
         // @phpstan-ignore-next-line
         $object = /** @scrutinizer ignore-call */ new static();
-        $object->name = $properties['name'];
+        $object->name = (string) $properties['name'];
 
         return $object;
     }
@@ -72,14 +82,17 @@ trait SplEnumUnitTrait
     /**
      * Dumping object.
      *
-     * @return array<string,string>
+     * @return string[]
+     *
+     * @phpstan-return array<string,mixed>
      *
      * @codeCoverageIgnore
      */
     public function __debugInfo(): array
     {
-        return [
-            'name' => $this->name,
-        ];
+        $result = parent::__debugInfo();
+        $result['name'] = $this->name;
+
+        return $result;
     }
 }

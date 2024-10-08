@@ -13,13 +13,15 @@ declare(strict_types=1);
 
 namespace Ducks\Component\SplTypes\Reflection;
 
-use Ducks\Component\SplTypes\SplUnitEnum;
+use Ducks\Component\SplTypes\SplEnumerable;
 
 /**
  * The ReflectionEnum class reports information about an Enum.
  *
- * @template T of SplUnitEnum
- * @extends \ReflectionClass<\Ducks\Component\SplTypes\SplUnitEnum>
+ * @template T of SplEnumerable
+ * @extends \ReflectionClass<\Ducks\Component\SplTypes\SplEnumerable>
+ *
+ * @psalm-api
  *
  * @link https://php.net/manual/en/class.reflectionenum.php
  */
@@ -28,7 +30,9 @@ class SplReflectionEnum extends \ReflectionClass
     /**
      * Array of proxy
      *
-     * @var array<int, SplReflectionEnumProxy>
+     * @var SplReflectionEnumProxy[]
+     *
+     * @phpstan-var array<string, SplReflectionEnumProxy>
      */
     private static array $instances = [];
 
@@ -53,16 +57,18 @@ class SplReflectionEnum extends \ReflectionClass
      *
      * @param object|string $objectOrClass
      *
-     * @throws \ReflectionException if objectOrClass is not a SplUnitEnum
+     * @throws \ReflectionException if objectOrClass is not a SplEnumerable
      *
-     * @phpstan-param SplUnitEnum|class-string<T> $objectOrClass
+     * @phpstan-param T|class-string<T> $objectOrClass
+     *
+     * @psalm-pure
      *
      * @link https://www.php.net/manual/en/reflectionenum.construct.php
      */
     public function __construct($objectOrClass)
     {
         // Fast check
-        if (!\is_a($objectOrClass, SplUnitEnum::class, true)) {
+        if (!\is_a($objectOrClass, SplEnumerable::class, true)) {
             // @phpstan-ignore ternary.elseUnreachable
             $classname = \is_object($objectOrClass) ? \get_class($objectOrClass) : $objectOrClass;
             throw new \ReflectionException("Class \"$classname\" is not an enum");
@@ -102,7 +108,7 @@ class SplReflectionEnum extends \ReflectionClass
     /**
      * Returns a list of all cases on an Enum
      *
-     * @return array<int, SplReflectionEnumUnitCase|SplReflectionEnumBackedCase>
+     * @return (SplReflectionEnumUnitCase|SplReflectionEnumBackedCase)[]
      *
      * @phpstan-return list<SplReflectionEnumUnitCase|SplReflectionEnumBackedCase>
      *

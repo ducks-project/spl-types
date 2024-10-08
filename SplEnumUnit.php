@@ -33,5 +33,6 @@ abstract class SplEnumUnit extends SplEnum implements
      */
     protected function __construct()
     {
+        // Cannot instantiate enum static::class
     }
 }

@@ -24,9 +24,11 @@ trait SplEnumTrait
      * Return a new instance of enum
      *
      * @param string $name
-     * @param array<int, mixed> $arguments
+     * @param mixed[] $arguments
      *
      * @return static
+     *
+     * @throws \Error if $name is not a case
      *
      * @phpstan-param string $name
      * @phpstan-param list<mixed> $arguments

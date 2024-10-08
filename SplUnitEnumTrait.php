@@ -17,6 +17,10 @@ use Ducks\Component\SplTypes\Reflection\SplReflectionEnum;
 use Ducks\Component\SplTypes\Reflection\SplReflectionEnumUnitCase;
 
 /**
+ * Simplify SplUnitEnum integration
+ *
+ * @property-read string $name
+ *
  * @phpstan-require-implements SplUnitEnum
  */
 trait SplUnitEnumTrait
@@ -31,7 +35,13 @@ trait SplUnitEnumTrait
     protected string $name;
 
     /**
-     * @inheritDoc
+     * Generates a list of cases on an enum
+     *
+     * @return static[] An array of all defined cases of this enumeration, in order of declaration.
+     *
+     * @psalm-suppress MixedInferredReturnType
+     *
+     * @see SplUnitEnum::cases()
      */
     public static function cases(): array
     {
@@ -40,7 +50,6 @@ trait SplUnitEnumTrait
         if (null === $cases) {
             $enum = new SplReflectionEnum(static::class);
             foreach ($enum->getCases() as $case) {
-                /** @var Reflection\SplReflectionEnumUnitCase $case */
                 $cases[] = $case->getValue();
             }
         }
@@ -52,7 +61,7 @@ trait SplUnitEnumTrait
      * Return a new instance of enum
      *
      * @param string $name
-     * @param array<int, mixed> $arguments
+     * @param mixed[] $arguments
      *
      * @return static self keywords not an equivalent
      *

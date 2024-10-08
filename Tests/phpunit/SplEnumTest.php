@@ -31,6 +31,7 @@ class SplEnumTest extends TestCase
         $instance = new Month(Month::SEPTEMBER);
         $this->assertEquals(Month::SEPTEMBER, $instance());
 
+        // @phpstan-ignore argument.type
         $instance = new Month('1', false);
         $this->assertEquals(Month::JANUARY, $instance());
     }
@@ -45,6 +46,7 @@ class SplEnumTest extends TestCase
     public function testUnexpectedValueRxception(): void
     {
         $this->expectException(\UnexpectedValueException::class);
+        // @phpstan-ignore argument.type
         new Month('1');
     }
 

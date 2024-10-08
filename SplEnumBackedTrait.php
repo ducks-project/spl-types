@@ -26,15 +26,20 @@ namespace Ducks\Component\SplTypes;
 trait SplEnumBackedTrait
 {
     use SplEnumUnitTrait {
-        SplEnumUnitTrait::__serialize as __unitSerialize;
-        SplEnumUnitTrait::__unserialize as __unitUnserialize;
-        SplEnumUnitTrait::__set_state as __unitSetState;
+        SplEnumUnitTrait::__serialize as private __unitSerialize;
+        SplEnumUnitTrait::__unserialize as private __unitUnserialize;
+        SplEnumUnitTrait::__set_state as private __unitSetState;
+        SplEnumUnitTrait::__debugInfo as private __unitDebugInfo;
     }
 
     /**
      * Serialize object.
      *
-     * @return array<string,mixed>
+     * @return mixed[]
+     *
+     * @phpstan-return array<string,mixed>
+     *
+     * @psalm-suppress LessSpecificImplementedReturnType
      */
     public function __serialize(): array
     {
@@ -46,9 +51,14 @@ trait SplEnumBackedTrait
     /**
      * Unserialize object.
      *
-     * @param array<string,mixed> $data
+     * @param mixed[] $data
      *
      * @return void
+     *
+     * @phpstan-param array<string,mixed> $data
+     * @phpstan-return void
+     *
+     * @psalm-suppress UnsupportedPropertyReferenceUsage
      */
     public function __unserialize(array $data): void
     {
@@ -60,34 +70,47 @@ trait SplEnumBackedTrait
     /**
      * Instanciate an exported object.
      *
-     * @param array<string,mixed> $properties
+     * @param mixed[] $properties
      *
      * @return static
+     *
+     * @phpstan-param array<string,mixed> $properties
+     * @phpstan-return static
      *
      * @psalm-suppress UnsafeInstantiation
      */
     #[\ReturnTypeWillChange]
     public static function __set_state(array $properties): SplBackedEnum
     {
-        /** @var static $object */
-        $object = static::__unitSetState($properties);
-        $object->value = $properties['value'];
+        /** @phpstan-var T $value */
+        $value = $properties['value'];
 
+        $object = self::__unitSetState($properties);
+        $object->value = $value;
+
+        /** @var static $object */
         return $object;
     }
 
     /**
      * Dumping object.
      *
-     * @return array<string,string>
+     * @return mixed[]
+     *
+     * @phpstan-return array<string,mixed>
+     *
+     * @psalm-suppress LessSpecificImplementedReturnType
      *
      * @codeCoverageIgnore
      */
     public function __debugInfo(): array
     {
-        return [
-            'name' => $this->name,
-            'value' => $this->value,
-        ];
+        /** @phpstan-var T $value */
+        $value = $this->value;
+
+        $result = $this->__unitDebugInfo();
+        $result['value'] = $value;
+
+        return $result;
     }
 }

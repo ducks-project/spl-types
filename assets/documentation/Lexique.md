@@ -11,6 +11,7 @@
 
 ## Interfaces
 
+[`SplEnumerable`]
 [`SplUnitEnum`]
 [`SplBackedEnum`]
 
@@ -28,6 +29,7 @@
 [`SplEnum`]: ./classes/SplEnum.md
 [`SplBool`]: ./classes/SplBool.md
 [`SplString`]: ./classes/SplString.md
+[`SplEnumerable`]: ./classes/SplEnumerable.md
 [`SplUnitEnum`]: ./classes/SplUnitEnum.md
 [`SplBackedEnum`]: ./classes/SplBackedEnum.md
 [`SplEnumUnit`]: ./classes/SplEnumUnit.md

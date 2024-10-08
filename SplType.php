@@ -29,6 +29,8 @@ abstract class SplType implements
 
     /**
      * Default value.
+     *
+     * @var mixed
      */
     // phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase
     protected const __default = null;
@@ -41,6 +43,8 @@ abstract class SplType implements
      *
      * @return void
      *
+     * @phpstan-param T|null $initial_value Type and default value depends on the extension class.
+     * @phpstan-param bool $strict Whether to set the object's sctrictness.
      * @phpstan-ignore-next-line
      *
      * @psalm-suppress PossiblyUnusedParam
@@ -51,6 +55,7 @@ abstract class SplType implements
      */
     public function __construct($initial_value = self::__default, /** @scrutinizer ignore-unused */ bool $strict = true)
     {
+        /** @var T $this->__default */
         $this->__default = $initial_value ?? static::__default;
     }
 }

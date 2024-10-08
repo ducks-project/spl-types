@@ -34,6 +34,8 @@ abstract class SplEnumBacked extends SplEnumUnit implements SplBackedEnum
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress UnsupportedPropertyReferenceUsage
      */
     protected function __construct()
     {
