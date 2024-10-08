@@ -51,7 +51,7 @@ jobs:
       run: composer junittest
 
     - name: Run psalm
-      run: ./vendor/bin/psalm --config=psalm.xml.dist --no-cache --no-file-cache --shepherd
+      run: composer psalm
 
     #- name: npm install, make test-coverage
     #  run: |
