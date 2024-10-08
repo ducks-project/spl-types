@@ -128,7 +128,7 @@ final class SplReflectionEnumHelper
     {
         if (!isset(static::$rnt['string'])) {
             static::$rnt['string'] = static::getReflectionNamedType(
-                new \ReflectionFunction(static fn(string $param): string => $param)
+                new \ReflectionFunction(static fn (string $param): string => $param)
             );
         }
 
@@ -160,7 +160,7 @@ final class SplReflectionEnumHelper
     {
         if (!isset(static::$rnt['float'])) {
             static::$rnt['float'] = static::getReflectionNamedType(
-                new \ReflectionFunction(static fn(float $param): float => $param)
+                new \ReflectionFunction(static fn (float $param): float => $param)
             );
         }
 
@@ -176,7 +176,7 @@ final class SplReflectionEnumHelper
     {
         if (!isset(static::$rnt['bool'])) {
             static::$rnt['bool'] = static::getReflectionNamedType(
-                new \ReflectionFunction(static fn(bool $param): bool => $param)
+                new \ReflectionFunction(static fn (bool $param): bool => $param)
             );
         }
 
@@ -192,7 +192,7 @@ final class SplReflectionEnumHelper
     {
         if (!isset(static::$rnt['array'])) {
             static::$rnt['array'] = static::getReflectionNamedType(
-                new \ReflectionFunction(static fn(array $param): array => $param)
+                new \ReflectionFunction(static fn (array $param): array => $param)
             );
         }
 
@@ -208,7 +208,7 @@ final class SplReflectionEnumHelper
     {
         if (!isset(static::$rnt['object'])) {
             static::$rnt['object'] = static::getReflectionNamedType(
-                new \ReflectionFunction(static fn(object $param): object => $param)
+                new \ReflectionFunction(static fn (object $param): object => $param)
             );
         }
 
