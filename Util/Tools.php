@@ -19,6 +19,8 @@ final class Tools
 {
     /**
      * @psalm-suppress UnusedConstructor
+     *
+     * @codeCoverageIgnore
      */
     private function __construct()
     {

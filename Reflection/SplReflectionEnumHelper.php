@@ -77,6 +77,7 @@ final class SplReflectionEnumHelper
      */
     public static function getReflectionNamedTypeFromType(string $type): \ReflectionNamedType
     {
+        // Create a factory
         switch ($type) {
             case 'string':
                 $result = self::getStringReflectionNamedType();
